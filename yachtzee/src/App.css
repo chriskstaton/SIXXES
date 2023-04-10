@@ -1,8 +1,16 @@
 #root {
-	max-width: 1280px;
+	max-width: 1400px;
 	margin: 0 auto;
 	padding: 2rem;
 	text-align: center;
+}
+
+.App {
+}
+
+body {
+	background-color: rgb(165, 165, 165);
+	color: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -13,4 +21,18 @@
 
 .card {
 	padding: 2em;
+}
+
+.container {
+	padding: 2rem 2rem;
+	margin: 1rem;
+}
+
+.square {
+	height: 250px;
+	width: 250px;
+	background-color: white;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 5px;
 }
