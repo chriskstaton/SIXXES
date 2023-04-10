@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "./App.css";
+import Button from "@mui/material/Button";
 
 import Dice1 from "../src/images/dice1.svg";
 import Dice2 from "../src/images/dice2.svg";
@@ -44,9 +45,9 @@ function App() {
 				<img className="square" src={image5} />
 			</div>
 
-			<div className="card">
-				<button onClick={rollDice}>Roll Dice</button>
-			</div>
+			<Button variant="outlined" onClick={rollDice}>
+				Roll Dice
+			</Button>
 		</div>
 	);
 }
