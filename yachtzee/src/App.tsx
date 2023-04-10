@@ -45,9 +45,11 @@ function App() {
 				<img className="square" src={image5} />
 			</div>
 
-			<Button variant="outlined" onClick={rollDice}>
-				Roll Dice
-			</Button>
+			<div className="container-buttons">
+				<Button variant="outlined" onClick={rollDice}>
+					Roll Dice
+				</Button>
+			</div>
 		</div>
 	);
 }
