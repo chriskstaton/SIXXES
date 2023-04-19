@@ -1,6 +1,5 @@
 import { useState } from "react";
-import "./App.css";
-import Button from "@mui/material/Button";
+import "./App.scss";
 
 import Dice1 from "../src/images/dice1.svg";
 import Dice2 from "../src/images/dice2.svg";
@@ -46,6 +45,7 @@ function App() {
 		if (isSelected5) {
 			setImage5(diceImages[randomNumber5]);
 		}
+		//rollCount++;
 	};
 
 	return (
@@ -55,36 +55,33 @@ function App() {
 
 			<div className="container">
 				<img
-					className="dice"
+					className={!isSelected1 ? "dice-selected" : "dice"}
 					onClick={() => setIsSelected1(!isSelected1)}
 					src={image1}
 				/>
 				<img
-					className="dice"
+					className={!isSelected2 ? "dice-selected" : "dice"}
 					onClick={() => setIsSelected2(!isSelected2)}
 					src={image2}
 				/>
 				<img
-					className="dice"
+					className={!isSelected3 ? "dice-selected" : "dice"}
 					onClick={() => setIsSelected3(!isSelected3)}
 					src={image3}
 				/>
 				<img
-					className="dice"
+					className={!isSelected4 ? "dice-selected" : "dice"}
 					onClick={() => setIsSelected4(!isSelected4)}
 					src={image4}
 				/>
 				<img
-					className="dice"
+					className={!isSelected5 ? "dice-selected" : "dice"}
 					onClick={() => setIsSelected5(!isSelected5)}
 					src={image5}
 				/>
 			</div>
-
-			<div className="container-buttons">
-				<Button variant="outlined" onClick={rollDice}>
-					Roll Dice
-				</Button>
+			<div className="roll-aws-btn">
+				<button onClick={rollDice}>Roll Dice</button>
 			</div>
 		</div>
 	);
