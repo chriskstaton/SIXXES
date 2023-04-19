@@ -9,7 +9,7 @@
 }
 
 body {
-	background-color: rgb(165, 165, 165);
+	background-color: rgb(197, 197, 197);
 	color: white;
 }
 
@@ -26,6 +26,15 @@ body {
 	height: 250px;
 	width: 250px;
 	background-color: white;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px;
+	border-radius: 25px;
+}
+.dice-selected {
+	height: 250px;
+	width: 250px;
+	background-color: rgb(188, 64, 255);
 	display: inline-block;
 	vertical-align: middle;
 	margin: 10px;
