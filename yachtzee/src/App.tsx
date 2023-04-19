@@ -11,8 +11,9 @@ import Dice6 from "../src/images/dice6.svg";
 import Dice7 from "../src/images/dice7.svg";
 
 function App() {
-	const diceImages = [Dice1, Dice2, Dice3, Dice4, Dice5, Dice6, Dice7];
 	var [rollCount, setRollCount] = useState(0);
+
+	const diceImages = [Dice1, Dice2, Dice3, Dice4, Dice5, Dice6, Dice7];
 
 	var [image1, setImage1] = useState(diceImages[6]);
 	var [image2, setImage2] = useState(diceImages[6]);
