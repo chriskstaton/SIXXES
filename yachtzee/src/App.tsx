@@ -8,9 +8,11 @@ import Dice4 from "../src/images/dice4.svg";
 import Dice5 from "../src/images/dice5.svg";
 import Dice6 from "../src/images/dice6.svg";
 import Dice7 from "../src/images/dice7.svg";
+import Button from "@mui/material/Button";
 
 function App() {
 	const diceImages = [Dice1, Dice2, Dice3, Dice4, Dice5, Dice6, Dice7];
+	var [rollCount, setRollCount] = useState(0);
 
 	var [image1, setImage1] = useState(diceImages[6]);
 	var [image2, setImage2] = useState(diceImages[6]);
@@ -25,11 +27,14 @@ function App() {
 	const [isSelected5, setIsSelected5] = useState(true);
 
 	const rollDice = () => {
+		setRollCount(rollCount + 1);
+
 		var randomNumber1 = Math.floor(Math.random() * 6);
 		var randomNumber2 = Math.floor(Math.random() * 6);
 		var randomNumber3 = Math.floor(Math.random() * 6);
 		var randomNumber4 = Math.floor(Math.random() * 6);
 		var randomNumber5 = Math.floor(Math.random() * 6);
+
 		if (isSelected1) {
 			setImage1(diceImages[randomNumber1]);
 		}
@@ -45,45 +50,61 @@ function App() {
 		if (isSelected5) {
 			setImage5(diceImages[randomNumber5]);
 		}
-		//rollCount++;
 	};
 
 	return (
-		<div className="App">
-			<div></div>
-			<h1>Yachtzee Dice Roller</h1>
+		<>
+			<div className="App">
+				<h1>Yachtzee Dice Roller</h1>
+				<div className="dice-container">
+					<img
+						className={!isSelected1 ? "dice-selected" : "dice"}
+						onClick={() => setIsSelected1(!isSelected1)}
+						src={image1}
+					/>
+					<img
+						className={!isSelected2 ? "dice-selected" : "dice"}
+						onClick={() => setIsSelected2(!isSelected2)}
+						src={image2}
+					/>
+					<img
+						className={!isSelected3 ? "dice-selected" : "dice"}
+						onClick={() => setIsSelected3(!isSelected3)}
+						src={image3}
+					/>
+					<img
+						className={!isSelected4 ? "dice-selected" : "dice"}
+						onClick={() => setIsSelected4(!isSelected4)}
+						src={image4}
+					/>
+					<img
+						className={!isSelected5 ? "dice-selected" : "dice"}
+						onClick={() => setIsSelected5(!isSelected5)}
+						src={image5}
+					/>
+				</div>
 
-			<div className="container">
-				<img
-					className={!isSelected1 ? "dice-selected" : "dice"}
-					onClick={() => setIsSelected1(!isSelected1)}
-					src={image1}
-				/>
-				<img
-					className={!isSelected2 ? "dice-selected" : "dice"}
-					onClick={() => setIsSelected2(!isSelected2)}
-					src={image2}
-				/>
-				<img
-					className={!isSelected3 ? "dice-selected" : "dice"}
-					onClick={() => setIsSelected3(!isSelected3)}
-					src={image3}
-				/>
-				<img
-					className={!isSelected4 ? "dice-selected" : "dice"}
-					onClick={() => setIsSelected4(!isSelected4)}
-					src={image4}
-				/>
-				<img
-					className={!isSelected5 ? "dice-selected" : "dice"}
-					onClick={() => setIsSelected5(!isSelected5)}
-					src={image5}
-				/>
+				<div className="button-container">
+					<Button
+						onClick={rollDice}
+						className="roll-dice-button"
+						sx={{
+							color: "white",
+							backgroundColor: "#bc40ff",
+							borderRadius: "15%",
+							fontSize: "25px",
+							fontFamily: "'Roboto Mono', monospace",
+						}}
+					>
+						Roll Dice
+					</Button>
+				</div>
+				<div className="roll-counter">Roll Count: {rollCount}</div>
 			</div>
-			<div className="roll-aws-btn">
-				<button onClick={rollDice}>Roll Dice</button>
+			<div className="footer-tips">
+				<p>Select dice to freeze value before a new roll.</p>
 			</div>
-		</div>
+		</>
 	);
 }
 

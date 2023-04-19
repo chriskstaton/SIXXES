@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@500&display=swap");
+
 #root {
 	max-width: 1400px;
 	margin: 0 auto;
@@ -6,21 +8,19 @@
 }
 
 .App {
+	font-family: "Roboto", sans-serif;
 }
 
 body {
 	background-color: rgb(197, 197, 197);
 	color: white;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-	a:nth-of-type(2) .logo {
-		animation: logo-spin infinite 20s linear;
-	}
+h1 {
 }
 
-.container {
+.dice-container {
 	margin: 1rem;
+	margin-top: 75px;
 }
 .dice {
 	height: 250px;
@@ -34,10 +34,48 @@ body {
 .dice-selected {
 	height: 250px;
 	width: 250px;
-	background-color: #bc40ff;
+	background-color: #e1a6ff;
 	/* dark #8500CC */
 	display: inline-block;
 	vertical-align: middle;
 	margin: 10px;
 	border-radius: 25px;
+}
+
+.button-container {
+	margin: 100px;
+	button:focus {
+		outline: none;
+	}
+	:hover {
+		color: black;
+	}
+}
+
+.roll-dice-button {
+	height: 125px;
+	width: 125px;
+	border-radius: 100px;
+}
+
+.roll-counter {
+	color: #bc40ff;
+	font-size: xx-large;
+	font-family: "Roboto Mono", sans-serif;
+}
+
+.footer-tips {
+	background-color: white;
+	width: 100%;
+	text-align: center;
+	border-radius: 25px;
+	margin-top: 125px;
+
+	p {
+		// color: #edcaff;
+		color: #e1a6ff;
+		font-size: xx-large;
+		font-weight: bolder;
+		padding: 2em;
+	}
 }
