@@ -21,6 +21,7 @@ h1 {
 .dice-container {
 	margin-top: 75px;
 }
+
 .dice {
 	height: 15vh;
 	width: 15vh;
@@ -30,6 +31,7 @@ h1 {
 	margin: 10px;
 	border-radius: 25px;
 }
+
 .dice-selected {
 	height: 15vh;
 	width: 15vh;
@@ -57,6 +59,9 @@ h1 {
 	border-radius: 100px;
 }
 
+.roll-dice-button:hover {
+	animation: tilt-n-move-shaking 0.33s infinite;
+}
 .roll-counter {
 	color: #bc40ff;
 	font-size: xx-large;
@@ -75,5 +80,22 @@ h1 {
 		font-size: xx-large;
 		font-weight: bolder;
 		padding: 2em;
+	}
+}
+@keyframes tilt-n-move-shaking {
+	0% {
+		transform: translate(0, 0) rotate(0deg);
+	}
+	25% {
+		transform: translate(5px, 5px) rotate(5deg);
+	}
+	50% {
+		transform: translate(0, 0) rotate(0eg);
+	}
+	75% {
+		transform: translate(-5px, 5px) rotate(-5deg);
+	}
+	100% {
+		transform: translate(0, 0) rotate(0deg);
 	}
 }

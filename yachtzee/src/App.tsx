@@ -56,7 +56,7 @@ function App() {
 	return (
 		<>
 			<div className="App">
-				<h1>Yachtzee Dice Roller</h1>
+				<h1>Yacht Dice Roller</h1>
 				<div className="dice-container">
 					<img
 						className={!isSelected1 ? "dice-selected" : "dice"}
