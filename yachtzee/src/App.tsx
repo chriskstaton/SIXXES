@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Button from "@mui/material/Button";
 import "./App.scss";
 
 import Dice1 from "../src/images/dice1.svg";
@@ -8,7 +9,6 @@ import Dice4 from "../src/images/dice4.svg";
 import Dice5 from "../src/images/dice5.svg";
 import Dice6 from "../src/images/dice6.svg";
 import Dice7 from "../src/images/dice7.svg";
-import Button from "@mui/material/Button";
 
 function App() {
 	const diceImages = [Dice1, Dice2, Dice3, Dice4, Dice5, Dice6, Dice7];
