@@ -19,17 +19,33 @@ function App() {
 	var [image4, setImage4] = useState(diceImages[6]);
 	var [image5, setImage5] = useState(diceImages[6]);
 
+	const [isSelected1, setIsSelected1] = useState(true);
+	const [isSelected2, setIsSelected2] = useState(true);
+	const [isSelected3, setIsSelected3] = useState(true);
+	const [isSelected4, setIsSelected4] = useState(true);
+	const [isSelected5, setIsSelected5] = useState(true);
+
 	const rollDice = () => {
 		var randomNumber1 = Math.floor(Math.random() * 6);
 		var randomNumber2 = Math.floor(Math.random() * 6);
 		var randomNumber3 = Math.floor(Math.random() * 6);
 		var randomNumber4 = Math.floor(Math.random() * 6);
 		var randomNumber5 = Math.floor(Math.random() * 6);
-		setImage1(diceImages[randomNumber1]);
-		setImage2(diceImages[randomNumber2]);
-		setImage3(diceImages[randomNumber3]);
-		setImage4(diceImages[randomNumber4]);
-		setImage5(diceImages[randomNumber5]);
+		if (isSelected1) {
+			setImage1(diceImages[randomNumber1]);
+		}
+		if (isSelected2) {
+			setImage2(diceImages[randomNumber2]);
+		}
+		if (isSelected3) {
+			setImage3(diceImages[randomNumber3]);
+		}
+		if (isSelected4) {
+			setImage4(diceImages[randomNumber4]);
+		}
+		if (isSelected5) {
+			setImage5(diceImages[randomNumber5]);
+		}
 	};
 
 	return (
@@ -38,11 +54,31 @@ function App() {
 			<h1>Yachtzee Dice Roller</h1>
 
 			<div className="container">
-				<img className="square" src={image1} />
-				<img className="square" src={image2} />
-				<img className="square" src={image3} />
-				<img className="square" src={image4} />
-				<img className="square" src={image5} />
+				<img
+					className="dice"
+					onClick={() => setIsSelected1(!isSelected1)}
+					src={image1}
+				/>
+				<img
+					className="dice"
+					onClick={() => setIsSelected2(!isSelected2)}
+					src={image2}
+				/>
+				<img
+					className="dice"
+					onClick={() => setIsSelected3(!isSelected3)}
+					src={image3}
+				/>
+				<img
+					className="dice"
+					onClick={() => setIsSelected4(!isSelected4)}
+					src={image4}
+				/>
+				<img
+					className="dice"
+					onClick={() => setIsSelected5(!isSelected5)}
+					src={image5}
+				/>
 			</div>
 
 			<div className="container-buttons">

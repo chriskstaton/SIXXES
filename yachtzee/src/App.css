@@ -20,22 +20,20 @@ body {
 }
 
 .container {
-	padding: 2rem 2rem;
 	margin: 1rem;
+}
+.dice {
+	height: 250px;
+	width: 250px;
+	background-color: white;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px;
+	border-radius: 25px;
 }
 
 .button-container {
 }
 
 .roll-button {
-}
-
-.square {
-	height: 250px;
-	width: 250px;
-	background-color: white;
-	display: inline-block;
-	vertical-align: middle;
-	margin: 5px;
-	border-radius: 25px;
 }
