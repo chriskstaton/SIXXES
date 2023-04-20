@@ -21,7 +21,7 @@ function App() {
 	// 	{ position: "3", value: 3 },
 	// 	{ position: "4", value: 2 },
 	// 	{ position: "5", value: 1 },
-	// ];
+	// ]; //add random key that changes on roll only (to fix animation firing while selecting dice)
 
 	// const [dice, setDice] = useState(initialDiceState);
 
