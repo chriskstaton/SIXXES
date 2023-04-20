@@ -85,40 +85,32 @@ function App() {
 		setRollingThree(true);
 		setRollingFour(true);
 		setRollingFive(true);
-		// const diceNewValueArray: number[] = [0, 0, 0, 0, 0];
-		// updateDiceState();
 		if (isSelectedOne) {
 			var randomNumber1 = Math.floor(Math.random() * 6 + 1);
 			setValueOne(randomNumber1);
 			timeout(1000);
 			setImageOne(diceImages[randomNumber1]);
-			//diceNewValueArray[0] = randomNumber1 + 1;
 		}
 		if (isSelectedTwo) {
 			var randomNumber2 = Math.floor(Math.random() * 6 + 1);
 			setValueTwo(randomNumber2);
 			setImageTwo(diceImages[randomNumber2]);
-			//diceNewValueArray[1] = randomNumber2 + 1;
 		}
 		if (isSelectedThree) {
 			var randomNumber3 = Math.floor(Math.random() * 6 + 1);
 			setValueThree(randomNumber3);
 			setImageThree(diceImages[randomNumber3]);
-			//diceNewValueArray[2] = randomNumber3 + 1;
 		}
 		if (isSelectedFour) {
 			var randomNumber4 = Math.floor(Math.random() * 6 + 1);
 			setValueFour(randomNumber4);
 			setImageFour(diceImages[randomNumber4]);
-			//diceNewValueArray[3] = randomNumber4 + 1;
 		}
 		if (isSelectedFive) {
 			var randomNumber5 = Math.floor(Math.random() * 6 + 1);
 			setValueFive(randomNumber5);
 			setImageFive(diceImages[randomNumber5]);
-			//diceNewValueArray[4] = randomNumber5 + 1;
 		}
-		// return diceNewValueArray;
 	};
 
 	return (
