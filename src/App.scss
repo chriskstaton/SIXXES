@@ -22,7 +22,16 @@ h1 {
 	margin-top: 75px;
 }
 
-.dice {
+.dice-static {
+	height: 15vh;
+	width: 15vh;
+	background-color: white;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px;
+	border-radius: 25px;
+}
+.dice-roll {
 	height: 15vh;
 	width: 15vh;
 	background-color: white;

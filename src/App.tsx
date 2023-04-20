@@ -74,43 +74,49 @@ function App() {
 	// 	console.log(newDiceState);
 	// };
 
-	function timeout(delay: number) {
-		return new Promise((res) => setTimeout(res, delay));
-	}
-
-	const rollDice = async () => {
-		setRollCount(rollCount + 1);
+	function handleRoll() {
 		setRollingOne(true);
 		setRollingTwo(true);
 		setRollingThree(true);
 		setRollingFour(true);
 		setRollingFive(true);
+		// setTimeout(() => rollDice(), 1000);
+	}
+
+	const rollDice = async () => {
+		setRollCount(rollCount + 1);
+		const delay = 1000;
+
 		if (isSelectedOne) {
 			var randomNumber1 = Math.floor(Math.random() * 6 + 1);
 			setValueOne(randomNumber1);
-			timeout(1000);
-			setImageOne(diceImages[randomNumber1]);
+			setTimeout(() => setImageOne(diceImages[randomNumber1]), delay / 2);
 		}
 		if (isSelectedTwo) {
 			var randomNumber2 = Math.floor(Math.random() * 6 + 1);
 			setValueTwo(randomNumber2);
-			setImageTwo(diceImages[randomNumber2]);
+			setTimeout(() => setImageTwo(diceImages[randomNumber2]), delay / 2);
 		}
 		if (isSelectedThree) {
 			var randomNumber3 = Math.floor(Math.random() * 6 + 1);
 			setValueThree(randomNumber3);
-			setImageThree(diceImages[randomNumber3]);
+			setTimeout(() => setImageThree(diceImages[randomNumber3]), delay / 2);
 		}
 		if (isSelectedFour) {
 			var randomNumber4 = Math.floor(Math.random() * 6 + 1);
 			setValueFour(randomNumber4);
-			setImageFour(diceImages[randomNumber4]);
+			setTimeout(() => setImageFour(diceImages[randomNumber4]), delay / 2);
 		}
 		if (isSelectedFive) {
 			var randomNumber5 = Math.floor(Math.random() * 6 + 1);
 			setValueFive(randomNumber5);
-			setImageFive(diceImages[randomNumber5]);
+			setTimeout(() => setImageFive(diceImages[randomNumber5]), delay / 2);
 		}
+		setTimeout(() => setRollingOne(false), delay);
+		setTimeout(() => setRollingTwo(false), delay);
+		setTimeout(() => setRollingThree(false), delay);
+		setTimeout(() => setRollingFour(false), delay);
+		setTimeout(() => setRollingFive(false), delay);
 	};
 
 	return (
@@ -130,31 +136,61 @@ function App() {
 					})} */}
 
 					<img
-						className={!isSelectedOne ? "dice-selected" : "dice"}
+						className={
+							!isSelectedOne
+								? "dice-selected"
+								: rollingOne
+								? "dice-roll"
+								: "dice-static"
+						}
 						onClick={() => setIsSelectedOne(!isSelectedOne)}
 						src={imageOne}
 						key={"A"}
 					/>
 					<img
-						className={!isSelectedTwo ? "dice-selected" : "dice"}
+						className={
+							!isSelectedTwo
+								? "dice-selected"
+								: rollingTwo
+								? "dice-roll"
+								: "dice-static"
+						}
 						onClick={() => setIsSelectedTwo(!isSelectedTwo)}
 						src={imageTwo}
 						key={"B"}
 					/>
 					<img
-						className={!isSelectedThree ? "dice-selected" : "dice"}
+						className={
+							!isSelectedThree
+								? "dice-selected"
+								: rollingThree
+								? "dice-roll"
+								: "dice-static"
+						}
 						onClick={() => setIsSelectedThree(!isSelectedThree)}
 						src={imageThree}
 						key={"C"}
 					/>
 					<img
-						className={!isSelectedFour ? "dice-selected" : "dice"}
+						className={
+							!isSelectedFour
+								? "dice-selected"
+								: rollingFour
+								? "dice-roll"
+								: "dice-static"
+						}
 						onClick={() => setIsSelectedFour(!isSelectedFour)}
 						src={imageFour}
 						key={"D"}
 					/>
 					<img
-						className={!isSelectedFive ? "dice-selected" : "dice"}
+						className={
+							!isSelectedFive
+								? "dice-selected"
+								: rollingFive
+								? "dice-roll"
+								: "dice-static"
+						}
 						onClick={() => setIsSelectedFive(!isSelectedFive)}
 						src={imageFive}
 						key={"E"}
@@ -163,7 +199,7 @@ function App() {
 
 				<div className="button-container">
 					<Button
-						onClick={rollDice}
+						onClick={handleRoll}
 						className="roll-dice-button"
 						sx={{
 							color: "white",
