@@ -15,6 +15,16 @@ function App() {
 
 	const diceImages = [Dice1, Dice2, Dice3, Dice4, Dice5, Dice6, Dice7];
 
+	// const diceState = [
+	// 	{ position: "1", value: 5 },
+	// 	{ position: "2", value: 4 },
+	// 	{ position: "3", value: 3 },
+	// 	{ position: "4", value: 2 },
+	// 	{ position: "5", value: 1 },
+	// ];
+
+	// const [dice, setDice] = useState(initialDiceState);
+
 	var [image1, setImage1] = useState(diceImages[6]);
 	var [image2, setImage2] = useState(diceImages[6]);
 	var [image3, setImage3] = useState(diceImages[6]);
@@ -27,30 +37,58 @@ function App() {
 	const [isSelected4, setIsSelected4] = useState(true);
 	const [isSelected5, setIsSelected5] = useState(true);
 
-	const rollDice = () => {
+	//const diceCurrentValueArray: number[] = [0, 0, 0, 0, 0];
+
+	// const updateDiceState = (diceNewValueArray: number[]) => {
+	// 	const newDiceState = dice.map((obj) => {
+	// 		if (obj.value != "0") {
+	// 			return { ...obj };
+	// 		} else {
+	// 			return { ...obj };
+	// 		}
+
+	// 		return obj;
+	// 	});
+
+	// 	setDice(newDiceState);
+	// 	console.log(newDiceState);
+	// };
+
+	function timeout(delay: number) {
+		return new Promise((res) => setTimeout(res, delay));
+	}
+
+	const rollDice = async () => {
 		setRollCount(rollCount + 1);
-
-		var randomNumber1 = Math.floor(Math.random() * 6);
-		var randomNumber2 = Math.floor(Math.random() * 6);
-		var randomNumber3 = Math.floor(Math.random() * 6);
-		var randomNumber4 = Math.floor(Math.random() * 6);
-		var randomNumber5 = Math.floor(Math.random() * 6);
-
+		const diceNewValueArray: number[] = [0, 0, 0, 0, 0];
+		// updateDiceState();
 		if (isSelected1) {
+			var randomNumber1 = Math.floor(Math.random() * 6);
 			setImage1(diceImages[randomNumber1]);
+			diceNewValueArray[0] = randomNumber1 + 1;
 		}
 		if (isSelected2) {
+			var randomNumber2 = Math.floor(Math.random() * 6);
 			setImage2(diceImages[randomNumber2]);
+			diceNewValueArray[1] = randomNumber2 + 1;
 		}
 		if (isSelected3) {
+			var randomNumber3 = Math.floor(Math.random() * 6);
 			setImage3(diceImages[randomNumber3]);
+			diceNewValueArray[2] = randomNumber3 + 1;
 		}
 		if (isSelected4) {
+			var randomNumber4 = Math.floor(Math.random() * 6);
 			setImage4(diceImages[randomNumber4]);
+			diceNewValueArray[3] = randomNumber4 + 1;
 		}
 		if (isSelected5) {
+			var randomNumber5 = Math.floor(Math.random() * 6);
 			setImage5(diceImages[randomNumber5]);
+			diceNewValueArray[4] = randomNumber5 + 1;
 		}
+		console.log(diceNewValueArray);
+		return diceNewValueArray;
 	};
 
 	return (
@@ -58,30 +96,46 @@ function App() {
 			<div className="App">
 				<h1>Yacht Dice Roller</h1>
 				<div className="dice-container">
+					{/* {diceState.map(({ position, value }, index) => {
+						return (
+							<img
+								className={!isSelected1 ? "dice-selected" : "dice"}
+								onClick={() => setIsSelected1(!isSelected1)}
+								src={diceImages[value]}
+								key={`${position}`} // still needs to change when new roll value is the same for animation to fire on render
+							/>
+						);
+					})} */}
+
 					<img
 						className={!isSelected1 ? "dice-selected" : "dice"}
 						onClick={() => setIsSelected1(!isSelected1)}
 						src={image1}
+						key={Dice1 + Math.random() * 100}
 					/>
 					<img
 						className={!isSelected2 ? "dice-selected" : "dice"}
 						onClick={() => setIsSelected2(!isSelected2)}
 						src={image2}
+						key={Dice2 + Math.random() * 100}
 					/>
 					<img
 						className={!isSelected3 ? "dice-selected" : "dice"}
 						onClick={() => setIsSelected3(!isSelected3)}
 						src={image3}
+						key={Dice3 + Math.random() * 100}
 					/>
 					<img
 						className={!isSelected4 ? "dice-selected" : "dice"}
 						onClick={() => setIsSelected4(!isSelected4)}
 						src={image4}
+						key={Dice4 + Math.random() * 100}
 					/>
 					<img
 						className={!isSelected5 ? "dice-selected" : "dice"}
 						onClick={() => setIsSelected5(!isSelected5)}
 						src={image5}
+						key={Dice5 + Math.random() * 100}
 					/>
 				</div>
 
