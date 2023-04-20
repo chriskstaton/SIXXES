@@ -27,16 +27,6 @@ function App() {
 
 	const diceImages = [Dice0, Dice1, Dice2, Dice3, Dice4, Dice5, Dice6];
 
-	// const diceState = [
-	// 	{ position: "1", value: 5 },
-	// 	{ position: "2", value: 4 },
-	// 	{ position: "3", value: 3 },
-	// 	{ position: "4", value: 2 },
-	// 	{ position: "5", value: 1 },
-	// ]; //add random key that changes on roll only (to fix animation firing while selecting dice)
-
-	// const [dice, setDice] = useState(ini																																												tialDiceState);
-
 	var [imageOne, setImageOne] = useState(diceImages[0]);
 	var [imageTwo, setImageTwo] = useState(diceImages[0]);
 	var [imageThree, setImageThree] = useState(diceImages[0]);
@@ -59,27 +49,13 @@ function App() {
 
 	console.log(diceCurrentValueArray);
 
-	// const updateDiceState = (diceNewValueArray: number[]) => {
-	// 	const newDiceState = dice.map((obj) => {
-	// 		if (obj.value != "0") {
-	// 			return { ...obj };
-	// 		} else {
-	// 			return { ...obj };
-	// 		}
-
-	// 		return obj;
-	// 	});
-
-	// 	setDice(newDiceState);
-	// 	console.log(newDiceState);
-	// };
-
 	function handleRoll() {
 		setRollingOne(true);
 		setRollingTwo(true);
 		setRollingThree(true);
 		setRollingFour(true);
 		setRollingFive(true);
+		rollDice();
 		// setTimeout(() => rollDice(), 1000);
 	}
 
