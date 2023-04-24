@@ -1,13 +1,12 @@
 import "./App.scss";
 import DiceRoller from "./DiceRoller";
+import Tips from "./Tips";
 
 function App() {
 	return (
 		<div className="App">
 			<DiceRoller />
-			<div className="footer-tips">
-				<p>Select dice to freeze value before a new roll.</p>
-			</div>
+			<Tips />
 		</div>
 	);
 }
