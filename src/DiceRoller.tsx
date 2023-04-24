@@ -10,7 +10,7 @@ import Dice4 from "../src/images/dice4.svg";
 import Dice5 from "../src/images/dice5.svg";
 import Dice6 from "../src/images/dice6.svg";
 
-function Dice() {
+function DiceRoller() {
 	var [rollCount, setRollCount] = useState(0);
 
 	var [rollDisable, setRollDisable] = useState(false);
@@ -185,4 +185,4 @@ function Dice() {
 	);
 }
 
-export default Dice;
+export default DiceRoller;
