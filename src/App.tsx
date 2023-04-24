@@ -13,6 +13,8 @@ import Dice6 from "../src/images/dice6.svg";
 function App() {
 	var [rollCount, setRollCount] = useState(0);
 
+	var [rollDisable, setRollDisable] = useState(false);
+
 	var [valueOne, setValueOne] = useState(0);
 	var [valueTwo, setValueTwo] = useState(0);
 	var [valueThree, setValueThree] = useState(0);
@@ -49,19 +51,21 @@ function App() {
 
 	console.log(diceCurrentValueArray);
 
+	const delay = 1000;
+
 	function handleRoll() {
+		setRollDisable(true);
 		setRollingOne(true);
 		setRollingTwo(true);
 		setRollingThree(true);
 		setRollingFour(true);
 		setRollingFive(true);
 		rollDice();
-		// setTimeout(() => rollDice(), 1000);
+		setTimeout(() => setRollDisable(false), delay);
 	}
 
 	const rollDice = async () => {
 		setRollCount(rollCount + 1);
-		const delay = 1000;
 
 		if (isSelectedOne) {
 			var randomNumber1 = Math.floor(Math.random() * 6 + 1);
@@ -184,6 +188,7 @@ function App() {
 							fontSize: "25px",
 							fontFamily: "'Roboto Mono', monospace",
 						}}
+						disabled={rollDisable}
 					>
 						Roll Dice
 					</Button>
