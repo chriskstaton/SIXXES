@@ -50,6 +50,7 @@ function DiceRoller() {
 	];
 
 	console.log(diceCurrentValueArray);
+	console.log(valueOne, valueTwo, valueThree, valueFour, valueFive);
 
 	const delay = 1000;
 
