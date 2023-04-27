@@ -172,7 +172,7 @@ function DiceRoller() {
 					sx={{
 						color: "white",
 						backgroundColor: "#bc40ff",
-						borderRadius: "15%",
+						borderRadius: "20%",
 						fontSize: "25px",
 						fontFamily: "'Roboto Mono', monospace",
 					}}

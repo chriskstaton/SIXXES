@@ -54,7 +54,7 @@ h1 {
 }
 
 .button-container {
-	margin: 100px;
+	margin: 75px;
 	button:focus {
 		outline: none;
 	}
@@ -66,7 +66,7 @@ h1 {
 .roll-dice-button {
 	height: 125px;
 	width: 125px;
-	border-radius: 100px;
+	// in line DiceRoller.tsx // border-radius: 25%;
 }
 
 .roll-dice-button:hover {
