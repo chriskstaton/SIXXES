@@ -1,8 +1,19 @@
 .scoreboard-container {
 	margin-top: 75px;
 	display: inline-grid;
-	column-gap: 50px;
-}
-
-.scoreboard-item {
+	gap: 20px;
+	border: 2px solid white;
+	table-layout: auto;
+	.upper-categories {
+		.upper-item {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
+	.special-categories {
+		.special-item {
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+	}
 }
