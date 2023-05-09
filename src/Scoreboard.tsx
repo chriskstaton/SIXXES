@@ -1,7 +1,8 @@
 import { useState } from "react";
 import "./Scoreboard.scss";
+import DiceRoller from "./DiceRoller";
 
-function Scoreboard(diceValues: []) {
+function Scoreboard(props: { diceCurrentValueArray: number[] }) {
 	const [onesCatVal, setOnesCatVal] = useState(0);
 	const [twosCatVal, setTwosCatVal] = useState(0);
 	const [threesCatVal, setThreesCatVal] = useState(0);
@@ -10,6 +11,7 @@ function Scoreboard(diceValues: []) {
 	const [sixesCatVal, setSixesCatVal] = useState(0);
 
 	//defaultValue={diceValues filtered and summed}
+	console.log("scoreboard " + props.diceCurrentValueArray);
 
 	return (
 		<div className="scoreboard-container">

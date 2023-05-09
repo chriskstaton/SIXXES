@@ -42,7 +42,7 @@ function DiceRoller() {
 	const [isSelectedFour, setIsSelectedFour] = useState(true);
 	const [isSelectedFive, setIsSelectedFive] = useState(true);
 
-	const diceCurrentValueArray: number[] = [
+	var diceCurrentValueArray: number[] = [
 		valueOne,
 		valueTwo,
 		valueThree,
@@ -50,8 +50,8 @@ function DiceRoller() {
 		valueFive,
 	];
 
-	console.log(diceCurrentValueArray);
-	console.log(valueOne, valueTwo, valueThree, valueFour, valueFive);
+	//console.log(diceCurrentValueArray);
+	//console.log(valueOne, valueTwo, valueThree, valueFour, valueFive);
 
 	const delay = 1000;
 
@@ -100,6 +100,7 @@ function DiceRoller() {
 		setTimeout(() => setRollingFour(false), delay);
 		setTimeout(() => setRollingFive(false), delay);
 	};
+
 	return (
 		<>
 			<h1>Yacht Dice Roller</h1>
@@ -183,7 +184,7 @@ function DiceRoller() {
 				</Button>
 			</div>
 			<div className="roll-counter">Roll Count: {rollCount}</div>
-			<Scoreboard />
+			<Scoreboard diceCurrentValueArray={diceCurrentValueArray} />
 		</>
 	);
 }
