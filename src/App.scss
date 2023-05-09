@@ -29,7 +29,7 @@ h1 {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 10px;
-	border-radius: 20%;
+	border-radius: 15px;
 }
 .dice-roll {
 	height: 15vh;
@@ -38,7 +38,7 @@ h1 {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 10px;
-	border-radius: 20%;
+	border-radius: 15px;
 	animation: jump 0.75s;
 }
 
@@ -50,7 +50,7 @@ h1 {
 	display: inline-block;
 	vertical-align: middle;
 	margin: 10px;
-	border-radius: 10%;
+	border-radius: 15px;
 }
 
 .button-container {
@@ -83,7 +83,7 @@ h1 {
 	background-color: white;
 	width: 100%;
 	text-align: center;
-	border-radius: 25%;
+	border-radius: 20px;
 	margin-top: 125px;
 
 	p {
