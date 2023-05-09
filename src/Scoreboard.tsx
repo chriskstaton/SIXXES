@@ -39,7 +39,6 @@ function Scoreboard(diceValues: []) {
 					</label>
 				</div>
 				<div className="upper-item">
-					{" "}
 					<label>
 						Threes
 						<input
@@ -52,7 +51,6 @@ function Scoreboard(diceValues: []) {
 					</label>
 				</div>
 				<div className="upper-item">
-					{" "}
 					<label>
 						Fours
 						<input
@@ -65,7 +63,6 @@ function Scoreboard(diceValues: []) {
 					</label>
 				</div>
 				<div className="upper-item">
-					{" "}
 					<label>
 						Fives
 						<input
@@ -78,7 +75,6 @@ function Scoreboard(diceValues: []) {
 					</label>
 				</div>
 				<div className="upper-item">
-					{" "}
 					<label>
 						Sixes
 						<input
