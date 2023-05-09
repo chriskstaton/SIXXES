@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "@mui/material/Button";
-import "./App.scss";
+import "./DiceRoller.scss";
 
 import Dice0 from "../src/images/dice0.svg";
 import Dice1 from "../src/images/dice1.svg";
