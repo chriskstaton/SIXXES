@@ -35,7 +35,9 @@
 }
 
 .button-container {
-	margin: 75px;
+	margin: 20px;
+	display: inline-block;
+
 	button:focus {
 		outline: none;
 	}
@@ -80,6 +82,7 @@
 		padding: 2em;
 	}
 }
+
 @keyframes shaking {
 	0% {
 		transform: translate(0, 0) rotate(0deg);

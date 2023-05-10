@@ -230,12 +230,14 @@ function DiceRoller() {
 						borderRadius: "20%",
 						fontSize: "25px",
 						fontFamily: "'Roboto Mono', monospace",
-						marginRight: "45px",
+						//margin: "25px",
 					}}
 					disabled={rollDisable}
 				>
 					Roll Dice
 				</Button>
+			</div>
+			<div className="button-container">
 				<Button
 					onClick={resetDice}
 					className="reset-dice-button"
@@ -245,14 +247,13 @@ function DiceRoller() {
 						borderRadius: "20%",
 						fontSize: "25px",
 						fontFamily: "'Roboto Mono', monospace",
-						marginLeft: "45px",
+						//margin: "25px",
 					}}
-					//disabled={rollDisable}
+					disabled={rollDisable}
 				>
 					Reset Dice
 				</Button>
 			</div>
-			<div className="button-container"></div>
 			<div className="roll-counter">Roll Count: {rollCount}</div>
 			<Scoreboard
 				diceCurrentValueArray={diceCurrentValueArray}
