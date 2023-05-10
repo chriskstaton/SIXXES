@@ -61,29 +61,29 @@ function Scoreboard(props: {
 	return (
 		<div className="scoreboard-container">
 			<table className="upper-categories">
-				<tr>
+				<tr onClick={() => setOnesCatVal(sumOnes)}>
 					<th>Ones</th>
-					<td>{sumOnes}</td>
+					<td>{onesCatVal}</td>
 				</tr>
-				<tr>
+				<tr onClick={() => setTwosCatVal(sumTwos)}>
 					<th>Twos</th>
-					<td>{sumTwos}</td>
+					<td>{twosCatVal}</td>
 				</tr>
-				<tr>
+				<tr onClick={() => setThreesCatVal(sumThrees)}>
 					<th>Threes</th>
-					<td>{sumThrees}</td>
+					<td>{threesCatVal}</td>
 				</tr>
-				<tr>
+				<tr onClick={() => setFoursCatVal(sumFours)}>
 					<th>Fours</th>
-					<td>{sumFours}</td>
+					<td>{foursCatVal}</td>
 				</tr>
-				<tr>
+				<tr onClick={() => setFivesCatVal(sumFives)}>
 					<th>Fives</th>
-					<td>{sumFives}</td>
+					<td>{fivesCatVal}</td>
 				</tr>
-				<tr>
+				<tr onClick={() => setSixesCatVal(sumSixes)}>
 					<th>Sixes</th>
-					<td>{sumSixes}</td>
+					<td>{sixesCatVal}</td>
 				</tr>
 			</table>
 
@@ -98,32 +98,43 @@ function Scoreboard(props: {
 			</div>
 			<table className="special-categories">
 				<tr>
+					{/* onClick={() => setChoiceCatVal(sumChoice)} */}
 					<th>Choice</th>
-					<td>{}</td>
+					<td>{choiceCatVal}</td>
 				</tr>
 				<tr>
+					{/* onClick={() => setThreeKindVal(sumThreeKind)} */}
 					<th>Three of a kind</th>
-					<td>{}</td>
+					<td>{threeKindVal}</td>
 				</tr>
 				<tr>
+					{/* onClick={() => setFourKindVal(sumFourKind)} */}
+
 					<th>Four of a kind</th>
-					<td>{}</td>
+					<td>{fourKindVal}</td>
 				</tr>
 				<tr>
+					{/* onClick={() => setFullHouseVal(sumFullHouse)} */}
+
 					<th>Full House</th>
-					<td>{}</td>
+					<td>{fullHouseVal}</td>
 				</tr>
 				<tr>
+					{/* onClick={() => setSmallStraightVal(25)} */}
+
 					<th>Small Straight</th>
-					<td>{}</td>
+					<td>{smallStraightVal}</td>
 				</tr>
 				<tr>
+					{/* onClick={() => setSmallStraightVal(45)} */}
+
 					<th>Large Straight</th>
-					<td>{}</td>
+					<td>{largeStraightVal}</td>
 				</tr>
 				<tr>
+					{/* onClick={() => setSmallStraightVal(60)} */}
 					<th>Yacht!</th>
-					<td>{}</td>
+					<td>{yachtCatVal}</td>
 				</tr>
 			</table>
 			<div className="total-sum">Total Sum: </div>
