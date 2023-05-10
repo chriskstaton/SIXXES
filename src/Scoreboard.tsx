@@ -1,16 +1,35 @@
 import { useEffect, useState } from "react";
 import "./Scoreboard.scss";
 
+interface Categories {
+	ones: number;
+	twos: number;
+	threes: number;
+	fours: number;
+	fives: number;
+	sixes: number;
+}
+
 function Scoreboard(props: {
 	diceCurrentValueArray: number[];
 	rollCount: number;
 }) {
-	const [onesCatVal, setOnesCatVal] = useState(0);
-	const [twosCatVal, setTwosCatVal] = useState(0);
-	const [threesCatVal, setThreesCatVal] = useState(0);
-	const [foursCatVal, setFoursCatVal] = useState(0);
-	const [fivesCatVal, setFivesCatVal] = useState(0);
-	const [sixesCatVal, setSixesCatVal] = useState(0);
+	var [onesCatVal, setOnesCatVal] = useState(0);
+	var [twosCatVal, setTwosCatVal] = useState(0);
+	var [threesCatVal, setThreesCatVal] = useState(0);
+	var [foursCatVal, setFoursCatVal] = useState(0);
+	var [fivesCatVal, setFivesCatVal] = useState(0);
+	var [sixesCatVal, setSixesCatVal] = useState(0);
+
+	var [threeKindVal, setThreeKindVal] = useState(0);
+	var [fourKindVal, setFourKindVal] = useState(0);
+	var [fullHouseVal, setFullHouseVal] = useState(0);
+	var [smallStraightVal, setSmallStraightVal] = useState(0);
+	var [largeStraightVal, setLargeStraightVal] = useState(0);
+
+	var [choiceCatVal, setChoiceCatVal] = useState(0);
+
+	var [yachtCatVal, setYachtCatVal] = useState(0);
 
 	function categoryFilter(arr: number[], value: number) {
 		const onlyCategory = arr.filter((el) => {
@@ -41,16 +60,35 @@ function Scoreboard(props: {
 
 	return (
 		<div className="scoreboard-container">
-			<div className="upper-categories">
-				<div className="upper-item">Ones {sumOnes}</div>
-				<div className="upper-item">Twos {sumTwos}</div>
-				<div className="upper-item">Threes {sumThrees}</div>
-				<div className="upper-item">Fours {sumFours}</div>
-				<div className="upper-item">Fives {sumFives}</div>
-				<div className="upper-item">Sixes {sumSixes}</div>
-			</div>
+			<table className="upper-categories">
+				<tr>
+					<th>Ones</th>
+					<td>{sumOnes}</td>
+				</tr>
+				<tr>
+					<th>Twos</th>
+					<td>{sumTwos}</td>
+				</tr>
+				<tr>
+					<th>Threes</th>
+					<td>{sumThrees}</td>
+				</tr>
+				<tr>
+					<th>Fours</th>
+					<td>{sumFours}</td>
+				</tr>
+				<tr>
+					<th>Fives</th>
+					<td>{sumFives}</td>
+				</tr>
+				<tr>
+					<th>Sixes</th>
+					<td>{sumSixes}</td>
+				</tr>
+			</table>
+
 			<div className="upper-sum">
-				Upper Sum{" "}
+				Upper Sum:{" "}
 				{onesCatVal +
 					twosCatVal +
 					threesCatVal +
@@ -58,15 +96,37 @@ function Scoreboard(props: {
 					fivesCatVal +
 					sixesCatVal}
 			</div>
-			<div className="special-categories">
-				<div className="special-item">Three of a kind</div>
-				<div className="special-item">Four of a kind</div>
-				<div className="special-item">Full House</div>
-				<div className="special-item">Small Straight</div>
-				<div className="special-item">Large Straight</div>
-				<div className="special-item">Sum</div>
-				<div className="special-item">Yacht!</div>
-			</div>
+			<table className="special-categories">
+				<tr>
+					<th>Choice</th>
+					<td>{}</td>
+				</tr>
+				<tr>
+					<th>Three of a kind</th>
+					<td>{}</td>
+				</tr>
+				<tr>
+					<th>Four of a kind</th>
+					<td>{}</td>
+				</tr>
+				<tr>
+					<th>Full House</th>
+					<td>{}</td>
+				</tr>
+				<tr>
+					<th>Small Straight</th>
+					<td>{}</td>
+				</tr>
+				<tr>
+					<th>Large Straight</th>
+					<td>{}</td>
+				</tr>
+				<tr>
+					<th>Yacht!</th>
+					<td>{}</td>
+				</tr>
+			</table>
+			<div className="total-sum">Total Sum: </div>
 		</div>
 	);
 }
