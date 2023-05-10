@@ -1,11 +1,13 @@
+$dice-dimensions: 150px;
+
 .dice-container {
 	margin-top: 50px;
 	margin-bottom: 50px;
 }
 
 .dice-static {
-	height: 15vh;
-	width: 15vh;
+	height: $dice-dimensions;
+	width: $dice-dimensions;
 	background-color: white;
 	display: inline-block;
 	vertical-align: middle;
@@ -14,8 +16,8 @@
 }
 
 .dice-roll {
-	height: 15vh;
-	width: 15vh;
+	height: $dice-dimensions;
+	width: $dice-dimensions;
 	background-color: white;
 	display: inline-block;
 	vertical-align: middle;
@@ -25,8 +27,8 @@
 }
 
 .dice-selected {
-	height: 15vh;
-	width: 15vh;
+	height: $dice-dimensions;
+	width: $dice-dimensions;
 	background-color: #e1a6ff;
 	/* dark #8500CC */
 	display: inline-block;
@@ -36,7 +38,8 @@
 }
 
 .button-container {
-	margin: 35px;
+	margin-top: 35px;
+	margin-bottom: 35px;
 	display: inline-block;
 
 	button:focus {

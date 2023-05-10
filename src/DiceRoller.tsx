@@ -100,33 +100,33 @@ function DiceRoller() {
 		if (isSelectedOne) {
 			var randomNumber1 = Math.floor(Math.random() * 6 + 1);
 			setValueOne(randomNumber1);
-			setTimeout(() => setImageOne(diceImages[randomNumber1]), delay / 2);
+			setTimeout(() => setImageOne(diceImages[randomNumber1]), delay / 2.5);
 		}
 		if (isSelectedTwo) {
 			var randomNumber2 = Math.floor(Math.random() * 6 + 1);
 			setValueTwo(randomNumber2);
-			setTimeout(() => setImageTwo(diceImages[randomNumber2]), delay / 2);
+			setTimeout(() => setImageTwo(diceImages[randomNumber2]), delay / 2.5);
 		}
 		if (isSelectedThree) {
 			var randomNumber3 = Math.floor(Math.random() * 6 + 1);
 			setValueThree(randomNumber3);
-			setTimeout(() => setImageThree(diceImages[randomNumber3]), delay / 2);
+			setTimeout(() => setImageThree(diceImages[randomNumber3]), delay / 2.5);
 		}
 		if (isSelectedFour) {
 			var randomNumber4 = Math.floor(Math.random() * 6 + 1);
 			setValueFour(randomNumber4);
-			setTimeout(() => setImageFour(diceImages[randomNumber4]), delay / 2);
+			setTimeout(() => setImageFour(diceImages[randomNumber4]), delay / 2.5);
 		}
 		if (isSelectedFive) {
 			var randomNumber5 = Math.floor(Math.random() * 6 + 1);
 			setValueFive(randomNumber5);
-			setTimeout(() => setImageFive(diceImages[randomNumber5]), delay / 2);
+			setTimeout(() => setImageFive(diceImages[randomNumber5]), delay / 2.5);
 		}
 
 		if (isSelectedSix) {
 			var randomNumber6 = Math.floor(Math.random() * 6 + 1);
 			setValueSix(randomNumber6);
-			setTimeout(() => setImageSix(diceImages[randomNumber6]), delay / 2);
+			setTimeout(() => setImageSix(diceImages[randomNumber6]), delay / 2.5);
 		}
 		setTimeout(() => setRollingOne(false), delay);
 		setTimeout(() => setRollingTwo(false), delay);
@@ -230,7 +230,7 @@ function DiceRoller() {
 						borderRadius: "20%",
 						fontSize: "25px",
 						fontFamily: "'Roboto Mono', monospace",
-						//margin: "25px",
+						marginRight: "35px",
 					}}
 					disabled={rollDisable}
 				>
@@ -247,7 +247,7 @@ function DiceRoller() {
 						borderRadius: "20%",
 						fontSize: "25px",
 						fontFamily: "'Roboto Mono', monospace",
-						//margin: "25px",
+						marginLeft: "35px",
 					}}
 					disabled={rollDisable}
 				>
