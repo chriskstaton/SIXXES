@@ -27,7 +27,15 @@ function Scoreboard(props: {
 
 	useEffect(() => {
 		if (sumOnes || sumTwos || sumThrees || sumFours || sumFives || sumSixes) {
-			console.log(sumOnes, sumTwos, sumThrees, sumFours, sumFives, sumSixes);
+			console.log(
+				"sums ",
+				sumOnes,
+				sumTwos,
+				sumThrees,
+				sumFours,
+				sumFives,
+				sumSixes
+			);
 		}
 	}, [props.rollCount]);
 
