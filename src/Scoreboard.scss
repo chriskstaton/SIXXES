@@ -1,12 +1,18 @@
 .scoreboard-container {
 	margin-top: 50px;
 	display: inline-grid;
-	gap: 20px;
 	border: 2px solid white;
+	border-radius: 20px;
 	table-layout: auto;
+	font-size: xx-large;
+	width: 90vw;
+	max-width: 600px;
+
 	table {
 		text-align: center;
 		margin: 10px;
+
+		//gap: 20px;
 	}
 	th {
 		text-align: left;

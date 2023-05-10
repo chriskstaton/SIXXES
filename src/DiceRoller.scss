@@ -1,5 +1,6 @@
 .dice-container {
-	margin-top: 75px;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
 .dice-static {
@@ -35,7 +36,7 @@
 }
 
 .button-container {
-	margin: 20px;
+	margin: 35px;
 	display: inline-block;
 
 	button:focus {
@@ -60,6 +61,7 @@
 	color: #bc40ff;
 	font-size: xx-large;
 	font-family: "Roboto Mono", sans-serif;
+	margin-top: 15px;
 }
 
 .reset-dice-button {
@@ -70,10 +72,11 @@
 
 .footer-tips {
 	background-color: white;
-	width: 100%;
+	width: 80vw;
 	text-align: center;
 	border-radius: 20px;
 	margin-top: 125px;
+	margin: auto;
 
 	p {
 		color: #e1a6ff;
