@@ -60,6 +60,12 @@
 	font-family: "Roboto Mono", sans-serif;
 }
 
+.reset-dice-button {
+	height: 125px;
+	width: 125px;
+	// in line DiceRoller.tsx // border-radius: 25%;
+}
+
 .footer-tips {
 	background-color: white;
 	width: 100%;

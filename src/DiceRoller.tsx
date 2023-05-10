@@ -72,7 +72,29 @@ function DiceRoller() {
 		setTimeout(() => setRollDisable(false), delay);
 	}
 
-	const rollDice = async () => {
+	function resetDice() {
+		setRollCount(0);
+		setValueOne(0);
+		setValueTwo(0);
+		setValueThree(0);
+		setValueFour(0);
+		setValueFive(0);
+		setValueSix(0);
+		setImageOne(diceImages[0]);
+		setImageTwo(diceImages[0]);
+		setImageThree(diceImages[0]);
+		setImageFour(diceImages[0]);
+		setImageFive(diceImages[0]);
+		setImageSix(diceImages[0]);
+		setIsSelectedOne(true);
+		setIsSelectedTwo(true);
+		setIsSelectedThree(true);
+		setIsSelectedFour(true);
+		setIsSelectedFive(true);
+		setIsSelectedSix(true);
+	}
+
+	function rollDice() {
 		setRollCount(rollCount + 1);
 
 		if (isSelectedOne) {
@@ -112,7 +134,7 @@ function DiceRoller() {
 		setTimeout(() => setRollingFour(false), delay);
 		setTimeout(() => setRollingFive(false), delay);
 		setTimeout(() => setRollingSix(false), delay);
-	};
+	}
 
 	useEffect(() => {
 		if (diceCurrentValueArray) {
@@ -208,12 +230,29 @@ function DiceRoller() {
 						borderRadius: "20%",
 						fontSize: "25px",
 						fontFamily: "'Roboto Mono', monospace",
+						marginRight: "45px",
 					}}
 					disabled={rollDisable}
 				>
 					Roll Dice
 				</Button>
+				<Button
+					onClick={resetDice}
+					className="reset-dice-button"
+					sx={{
+						color: "white",
+						backgroundColor: "#FF0000",
+						borderRadius: "20%",
+						fontSize: "25px",
+						fontFamily: "'Roboto Mono', monospace",
+						marginLeft: "45px",
+					}}
+					//disabled={rollDisable}
+				>
+					Reset Dice
+				</Button>
 			</div>
+			<div className="button-container"></div>
 			<div className="roll-counter">Roll Count: {rollCount}</div>
 			<Scoreboard
 				diceCurrentValueArray={diceCurrentValueArray}
