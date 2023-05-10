@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import "./Scoreboard.scss";
 
-function Scoreboard(props: { diceCurrentValueArray: number[] }) {
+function Scoreboard(props: {
+	diceCurrentValueArray: number[];
+	rollCount: number;
+}) {
 	const [onesCatVal, setOnesCatVal] = useState(0);
 	const [twosCatVal, setTwosCatVal] = useState(0);
 	const [threesCatVal, setThreesCatVal] = useState(0);
@@ -9,30 +12,34 @@ function Scoreboard(props: { diceCurrentValueArray: number[] }) {
 	const [fivesCatVal, setFivesCatVal] = useState(0);
 	const [sixesCatVal, setSixesCatVal] = useState(0);
 
-	//defaultValue={diceValues filtered and summed}
+	function categoryFilter(arr: number[], value: number) {
+		const onlyCategory = arr.filter((el) => {
+			return el === value;
+		});
+		return onlyCategory.reduce((a, b) => a + b, 0);
+	}
+	var sumOnes = categoryFilter(props.diceCurrentValueArray, 1);
+	var sumTwos = categoryFilter(props.diceCurrentValueArray, 2);
+	var sumThrees = categoryFilter(props.diceCurrentValueArray, 3);
+	var sumFours = categoryFilter(props.diceCurrentValueArray, 4);
+	var sumFives = categoryFilter(props.diceCurrentValueArray, 5);
+	var sumSixes = categoryFilter(props.diceCurrentValueArray, 6);
+
+	useEffect(() => {
+		if (sumOnes || sumTwos || sumThrees || sumFours || sumFives || sumSixes) {
+			console.log(sumOnes, sumTwos, sumThrees, sumFours, sumFives, sumSixes);
+		}
+	}, [props.rollCount]);
 
 	return (
 		<div className="scoreboard-container">
 			<div className="upper-categories">
-				<div className="upper-item">
-					{/* <label> */}
-					Ones
-					{/* <input
-							name="ones"
-							className="input"
-							type="number"
-							pattern="^[0-5]$"
-							defaultValue={" "}
-							value={onesCatVal}
-							onChange={(e) => setOnesCatVal(parseInt(e.target.value))}
-						/> */}
-					{/* </label> */}
-				</div>
-				<div className="upper-item">Twos</div>
-				<div className="upper-item">Threes</div>
-				<div className="upper-item">Fours</div>
-				<div className="upper-item">Fives</div>
-				<div className="upper-item">Sixes</div>
+				<div className="upper-item">Ones {sumOnes}</div>
+				<div className="upper-item">Twos {sumTwos}</div>
+				<div className="upper-item">Threes {sumThrees}</div>
+				<div className="upper-item">Fours {sumFours}</div>
+				<div className="upper-item">Fives {sumFives}</div>
+				<div className="upper-item">Sixes {sumSixes}</div>
 			</div>
 			<div>
 				Sum of Categories ={" "}

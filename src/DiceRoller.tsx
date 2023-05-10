@@ -215,7 +215,10 @@ function DiceRoller() {
 				</Button>
 			</div>
 			<div className="roll-counter">Roll Count: {rollCount}</div>
-			<Scoreboard diceCurrentValueArray={diceCurrentValueArray} />
+			<Scoreboard
+				diceCurrentValueArray={diceCurrentValueArray}
+				rollCount={rollCount}
+			/>
 		</>
 	);
 }
