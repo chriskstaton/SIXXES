@@ -49,8 +49,8 @@ function Scoreboard(props: {
 				<div className="upper-item">Fives {sumFives}</div>
 				<div className="upper-item">Sixes {sumSixes}</div>
 			</div>
-			<div>
-				Sum of Categories ={" "}
+			<div className="upper-sum">
+				Upper Sum{" "}
 				{onesCatVal +
 					twosCatVal +
 					threesCatVal +
