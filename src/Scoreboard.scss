@@ -6,6 +6,7 @@
 	table-layout: auto;
 	table {
 		text-align: center;
+		margin: 10px;
 	}
 	th {
 		text-align: left;
@@ -24,5 +25,6 @@
 	}
 	.total-sum {
 		color: rgb(230, 230, 230);
+		margin-bottom: 10px;
 	}
 }
