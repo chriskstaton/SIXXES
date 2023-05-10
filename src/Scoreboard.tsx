@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Scoreboard.scss";
-import DiceRoller from "./DiceRoller";
 
 function Scoreboard(props: { diceCurrentValueArray: number[] }) {
 	const [onesCatVal, setOnesCatVal] = useState(0);
@@ -11,15 +10,14 @@ function Scoreboard(props: { diceCurrentValueArray: number[] }) {
 	const [sixesCatVal, setSixesCatVal] = useState(0);
 
 	//defaultValue={diceValues filtered and summed}
-	console.log("scoreboard " + props.diceCurrentValueArray);
 
 	return (
 		<div className="scoreboard-container">
 			<div className="upper-categories">
 				<div className="upper-item">
-					<label>
-						Ones
-						<input
+					{/* <label> */}
+					Ones
+					{/* <input
 							name="ones"
 							className="input"
 							type="number"
@@ -27,74 +25,14 @@ function Scoreboard(props: { diceCurrentValueArray: number[] }) {
 							defaultValue={" "}
 							value={onesCatVal}
 							onChange={(e) => setOnesCatVal(parseInt(e.target.value))}
-						/>
-					</label>
+						/> */}
+					{/* </label> */}
 				</div>
-				<div className="upper-item">
-					<label>
-						Twos
-						<input
-							name="twos"
-							className="input"
-							type="number"
-							pattern="^[0-10]$"
-							value={twosCatVal}
-							onChange={(e) => setTwosCatVal(parseInt(e.target.value))}
-						/>
-					</label>
-				</div>
-				<div className="upper-item">
-					<label>
-						Threes
-						<input
-							name="threes"
-							className="input"
-							type="number"
-							pattern="^[0-15]$"
-							value={threesCatVal}
-							onChange={(e) => setThreesCatVal(parseInt(e.target.value))}
-						/>
-					</label>
-				</div>
-				<div className="upper-item">
-					<label>
-						Fours
-						<input
-							name="fours"
-							className="input"
-							type="number"
-							pattern="^[0-20]$"
-							value={foursCatVal}
-							onChange={(e) => setFoursCatVal(parseInt(e.target.value))}
-						/>
-					</label>
-				</div>
-				<div className="upper-item">
-					<label>
-						Fives
-						<input
-							name="fives"
-							className="input"
-							type="number"
-							pattern="^[0-25]$"
-							value={fivesCatVal}
-							onChange={(e) => setFivesCatVal(parseInt(e.target.value))}
-						/>
-					</label>
-				</div>
-				<div className="upper-item">
-					<label>
-						Sixes
-						<input
-							name="sixes"
-							className="input"
-							type="number"
-							pattern="^[0-30]$"
-							value={sixesCatVal}
-							onChange={(e) => setSixesCatVal(parseInt(e.target.value))}
-						/>
-					</label>
-				</div>
+				<div className="upper-item">Twos</div>
+				<div className="upper-item">Threes</div>
+				<div className="upper-item">Fours</div>
+				<div className="upper-item">Fives</div>
+				<div className="upper-item">Sixes</div>
 			</div>
 			<div>
 				Sum of Categories ={" "}

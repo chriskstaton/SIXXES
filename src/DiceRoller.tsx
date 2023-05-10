@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import "./DiceRoller.scss";
 
@@ -21,12 +21,14 @@ function DiceRoller() {
 	var [valueThree, setValueThree] = useState(0);
 	var [valueFour, setValueFour] = useState(0);
 	var [valueFive, setValueFive] = useState(0);
+	var [valueSix, setValueSix] = useState(0);
 
 	var [rollingOne, setRollingOne] = useState(false);
 	var [rollingTwo, setRollingTwo] = useState(false);
 	var [rollingThree, setRollingThree] = useState(false);
 	var [rollingFour, setRollingFour] = useState(false);
 	var [rollingFive, setRollingFive] = useState(false);
+	var [rollingSix, setRollingSix] = useState(false);
 
 	const diceImages = [Dice0, Dice1, Dice2, Dice3, Dice4, Dice5, Dice6];
 
@@ -35,12 +37,14 @@ function DiceRoller() {
 	var [imageThree, setImageThree] = useState(diceImages[0]);
 	var [imageFour, setImageFour] = useState(diceImages[0]);
 	var [imageFive, setImageFive] = useState(diceImages[0]);
+	var [imageSix, setImageSix] = useState(diceImages[0]);
 
 	const [isSelectedOne, setIsSelectedOne] = useState(true);
 	const [isSelectedTwo, setIsSelectedTwo] = useState(true);
 	const [isSelectedThree, setIsSelectedThree] = useState(true);
 	const [isSelectedFour, setIsSelectedFour] = useState(true);
 	const [isSelectedFive, setIsSelectedFive] = useState(true);
+	const [isSelectedSix, setIsSelectedSix] = useState(true);
 
 	var diceCurrentValueArray: number[] = [
 		valueOne,
@@ -48,6 +52,7 @@ function DiceRoller() {
 		valueThree,
 		valueFour,
 		valueFive,
+		valueSix,
 	];
 
 	//console.log(diceCurrentValueArray);
@@ -62,6 +67,7 @@ function DiceRoller() {
 		setRollingThree(true);
 		setRollingFour(true);
 		setRollingFive(true);
+		setRollingSix(true);
 		rollDice();
 		setTimeout(() => setRollDisable(false), delay);
 	}
@@ -94,12 +100,25 @@ function DiceRoller() {
 			setValueFive(randomNumber5);
 			setTimeout(() => setImageFive(diceImages[randomNumber5]), delay / 2);
 		}
+
+		if (isSelectedSix) {
+			var randomNumber6 = Math.floor(Math.random() * 6 + 1);
+			setValueSix(randomNumber6);
+			setTimeout(() => setImageSix(diceImages[randomNumber6]), delay / 2);
+		}
 		setTimeout(() => setRollingOne(false), delay);
 		setTimeout(() => setRollingTwo(false), delay);
 		setTimeout(() => setRollingThree(false), delay);
 		setTimeout(() => setRollingFour(false), delay);
 		setTimeout(() => setRollingFive(false), delay);
+		setTimeout(() => setRollingSix(false), delay);
 	};
+
+	useEffect(() => {
+		if (diceCurrentValueArray) {
+			console.log("scoreboard " + diceCurrentValueArray);
+		}
+	}, [rollCount]);
 
 	return (
 		<>
@@ -164,6 +183,18 @@ function DiceRoller() {
 					onClick={() => setIsSelectedFive(!isSelectedFive)}
 					src={imageFive}
 					key={"E"}
+				/>
+				<img
+					className={
+						!isSelectedSix
+							? "dice-selected"
+							: rollingSix
+							? "dice-roll"
+							: "dice-static"
+					}
+					onClick={() => setIsSelectedSix(!isSelectedSix)}
+					src={imageSix}
+					key={"F"}
 				/>
 			</div>
 
