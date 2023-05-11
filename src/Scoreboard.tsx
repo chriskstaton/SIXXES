@@ -111,12 +111,12 @@ function Scoreboard(props: {
 						<th>Sixes</th>
 						<td>{sixesCatVal}</td>
 					</tr>
-					<tr className="spacer-no-border" />
+					{/* <tr className="spacer-no-border" /> */}
 					<tr className="upper-sum">
 						<th>Categories Sum</th>
 						<td>{upperSum}</td>
 					</tr>
-					<tr className="spacer-bottom-border" />
+					{/* <tr className="spacer-bottom-border" /> */}
 					<tr className="choice-category">
 						{/* onClick={() => setThreeKindVal(sumThreeKind)} */}
 
@@ -158,13 +158,10 @@ function Scoreboard(props: {
 						<th>Yacht!</th>
 						<td>{yachtCatVal}</td>
 					</tr>
-					<tr className="spacer-no-border" />
-
-					<tr className="total-sum">
+					<tr className="total-score">
 						<th>Total Score</th>
 						<td>{totalSum}</td>
 					</tr>
-					<tr className="spacer-no-border" />
 				</thead>
 			</table>
 		</div>
