@@ -1,22 +1,28 @@
+$scoreboard-border: 4px solid rgba(255, 255, 255, 0.5);
+
 .scoreboard-container {
 	margin-top: 50px;
 	display: inline-grid;
-	border: 2px solid white;
+	border: 4px solid white;
 	border-radius: 20px;
 	table-layout: auto;
 	font-size: x-large;
 	width: 75vw;
 	max-width: 600px;
-	padding-left: 20px;
-	//padding-right: 20px;
 
 	table {
 		text-align: center;
-		margin: 10px;
+		border-collapse: collapse;
+		height: 90vh;
+	}
+
+	tr {
+		border-bottom: $scoreboard-border;
 	}
 
 	th {
 		text-align: left;
+		padding-left: 20px;
 	}
 
 	td {
@@ -27,21 +33,24 @@
 
 	.upper-sum {
 		color: rgb(230, 230, 230);
+		border-color: transparent;
+	}
+	.choice-category {
+		border-top: $scoreboard-border;
 	}
 
-	.spacer {
+	.spacer-no-border {
 		height: 15px;
+		border-color: transparent;
 	}
-
-	// .special-categories {
-	// 	.special-item {
-	// 		padding-left: 20px;
-	// 		padding-right: 20px;
-	// 	}
-	// }
+	.spacer-bottom-border {
+		height: 15px;
+		border-bottom: $scoreboard-border;
+	}
 
 	.total-sum {
 		color: rgb(230, 230, 230);
 		margin-bottom: 10px;
+		border-color: transparent;
 	}
 }
