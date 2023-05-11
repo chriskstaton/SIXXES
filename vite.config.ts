@@ -6,10 +6,10 @@ export default defineConfig({
 	plugins: [react()],
 });
 
-module.exports = {
-	base: "",
-	root: "dist",
-	build: {
-		outDir: "../htdocs",
-	},
-};
+// module.exports = {
+// 	base: "",
+// 	root: "dist",
+// 	build: {
+// 		outDir: "../htdocs",
+// 	},
+// };
