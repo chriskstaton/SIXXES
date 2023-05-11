@@ -21,8 +21,6 @@ function Scoreboard(props: {
 	var [fivesCatVal, setFivesCatVal] = useState(0);
 	var [sixesCatVal, setSixesCatVal] = useState(0);
 
-	var [bonusVal, setBonusVal] = useState(0);
-
 	var [threeKindVal, setThreeKindVal] = useState(0);
 	var [fourKindVal, setFourKindVal] = useState(0);
 	var [fullHouseVal, setFullHouseVal] = useState(0);
@@ -32,6 +30,8 @@ function Scoreboard(props: {
 	var [choiceCatVal, setChoiceCatVal] = useState(0);
 
 	var [yachtCatVal, setYachtCatVal] = useState(0);
+
+	var bonusVal = 0;
 
 	function categoryFilter(arr: number[], value: number) {
 		const onlyCategory = arr.filter((el) => {
