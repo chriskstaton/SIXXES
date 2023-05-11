@@ -63,7 +63,7 @@ $dice-dimensions: 150px;
 .roll-counter {
 	color: #bc40ff;
 	font-size: xx-large;
-	font-family: "Roboto Mono", sans-serif;
+	font-family: "Roboto Mono", monospace;
 	margin-top: 15px;
 }
 
@@ -71,6 +71,9 @@ $dice-dimensions: 150px;
 	height: 125px;
 	width: 125px;
 	// in line DiceRoller.tsx // border-radius: 25%;
+}
+
+.reset-dice-button:hover {
 }
 
 .footer-tips {

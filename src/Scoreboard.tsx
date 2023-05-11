@@ -37,6 +37,7 @@ function Scoreboard(props: {
 		});
 		return onlyCategory.reduce((a, b) => a + b, 0);
 	}
+
 	var sumOnes = categoryFilter(props.diceCurrentValueArray, 1);
 	var sumTwos = categoryFilter(props.diceCurrentValueArray, 2);
 	var sumThrees = categoryFilter(props.diceCurrentValueArray, 3);
@@ -103,12 +104,12 @@ function Scoreboard(props: {
 						<th>Sixes</th>
 						<td>{sixesCatVal}</td>
 					</tr>
-					<div className="spacer" />
+					<tr className="spacer" />
 					<tr className="upper-sum">
 						<th>Categories Sum</th>
 						<td>{upperSum}</td>
 					</tr>
-					<div className="spacer" />
+					<tr className="spacer" />
 					<tr>
 						{/* onClick={() => setThreeKindVal(sumThreeKind)} */}
 
@@ -150,7 +151,7 @@ function Scoreboard(props: {
 						<th>Yacht!</th>
 						<td>{yachtCatVal}</td>
 					</tr>
-					<div className="spacer" />
+					<tr className="spacer" />
 
 					<tr className="total-sum">
 						<th>Total Score</th>
