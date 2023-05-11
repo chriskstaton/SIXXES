@@ -30,6 +30,8 @@ function DiceRoller() {
 	var [rollingFive, setRollingFive] = useState(false);
 	var [rollingSix, setRollingSix] = useState(false);
 
+	var [resetAllDice, setResetAllDice] = useState(false);
+
 	const diceImages = [Dice0, Dice1, Dice2, Dice3, Dice4, Dice5, Dice6];
 
 	var [imageOne, setImageOne] = useState(diceImages[0]);
@@ -58,7 +60,8 @@ function DiceRoller() {
 	//console.log(diceCurrentValueArray);
 	//console.log(valueOne, valueTwo, valueThree, valueFour, valueFive);
 
-	const delay = 1000;
+	const rollDelay = 1000;
+	const resetDelay = 1500;
 
 	function handleRoll() {
 		setRollDisable(true);
@@ -69,10 +72,11 @@ function DiceRoller() {
 		setRollingFive(true);
 		setRollingSix(true);
 		rollDice();
-		setTimeout(() => setRollDisable(false), delay);
+		setTimeout(() => setRollDisable(false), rollDelay);
 	}
 
 	function resetDice() {
+		setResetAllDice(true);
 		setRollCount(0);
 		setValueOne(0);
 		setValueTwo(0);
@@ -80,18 +84,19 @@ function DiceRoller() {
 		setValueFour(0);
 		setValueFive(0);
 		setValueSix(0);
-		setImageOne(diceImages[0]);
-		setImageTwo(diceImages[0]);
-		setImageThree(diceImages[0]);
-		setImageFour(diceImages[0]);
-		setImageFive(diceImages[0]);
-		setImageSix(diceImages[0]);
+		setTimeout(() => setImageOne(diceImages[0]), resetDelay * 0.5);
+		setTimeout(() => setImageTwo(diceImages[0]), resetDelay * 0.5);
+		setTimeout(() => setImageThree(diceImages[0]), resetDelay * 0.5);
+		setTimeout(() => setImageFour(diceImages[0]), resetDelay * 0.5);
+		setTimeout(() => setImageFive(diceImages[0]), resetDelay * 0.5);
+		setTimeout(() => setImageSix(diceImages[0]), resetDelay * 0.5);
 		setIsSelectedOne(true);
 		setIsSelectedTwo(true);
 		setIsSelectedThree(true);
 		setIsSelectedFour(true);
 		setIsSelectedFive(true);
 		setIsSelectedSix(true);
+		setTimeout(() => setResetAllDice(false), resetDelay);
 	}
 
 	function rollDice() {
@@ -100,40 +105,49 @@ function DiceRoller() {
 		if (isSelectedOne) {
 			var randomNumber1 = Math.floor(Math.random() * 6 + 1);
 			setValueOne(randomNumber1);
-			setTimeout(() => setImageOne(diceImages[randomNumber1]), delay / 2.5);
+			setTimeout(() => setImageOne(diceImages[randomNumber1]), rollDelay / 2.5);
 		}
 		if (isSelectedTwo) {
 			var randomNumber2 = Math.floor(Math.random() * 6 + 1);
 			setValueTwo(randomNumber2);
-			setTimeout(() => setImageTwo(diceImages[randomNumber2]), delay / 2.5);
+			setTimeout(() => setImageTwo(diceImages[randomNumber2]), rollDelay / 2.5);
 		}
 		if (isSelectedThree) {
 			var randomNumber3 = Math.floor(Math.random() * 6 + 1);
 			setValueThree(randomNumber3);
-			setTimeout(() => setImageThree(diceImages[randomNumber3]), delay / 2.5);
+			setTimeout(
+				() => setImageThree(diceImages[randomNumber3]),
+				rollDelay / 2.5
+			);
 		}
 		if (isSelectedFour) {
 			var randomNumber4 = Math.floor(Math.random() * 6 + 1);
 			setValueFour(randomNumber4);
-			setTimeout(() => setImageFour(diceImages[randomNumber4]), delay / 2.5);
+			setTimeout(
+				() => setImageFour(diceImages[randomNumber4]),
+				rollDelay / 2.5
+			);
 		}
 		if (isSelectedFive) {
 			var randomNumber5 = Math.floor(Math.random() * 6 + 1);
 			setValueFive(randomNumber5);
-			setTimeout(() => setImageFive(diceImages[randomNumber5]), delay / 2.5);
+			setTimeout(
+				() => setImageFive(diceImages[randomNumber5]),
+				rollDelay / 2.5
+			);
 		}
 
 		if (isSelectedSix) {
 			var randomNumber6 = Math.floor(Math.random() * 6 + 1);
 			setValueSix(randomNumber6);
-			setTimeout(() => setImageSix(diceImages[randomNumber6]), delay / 2.5);
+			setTimeout(() => setImageSix(diceImages[randomNumber6]), rollDelay / 2.5);
 		}
-		setTimeout(() => setRollingOne(false), delay);
-		setTimeout(() => setRollingTwo(false), delay);
-		setTimeout(() => setRollingThree(false), delay);
-		setTimeout(() => setRollingFour(false), delay);
-		setTimeout(() => setRollingFive(false), delay);
-		setTimeout(() => setRollingSix(false), delay);
+		setTimeout(() => setRollingOne(false), rollDelay);
+		setTimeout(() => setRollingTwo(false), rollDelay);
+		setTimeout(() => setRollingThree(false), rollDelay);
+		setTimeout(() => setRollingFour(false), rollDelay);
+		setTimeout(() => setRollingFive(false), rollDelay);
+		setTimeout(() => setRollingSix(false), rollDelay);
 	}
 
 	useEffect(() => {
@@ -152,6 +166,8 @@ function DiceRoller() {
 							? "dice-selected"
 							: rollingOne
 							? "dice-roll"
+							: resetAllDice
+							? "dice-reset"
 							: "dice-static"
 					}
 					onClick={() => setIsSelectedOne(!isSelectedOne)}
@@ -164,6 +180,8 @@ function DiceRoller() {
 							? "dice-selected"
 							: rollingTwo
 							? "dice-roll"
+							: resetAllDice
+							? "dice-reset"
 							: "dice-static"
 					}
 					onClick={() => setIsSelectedTwo(!isSelectedTwo)}
@@ -176,6 +194,8 @@ function DiceRoller() {
 							? "dice-selected"
 							: rollingThree
 							? "dice-roll"
+							: resetAllDice
+							? "dice-reset"
 							: "dice-static"
 					}
 					onClick={() => setIsSelectedThree(!isSelectedThree)}
@@ -188,6 +208,8 @@ function DiceRoller() {
 							? "dice-selected"
 							: rollingFour
 							? "dice-roll"
+							: resetAllDice
+							? "dice-reset"
 							: "dice-static"
 					}
 					onClick={() => setIsSelectedFour(!isSelectedFour)}
@@ -200,6 +222,8 @@ function DiceRoller() {
 							? "dice-selected"
 							: rollingFive
 							? "dice-roll"
+							: resetAllDice
+							? "dice-reset"
 							: "dice-static"
 					}
 					onClick={() => setIsSelectedFive(!isSelectedFive)}
@@ -212,6 +236,8 @@ function DiceRoller() {
 							? "dice-selected"
 							: rollingSix
 							? "dice-roll"
+							: resetAllDice
+							? "dice-reset"
 							: "dice-static"
 					}
 					onClick={() => setIsSelectedSix(!isSelectedSix)}

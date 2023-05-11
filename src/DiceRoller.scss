@@ -37,6 +37,17 @@ $dice-dimensions: 150px;
 	border-radius: 15px;
 }
 
+.dice-reset {
+	height: $dice-dimensions;
+	width: $dice-dimensions;
+	background-color: white;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px;
+	border-radius: 15px;
+	animation: fade 1.5s;
+}
+
 .button-container {
 	margin-top: 35px;
 	margin-bottom: 35px;
@@ -74,6 +85,7 @@ $dice-dimensions: 150px;
 }
 
 .reset-dice-button:hover {
+	animation: dump 1.5s;
 }
 
 .footer-tips {
@@ -128,5 +140,40 @@ $dice-dimensions: 150px;
 	}
 	100% {
 		transform: translateY(0);
+	}
+}
+
+@keyframes dump {
+	0% {
+		transform: rotate(0deg);
+	}
+	20% {
+		transform: rotate(180deg);
+	}
+	30% {
+		transform: rotate(200deg);
+	}
+	40% {
+		transform: rotate(160deg);
+	}
+	50% {
+		transform: rotate(200deg);
+	}
+	60% {
+		transform: rotate(160deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+@keyframes fade {
+	0% {
+		opacity: 100%;
+	}
+	50% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
 	}
 }
