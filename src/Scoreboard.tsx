@@ -44,6 +44,23 @@ function Scoreboard(props: {
 	var sumFives = categoryFilter(props.diceCurrentValueArray, 5);
 	var sumSixes = categoryFilter(props.diceCurrentValueArray, 6);
 
+	var upperSum =
+		onesCatVal +
+		twosCatVal +
+		threesCatVal +
+		foursCatVal +
+		fivesCatVal +
+		sixesCatVal;
+
+	var totalSum =
+		upperSum +
+		threeKindVal +
+		fourKindVal +
+		fullHouseVal +
+		smallStraightVal +
+		largeStraightVal +
+		yachtCatVal;
+
 	useEffect(() => {
 		if (sumOnes || sumTwos || sumThrees || sumFours || sumFives || sumSixes) {
 			console.log(
@@ -86,22 +103,21 @@ function Scoreboard(props: {
 						<th>Sixes</th>
 						<td>{sixesCatVal}</td>
 					</tr>
-				</thead>
-			</table>
-
-			<div className="upper-sum">
-				Upper Sum:{" "}
-				{onesCatVal +
-					twosCatVal +
-					threesCatVal +
-					foursCatVal +
-					fivesCatVal +
-					sixesCatVal}
-			</div>
-			<table className="special-categories">
-				<thead>
+					<div className="spacer" />
+					<tr className="upper-sum">
+						<th>Categories Sum</th>
+						<td>{upperSum}</td>
+					</tr>
+					<div className="spacer" />
 					<tr>
 						{/* onClick={() => setThreeKindVal(sumThreeKind)} */}
+
+						<th>Choice</th>
+						<td>{choiceCatVal}</td>
+					</tr>
+					<tr>
+						{/* onClick={() => setThreeKindVal(sumThreeKind)} */}
+
 						<th>Three of a kind</th>
 						<td>{threeKindVal}</td>
 					</tr>
@@ -134,9 +150,14 @@ function Scoreboard(props: {
 						<th>Yacht!</th>
 						<td>{yachtCatVal}</td>
 					</tr>
+					<div className="spacer" />
+
+					<tr className="total-sum">
+						<th>Total Score</th>
+						<td>{totalSum}</td>
+					</tr>
 				</thead>
 			</table>
-			<div className="total-sum">Total Sum: </div>
 		</div>
 	);
 }
