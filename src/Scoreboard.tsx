@@ -21,6 +21,8 @@ function Scoreboard(props: {
 	var [fivesCatVal, setFivesCatVal] = useState(0);
 	var [sixesCatVal, setSixesCatVal] = useState(0);
 
+	var [bonusVal, setBonusVal] = useState(0);
+
 	var [threeKindVal, setThreeKindVal] = useState(0);
 	var [fourKindVal, setFourKindVal] = useState(0);
 	var [fullHouseVal, setFullHouseVal] = useState(0);
@@ -53,14 +55,19 @@ function Scoreboard(props: {
 		fivesCatVal +
 		sixesCatVal;
 
-	var totalSum =
-		upperSum +
+	if (upperSum >= 63) {
+		bonusVal = 45;
+	}
+
+	var lowerSum =
 		threeKindVal +
 		fourKindVal +
 		fullHouseVal +
 		smallStraightVal +
 		largeStraightVal +
 		yachtCatVal;
+
+	var totalSum = upperSum + lowerSum + bonusVal;
 
 	useEffect(() => {
 		if (sumOnes || sumTwos || sumThrees || sumFours || sumFives || sumSixes) {
