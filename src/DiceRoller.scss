@@ -1,0 +1,180 @@
+$dice-dimensions: 150px;
+
+.dice-container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.dice-static {
+	height: $dice-dimensions;
+	width: $dice-dimensions;
+	background-color: white;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px;
+	border-radius: 15px;
+}
+
+.dice-roll {
+	height: $dice-dimensions;
+	width: $dice-dimensions;
+	background-color: white;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px;
+	border-radius: 15px;
+	animation: jump 0.75s;
+}
+
+.dice-selected {
+	height: $dice-dimensions;
+	width: $dice-dimensions;
+	background-color: #e1a6ff;
+	/* dark #8500CC */
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px;
+	border-radius: 15px;
+}
+
+.dice-reset {
+	height: $dice-dimensions;
+	width: $dice-dimensions;
+	background-color: white;
+	display: inline-block;
+	vertical-align: middle;
+	margin: 10px;
+	border-radius: 15px;
+	animation: fade 1.5s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.button-container {
+	margin-top: 35px;
+	margin-bottom: 35px;
+	display: inline-block;
+
+	button:focus {
+		outline: none;
+	}
+	:hover {
+		color: black;
+	}
+}
+
+.roll-dice-button {
+	height: 125px;
+	width: 125px;
+	// in line DiceRoller.tsx // border-radius: 25%;
+}
+
+.roll-dice-button:hover {
+	animation: shaking 0.5s infinite;
+}
+
+.roll-counter {
+	color: #bc40ff;
+	font-size: xx-large;
+	font-family: "Roboto Mono", monospace;
+	margin-top: 15px;
+}
+
+.reset-dice-button {
+	height: 125px;
+	width: 125px;
+	// in line DiceRoller.tsx // border-radius: 25%;
+}
+
+.reset-dice-button:hover {
+	animation: dump 1.5s;
+}
+
+.footer-tips {
+	background-color: white;
+	width: 80vw;
+	text-align: center;
+	border-radius: 20px;
+	margin-top: 125px;
+	margin: auto;
+
+	p {
+		color: #e1a6ff;
+		font-size: xx-large;
+		font-weight: bolder;
+		padding: 2em;
+	}
+}
+
+@keyframes shaking {
+	0% {
+		transform: translate(0, 0) rotate(0deg);
+	}
+	25% {
+		transform: translate(5px, 5px) rotate(5deg);
+	}
+	50% {
+		transform: translate(0, 0) rotate(0eg);
+	}
+	75% {
+		transform: translate(-5px, 5px) rotate(-5deg);
+	}
+	100% {
+		transform: translate(0, 0) rotate(0deg);
+	}
+}
+
+@keyframes jump {
+	0% {
+		transform: translateX(0);
+	}
+	30% {
+		transform: translateY(-10px);
+	}
+	45% {
+		transform: translateY(10px);
+	}
+	60% {
+		transform: translateY(-10px);
+	}
+	75% {
+		transform: translateY(10px);
+	}
+	100% {
+		transform: translateY(0);
+	}
+}
+
+@keyframes dump {
+	0% {
+		transform: rotate(0deg);
+	}
+	20% {
+		transform: rotate(180deg);
+	}
+	30% {
+		transform: rotate(200deg);
+	}
+	40% {
+		transform: rotate(160deg);
+	}
+	50% {
+		transform: rotate(200deg);
+	}
+	60% {
+		transform: rotate(160deg);
+	}
+	100% {
+		transform: rotate(0deg);
+	}
+}
+
+@keyframes fade {
+	0% {
+		opacity: 100%;
+	}
+	50% {
+		opacity: 0%;
+	}
+	100% {
+		opacity: 100%;
+	}
+}
