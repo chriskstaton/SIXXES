@@ -16,7 +16,7 @@ jobs:
       - name: build
         run: |
           npm install
-          npm run action
+          npm run build
 
       - name: sync
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -24,6 +24,7 @@ jobs:
           server: 0eda2da.netsolhost.com
           username: ftp4017985
           password: ${{ secrets.password }}
+          local-dir: ./dist/
           server-dir: /htdocs/
           exclude: |
             **/.git*
