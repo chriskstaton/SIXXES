@@ -24,6 +24,8 @@ jobs:
           server: 0eda2da.netsolhost.com
           username: ftp4017985
           password: ${{ secrets.password }}
+          server-dir: /htdocs/
+          local-dir: ./dist/
           exclude: |
             **/.git*
             **/.git*/**
