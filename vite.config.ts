@@ -9,7 +9,7 @@ export default defineConfig({
 module.exports = {
 	base: "",
 	root: "dist",
-	action: {
+	build: {
 		outDir: "../htdocs",
 	},
 };
