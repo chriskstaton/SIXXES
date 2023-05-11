@@ -1,0 +1,77 @@
+{
+    "description": "DO NOT DELETE THIS FILE. This file is used to keep track of which files have been synced in the most recent deployment. If you delete this file a resync will need to be done (which can take a while) - read more: https://github.com/SamKirkland/FTP-Deploy-Action",
+    "version": "1.0.0",
+    "generatedTime": 1683833069723,
+    "data": [
+        {
+            "type": "folder",
+            "name": "assets"
+        },
+        {
+            "type": "file",
+            "name": "dice6.svg",
+            "size": 828,
+            "hash": "16682db34d313295e6f13640c64a3fcf3b8b15be156e5d1c7e594c27e15dc3fc"
+        },
+        {
+            "type": "file",
+            "name": "vite.svg",
+            "size": 1497,
+            "hash": "4a748afd443918bb16591c834c401dae33e87861ab5dbad0811c3a3b4a9214fb"
+        },
+        {
+            "type": "file",
+            "name": "assets/dice0-a060a059.svg",
+            "size": 876,
+            "hash": "a060a05969990a24ae697394a27a9fd8cb906ef60d4496912830862825d6d23e"
+        },
+        {
+            "type": "file",
+            "name": "assets/dice2-6bbbc878.svg",
+            "size": 598,
+            "hash": "6bbbc8781860f892b1227c13cd2ec150bb980ef06b3522f1feb7439d755b460a"
+        },
+        {
+            "type": "file",
+            "name": "assets/dice3-2a94d29d.svg",
+            "size": 648,
+            "hash": "2a94d29df04439186615f5929955da84d66f129050b06a9e2a9c7cc261734855"
+        },
+        {
+            "type": "file",
+            "name": "assets/dice1-01e84d2b.svg",
+            "size": 495,
+            "hash": "01e84d2b6db99fac44e1879a7b341192b4c063ca94f93283fd88859a6f23519c"
+        },
+        {
+            "type": "file",
+            "name": "assets/dice4-65f4c357.svg",
+            "size": 735,
+            "hash": "65f4c357a4cb7c9658ea241d35a0e0a1f79d69a195be4a60356594d2385cfe69"
+        },
+        {
+            "type": "file",
+            "name": "assets/dice5-7b28c7da.svg",
+            "size": 785,
+            "hash": "7b28c7da67d964ca18efb8325ea7a49850a44000468a24068936f45d012f48be"
+        },
+        {
+            "type": "file",
+            "name": "assets/dice6-16682db3.svg",
+            "size": 828,
+            "hash": "16682db34d313295e6f13640c64a3fcf3b8b15be156e5d1c7e594c27e15dc3fc"
+        },
+        {
+            "type": "file",
+            "name": "assets/index-0fe76e5f.css",
+            "size": 3866,
+            "hash": "0fe76e5fe833613448050e87731312ac9510089d902153869c06e88e5a0a831c"
+        },
+        {
+            "type": "file",
+            "name": "assets/index-213c3a9f.js",
+            "size": 220350,
+            "hash": "f56057d1ea145448de0a4e074ac0d4b1f7e1ed12a1f92e9016860a3f5ba332b5"
+        }
+    ]
+}

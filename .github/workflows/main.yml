@@ -1,0 +1,40 @@
+on: push
+name: deploy on push
+jobs:
+  web-deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: sync code
+        uses: actions/checkout@v3
+
+      - name: use Node 19
+        uses: actions/setup-node@v2
+        with:
+          node-version: "19"
+
+      - name: build
+        run: |
+          npm install
+          npm run build
+
+      - name: sync
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        with:
+          server: 0eda2da.netsolhost.com
+          username: ftp4017985
+          password: ${{ secrets.password }}
+          server-dir: /htdocs/
+          local-dir: ./dist/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            **/src/**
+            **/public/**
+            **/index.html
+            **/package-lock.json
+            **/package.json
+            **/tsconfig.json
+            **/tsconfig.node.json
+            **/node_modules/**
+            .DS_Store
