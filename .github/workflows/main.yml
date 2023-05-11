@@ -27,5 +27,12 @@ jobs:
           exclude: |
             **/.git*
             **/.git*/**
+            **/src/**
+            **/public/**
+            **/index.html
+            **/package-lock.json
+            **/package.json
+            **/tsconfig.json
+            **/tsconfig.node.json
             **/node_modules/**
             .DS_Store
