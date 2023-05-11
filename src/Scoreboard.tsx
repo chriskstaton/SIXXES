@@ -101,11 +101,6 @@ function Scoreboard(props: {
 			<table className="special-categories">
 				<thead>
 					<tr>
-						{/* onClick={() => setChoiceCatVal(sumChoice)} */}
-						<th>Choice</th>
-						<td>{choiceCatVal}</td>
-					</tr>
-					<tr>
 						{/* onClick={() => setThreeKindVal(sumThreeKind)} */}
 						<th>Three of a kind</th>
 						<td>{threeKindVal}</td>

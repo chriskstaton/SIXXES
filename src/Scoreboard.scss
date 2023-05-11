@@ -8,7 +8,7 @@
 	width: 75vw;
 	max-width: 600px;
 	padding-left: 20px;
-	padding-right: 20px;
+	//padding-right: 20px;
 
 	table {
 		text-align: center;
@@ -17,23 +17,22 @@
 
 	th {
 		text-align: left;
-		margin-right: 10px;
 	}
 
 	td {
-		text-align: right;
+		text-align: center;
 	}
 
 	.upper-sum {
 		color: rgb(230, 230, 230);
 	}
 
-	.special-categories {
-		.special-item {
-			padding-left: 20px;
-			padding-right: 20px;
-		}
-	}
+	// .special-categories {
+	// 	.special-item {
+	// 		padding-left: 20px;
+	// 		padding-right: 20px;
+	// 	}
+	// }
 
 	.total-sum {
 		color: rgb(230, 230, 230);
