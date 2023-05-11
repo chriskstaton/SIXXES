@@ -45,7 +45,7 @@ $dice-dimensions: 150px;
 	vertical-align: middle;
 	margin: 10px;
 	border-radius: 15px;
-	animation: fade 1.5s;
+	animation: fade 1.5s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 .button-container {
@@ -166,6 +166,7 @@ $dice-dimensions: 150px;
 		transform: rotate(0deg);
 	}
 }
+
 @keyframes fade {
 	0% {
 		opacity: 100%;
