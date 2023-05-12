@@ -5,11 +5,3 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
 	plugins: [react()],
 });
-
-// module.exports = {
-// 	base: "",
-// 	root: "",
-// 	build: {
-// 		outDir: "../htdocs",
-// 	},
-// };
