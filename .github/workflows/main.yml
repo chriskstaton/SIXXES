@@ -30,7 +30,6 @@ jobs:
             **/.git*/**
             **/src/**
             **/public/**
-            **/index.html
             **/package-lock.json
             **/package.json
             **/tsconfig.json
