@@ -158,7 +158,7 @@ function DiceRoller() {
 
 	return (
 		<>
-			<h1>Yacht Dice local dir</h1>
+			<h1>Yacht Dice</h1>
 			<div className="dice-container">
 				<img
 					className={
