@@ -8,7 +8,7 @@ export default defineConfig({
 
 // module.exports = {
 // 	base: "",
-// 	root: "dist",
+// 	root: "",
 // 	build: {
 // 		outDir: "../htdocs",
 // 	},
