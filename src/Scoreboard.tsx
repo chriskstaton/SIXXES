@@ -23,7 +23,7 @@ function Scoreboard(props: {
 
 	var [fourKindVal, setFourKindVal] = useState(0);
 	var [fiveKindVal, setFiveKindVal] = useState(0);
-	var [fullHouseVal, setFullHouseVal] = useState(0);
+	var [splitVal, setSplitVal] = useState(0);
 	var [smallStraightVal, setSmallStraightVal] = useState(0);
 	var [largeStraightVal, setLargeStraightVal] = useState(0);
 
@@ -37,18 +37,31 @@ function Scoreboard(props: {
 		var onlyCategory = arr.filter((el) => {
 			return el === value;
 		});
-		return onlyCategory.reduce((a, b) => a + b, 0);
+		return onlyCategory.reduce((a, b) => a + b, 0); //reconsider extraction of this line
 	}
 
 	function choiceAdder(arr: number[]) {
 		return arr.reduce((a, b) => a + b, 0);
 	}
-	function fullHouseAdder(arr: number[]) {}
+	function checkSplit(arr: number[]) {}
 
-	function kindFourFilter(arr: number[]) {}
-	function kindFiveFilter(arr: number[]) {}
+	function checkFourKind(arr: number[]) {
+		var sumFourKind = arr.filter((el, value) => {
+			return el === value;
+		});
 
-	function straightSmallChecker(arr: number[]) {
+		// filter currentDiceArray for each possible dice value
+		// length of filtered array >= 4 kind minimum
+
+		// return sum of filtered array
+	}
+	function checkFiveKind(arr: number[]) {
+		// filter currentDiceArray for each possible dice value
+		// length of filtered array >= 4 kind minimum
+		// return sum of filtered array
+	}
+
+	function checkSmallStraight(arr: number[]) {
 		const arrSmallStraight1 = [1, 2, 3, 4];
 		const arrSmallStraight2 = [2, 3, 4, 5];
 		const arrSmallStraight3 = [3, 4, 5, 6];
@@ -61,7 +74,7 @@ function Scoreboard(props: {
 			return setSmallStraightVal(45);
 		}
 	}
-	function straightLargeChecker(arr: number[]) {
+	function checkLargeStraight(arr: number[]) {
 		const arrLargeStraight1 = [1, 2, 3, 4, 5];
 		const arrLargeStraight2 = [2, 3, 4, 5, 6];
 		if (
@@ -73,7 +86,11 @@ function Scoreboard(props: {
 		}
 	}
 
-	function yachtChecker(arr: number[]) {}
+	function checkYacht(arr: number[]) {
+		props.diceCurrentValueArray.filter((el, value) => {});
+		// filter currentDiceArray for each possible dice value
+		// length of filtered array >= 6 kind minimum
+	}
 
 	var sumOnes = categoryFilter(props.diceCurrentValueArray, 1);
 	var sumTwos = categoryFilter(props.diceCurrentValueArray, 2);
@@ -98,7 +115,7 @@ function Scoreboard(props: {
 	var lowerSum =
 		fourKindVal +
 		fiveKindVal +
-		fullHouseVal +
+		splitVal +
 		smallStraightVal +
 		largeStraightVal +
 		yachtCatVal;
@@ -155,40 +172,31 @@ function Scoreboard(props: {
 						onClick={() => setChoiceCatVal(sumChoice)}
 						className="choice-category"
 					>
-						{/* onClick={() => setFourKindVal(sumFourKind)} */}
-
 						<th>Choice</th>
 						<td>{choiceCatVal}</td>
 					</tr>
-					<tr>
-						{/* onClick={() => setFiveKindVal(sumFiveKind)} */}
-
+					<tr onClick={() => checkFourKind(props.diceCurrentValueArray)}>
 						<th>Four of a kind</th>
 						<td>{fourKindVal}</td>
 					</tr>
-					<tr>
-						{/* onClick={() => setFourKindVal(sumFourKind)} */}
-
+					<tr onClick={() => checkFiveKind(props.diceCurrentValueArray)}>
 						<th>Five of a kind</th>
 						<td>{fiveKindVal}</td>
 					</tr>
-					<tr>
-						{/* onClick={() => setFullHouseVal(sumFullHouse)} */}
-
-						<th>Full House</th>
-						<td>{fullHouseVal}</td>
+					<tr onClick={() => checkSplit(props.diceCurrentValueArray)}>
+						<th>Split</th>
+						<td>{Split}</td>
 					</tr>
 
-					<tr onClick={() => straightSmallChecker(props.diceCurrentValueArray)}>
+					<tr onClick={() => checkSmallStraight(props.diceCurrentValueArray)}>
 						<th>Small Straight</th>
 						<td>{smallStraightVal}</td>
 					</tr>
-					<tr onClick={() => straightLargeChecker(props.diceCurrentValueArray)}>
+					<tr onClick={() => checkLargeStraight(props.diceCurrentValueArray)}>
 						<th>Large Straight</th>
 						<td>{largeStraightVal}</td>
 					</tr>
-					<tr>
-						{/* onClick={() => setYachtVal(60)} */}
+					<tr onClick={() => checkYacht(props.diceCurrentValueArray)}>
 						<th>Yacht!</th>
 						<td>{yachtCatVal}</td>
 					</tr>
