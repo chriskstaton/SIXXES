@@ -46,10 +46,41 @@ function Scoreboard(props: {
 	function checkSplit(arr: number[]) {}
 
 	function checkFourKind(arr: number[]) {
-		var sumFourKind = arr.filter((el, value) => {
-			return el === value;
+		var filterOnes = arr.filter((el) => {
+			return el === 1;
+		});
+		var filterTwos = arr.filter((el) => {
+			return el === 2;
+		});
+		var filterThrees = arr.filter((el) => {
+			return el === 3;
+		});
+		var filterFours = arr.filter((el) => {
+			return el === 4;
+		});
+		var filterFives = arr.filter((el) => {
+			return el === 5;
+		});
+		var filterSixes = arr.filter((el) => {
+			return el === 6;
 		});
 
+		var allFiltersArray = [
+			filterOnes,
+			filterTwos,
+			filterThrees,
+			filterFours,
+			filterFives,
+			filterSixes,
+		];
+
+		var filterLengths = allFiltersArray.map((a) => a.length);
+		console.log(filterLengths.indexOf(Math.max(...filterLengths)));
+
+		console.log(filterLengths);
+		console.log(
+			allFiltersArray[filterLengths.indexOf(Math.max(...filterLengths))]
+		);
 		// filter currentDiceArray for each possible dice value
 		// length of filtered array >= 4 kind minimum
 
@@ -185,7 +216,7 @@ function Scoreboard(props: {
 					</tr>
 					<tr onClick={() => checkSplit(props.diceCurrentValueArray)}>
 						<th>Split</th>
-						<td>{Split}</td>
+						<td>{splitVal}</td>
 					</tr>
 
 					<tr onClick={() => checkSmallStraight(props.diceCurrentValueArray)}>
