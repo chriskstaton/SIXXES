@@ -68,7 +68,7 @@ $dice-dimensions: 150px;
 }
 
 .roll-dice-button:hover {
-	animation: shaking 0.5s infinite;
+	animation: cupdump 1.5s;
 }
 
 .roll-counter {
@@ -85,7 +85,7 @@ $dice-dimensions: 150px;
 }
 
 .reset-dice-button:hover {
-	animation: dump 1.5s;
+	animation: shaking 0.5s infinite;
 }
 
 .footer-tips {
@@ -143,24 +143,27 @@ $dice-dimensions: 150px;
 	}
 }
 
-@keyframes dump {
+@keyframes cupdump {
 	0% {
 		transform: rotate(0deg);
 	}
+	10% {
+		transform: rotate(-20deg);
+	}
 	20% {
-		transform: rotate(180deg);
+		transform: rotate(20deg);
 	}
 	30% {
-		transform: rotate(200deg);
+		transform: rotate(-20deg);
 	}
 	40% {
-		transform: rotate(160deg);
+		transform: rotate(20deg);
 	}
-	50% {
-		transform: rotate(200deg);
+	70% {
+		transform: rotate(-140deg);
 	}
-	60% {
-		transform: rotate(160deg);
+	80% {
+		transform: rotate(-150deg);
 	}
 	100% {
 		transform: rotate(0deg);
