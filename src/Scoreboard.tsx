@@ -21,8 +21,8 @@ function Scoreboard(props: {
 	var [fivesCatVal, setFivesCatVal] = useState(0);
 	var [sixesCatVal, setSixesCatVal] = useState(0);
 
-	var [threeKindVal, setThreeKindVal] = useState(0);
 	var [fourKindVal, setFourKindVal] = useState(0);
+	var [fiveKindVal, setFiveKindVal] = useState(0);
 	var [fullHouseVal, setFullHouseVal] = useState(0);
 	var [smallStraightVal, setSmallStraightVal] = useState(0);
 	var [largeStraightVal, setLargeStraightVal] = useState(0);
@@ -34,11 +34,46 @@ function Scoreboard(props: {
 	var bonusVal = 0;
 
 	function categoryFilter(arr: number[], value: number) {
-		const onlyCategory = arr.filter((el) => {
+		var onlyCategory = arr.filter((el) => {
 			return el === value;
 		});
 		return onlyCategory.reduce((a, b) => a + b, 0);
 	}
+
+	function choiceAdder(arr: number[]) {
+		return arr.reduce((a, b) => a + b, 0);
+	}
+	function fullHouseAdder(arr: number[]) {}
+
+	function kindFourFilter(arr: number[]) {}
+	function kindFiveFilter(arr: number[]) {}
+
+	function straightSmallChecker(arr: number[]) {
+		const arrSmallStraight1 = [1, 2, 3, 4];
+		const arrSmallStraight2 = [2, 3, 4, 5];
+		const arrSmallStraight3 = [3, 4, 5, 6];
+		if (
+			arrSmallStraight1.every((i) => arr.includes(i)) ||
+			arrSmallStraight2.every((i) => arr.includes(i)) ||
+			arrSmallStraight3.every((i) => arr.includes(i))
+		) {
+			console.log("small straight!");
+			return setSmallStraightVal(45);
+		}
+	}
+	function straightLargeChecker(arr: number[]) {
+		const arrLargeStraight1 = [1, 2, 3, 4, 5];
+		const arrLargeStraight2 = [2, 3, 4, 5, 6];
+		if (
+			arrLargeStraight1.every((i) => arr.includes(i)) ||
+			arrLargeStraight2.every((i) => arr.includes(i))
+		) {
+			console.log("large straight!");
+			return setLargeStraightVal(60);
+		}
+	}
+
+	function yachtChecker(arr: number[]) {}
 
 	var sumOnes = categoryFilter(props.diceCurrentValueArray, 1);
 	var sumTwos = categoryFilter(props.diceCurrentValueArray, 2);
@@ -46,6 +81,7 @@ function Scoreboard(props: {
 	var sumFours = categoryFilter(props.diceCurrentValueArray, 4);
 	var sumFives = categoryFilter(props.diceCurrentValueArray, 5);
 	var sumSixes = categoryFilter(props.diceCurrentValueArray, 6);
+	var sumChoice = choiceAdder(props.diceCurrentValueArray);
 
 	var upperSum =
 		onesCatVal +
@@ -60,8 +96,8 @@ function Scoreboard(props: {
 	}
 
 	var lowerSum =
-		threeKindVal +
 		fourKindVal +
+		fiveKindVal +
 		fullHouseVal +
 		smallStraightVal +
 		largeStraightVal +
@@ -111,29 +147,30 @@ function Scoreboard(props: {
 						<th>Sixes</th>
 						<td>{sixesCatVal}</td>
 					</tr>
-					{/* <tr className="spacer-no-border" /> */}
 					<tr className="upper-sum">
 						<th>Categories Sum</th>
 						<td>{upperSum}</td>
 					</tr>
-					{/* <tr className="spacer-bottom-border" /> */}
-					<tr className="choice-category">
-						{/* onClick={() => setThreeKindVal(sumThreeKind)} */}
+					<tr
+						onClick={() => setChoiceCatVal(sumChoice)}
+						className="choice-category"
+					>
+						{/* onClick={() => setFourKindVal(sumFourKind)} */}
 
 						<th>Choice</th>
 						<td>{choiceCatVal}</td>
 					</tr>
 					<tr>
-						{/* onClick={() => setThreeKindVal(sumThreeKind)} */}
+						{/* onClick={() => setFiveKindVal(sumFiveKind)} */}
 
-						<th>Three of a kind</th>
-						<td>{threeKindVal}</td>
+						<th>Four of a kind</th>
+						<td>{fourKindVal}</td>
 					</tr>
 					<tr>
 						{/* onClick={() => setFourKindVal(sumFourKind)} */}
 
-						<th>Four of a kind</th>
-						<td>{fourKindVal}</td>
+						<th>Five of a kind</th>
+						<td>{fiveKindVal}</td>
 					</tr>
 					<tr>
 						{/* onClick={() => setFullHouseVal(sumFullHouse)} */}
@@ -141,20 +178,17 @@ function Scoreboard(props: {
 						<th>Full House</th>
 						<td>{fullHouseVal}</td>
 					</tr>
-					<tr>
-						{/* onClick={() => setSmallStraightVal(25)} */}
 
+					<tr onClick={() => straightSmallChecker(props.diceCurrentValueArray)}>
 						<th>Small Straight</th>
 						<td>{smallStraightVal}</td>
 					</tr>
-					<tr>
-						{/* onClick={() => setSmallStraightVal(45)} */}
-
+					<tr onClick={() => straightLargeChecker(props.diceCurrentValueArray)}>
 						<th>Large Straight</th>
 						<td>{largeStraightVal}</td>
 					</tr>
 					<tr>
-						{/* onClick={() => setSmallStraightVal(60)} */}
+						{/* onClick={() => setYachtVal(60)} */}
 						<th>Yacht!</th>
 						<td>{yachtCatVal}</td>
 					</tr>
