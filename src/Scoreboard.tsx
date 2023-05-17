@@ -338,6 +338,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => onesAdder(props.diceCurrentValueArray)
 							}
+							className={onesLocked ? "locked-row" : ""}
 						>
 							<th>Ones</th>
 							<td>{onesScore}</td>
@@ -348,6 +349,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => twosAdder(props.diceCurrentValueArray)
 							}
+							className={twosLocked ? "locked-row" : ""}
 						>
 							<th>Twos</th>
 							<td>{twosScore}</td>
@@ -358,6 +360,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => threesAdder(props.diceCurrentValueArray)
 							}
+							className={threesLocked ? "locked-row" : ""}
 						>
 							<th>Threes</th>
 							<td>{threesScore}</td>
@@ -368,6 +371,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => foursAdder(props.diceCurrentValueArray)
 							}
+							className={foursLocked ? "locked-row" : ""}
 						>
 							<th>Fours</th>
 							<td>{foursScore}</td>
@@ -378,6 +382,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => fivesAdder(props.diceCurrentValueArray)
 							}
+							className={fivesLocked ? "locked-row" : ""}
 						>
 							<th>Fives</th>
 							<td>{fivesScore}</td>
@@ -388,6 +393,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => sixesAdder(props.diceCurrentValueArray)
 							}
+							className={sixesLocked ? "locked-row" : ""}
 						>
 							<th>Sixes</th>
 							<td>{sixesScore}</td>
@@ -402,6 +408,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => choiceAdder(props.diceCurrentValueArray)
 							}
+							className={choiceLock ? "locked-row" : ""}
 						>
 							<th>Choice</th>
 							<td>{choiceScore}</td>
@@ -412,6 +419,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => checkFourKind(props.diceCurrentValueArray)
 							}
+							className={fourKindLock ? "locked-row" : ""}
 						>
 							<th>Four of a kind</th>
 							<td>{fourKindScore}</td>
@@ -422,6 +430,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => checkFiveKind(props.diceCurrentValueArray)
 							}
+							className={fiveKindLock ? "locked-row" : ""}
 						>
 							<th>Five of a kind</th>
 							<td>{fiveKindScore}</td>
@@ -432,6 +441,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => checkSplit(props.diceCurrentValueArray)
 							}
+							className={splitLock ? "locked-row" : ""}
 						>
 							<th>Split</th>
 							<td>{splitVal}</td>
@@ -442,6 +452,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => checkSmallStraight(props.diceCurrentValueArray)
 							}
+							className={smallStraightLock ? "locked-row" : ""}
 						>
 							<th>Small Straight</th>
 							<td>{smallStraightVal}</td>
@@ -452,6 +463,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => checkLargeStraight(props.diceCurrentValueArray)
 							}
+							className={largeStraightLock ? "locked-row" : ""}
 						>
 							<th>Large Straight</th>
 							<td>{largeStraightVal}</td>
@@ -462,6 +474,7 @@ function Scoreboard(props: {
 									? () => {}
 									: () => checkYacht(props.diceCurrentValueArray)
 							}
+							className={yachtLock ? "locked-row" : ""}
 						>
 							<th>Yacht!</th>
 							<td>{yachtScore}</td>
