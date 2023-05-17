@@ -30,6 +30,7 @@ function DiceRoller() {
 	var [rollingFour, setRollingFour] = useState(false);
 	var [rollingFive, setRollingFive] = useState(false);
 	var [rollingSix, setRollingSix] = useState(false);
+	var [buttonDumping, setButtonDumping] = useState(false);
 
 	var [resetAllDice, setResetAllDice] = useState(false);
 
@@ -63,6 +64,7 @@ function DiceRoller() {
 	const maxRolls = 4;
 	const rollDelay = 1000;
 	const resetDelay = 1500;
+	const dumpDelay = 2000;
 
 	function handleRoll() {
 		setRollDisable(true);
@@ -72,6 +74,8 @@ function DiceRoller() {
 		setRollingFour(true);
 		setRollingFive(true);
 		setRollingSix(true);
+		setButtonDumping(true);
+		setTimeout(() => setButtonDumping(false), dumpDelay);
 		rollDice();
 		setTimeout(() => setRollDisable(false), rollDelay);
 	}
@@ -246,33 +250,35 @@ function DiceRoller() {
 				/>
 			</div>
 
-			<div className="button-container">
-				<Button
-					onClick={handleRoll}
-					className={"roll-dice-button"}
-					sx={
-						rollCount >= maxRolls
-							? {
-									color: "white",
-									backgroundColor: "rgb(200, 200, 200)",
-									borderRadius: "20%",
-									fontSize: "25px",
-									fontFamily: "'Roboto Mono', monospace",
-									marginRight: "35px",
-							  }
-							: {
-									color: "white",
-									backgroundColor: "#bc40ff",
-									borderRadius: "20%",
-									fontSize: "25px",
-									fontFamily: "'Roboto Mono', monospace",
-									marginRight: "35px",
-							  }
-					}
-					disabled={rollCount >= maxRolls ? true : false} //rollDisable
-				>
-					Roll Dice
-				</Button>
+			<div className={"button-container"}>
+				<div onClick={handleRoll}>
+					<Button
+						onClick={handleRoll}
+						className={buttonDumping ? "cup-dumping" : "roll-dice-button"}
+						sx={
+							rollCount >= maxRolls
+								? {
+										color: "white",
+										backgroundColor: "rgb(200, 200, 200)",
+										borderRadius: "20%",
+										fontSize: "25px",
+										fontFamily: "'Roboto Mono', monospace",
+										marginRight: "35px",
+								  }
+								: {
+										color: "white",
+										backgroundColor: "#bc40ff",
+										borderRadius: "20%",
+										fontSize: "25px",
+										fontFamily: "'Roboto Mono', monospace",
+										marginRight: "35px",
+								  }
+						}
+						disabled={rollCount >= maxRolls ? true : rollDisable}
+					>
+						Roll Dice
+					</Button>
+				</div>
 			</div>
 			{/* <div className="button-container">
 				<Button

@@ -67,6 +67,35 @@ $dice-dimensions: 150px;
 	// in line DiceRoller.tsx // border-radius: 25%;
 }
 
+// .my-button {
+// 	height: 125px;
+// 	width: 125px;
+// 	color: white;
+// 	background-color: #bc40ff;
+// 	border-radius: 20%;
+// 	font-size: 25px;
+// 	font-family: "Roboto Mono", monospace;
+// }
+
+.cup-dumping {
+	animation: cupdump 2s;
+	height: 125px;
+	width: 125px;
+	color: white;
+	background-color: #bc40ff;
+	border-radius: 20%;
+	font-size: 25px;
+	font-family: "Roboto Mono", monospace;
+}
+
+.my-button:hover {
+	animation: shaking 0.5s infinite;
+}
+
+// .my-button:active {
+// 	animation: cupdump 2s;
+// }
+
 .roll-dice-button:hover {
 	animation: shaking 0.5s infinite;
 }
