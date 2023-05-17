@@ -65,7 +65,7 @@ function DiceRoller() {
 	const maxRolls = 4;
 	const totalTurns = 13;
 	const rollDelay = 1400;
-	const resetDelay = 1500;
+	const resetDelay = 750;
 	const dumpDelay = 2000;
 
 	function handleRoll() {
