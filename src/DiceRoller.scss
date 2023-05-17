@@ -92,6 +92,7 @@ $dice-dimensions: 150px;
 .roll-dice-button:hover {
 	animation: shaking 0.5s 0.5s infinite;
 }
+
 .roll-dice-button:active {
 	animation: cupdump 1.75s;
 }
@@ -116,7 +117,7 @@ $dice-dimensions: 150px;
 	text-align: center;
 	border-radius: 20px;
 	margin-top: 125px;
- margin: auto;
+	margin: auto;
 	cursor: default;
 	p {
 		color: #e1a6ff;
@@ -124,16 +125,6 @@ $dice-dimensions: 150px;
 		font-weight: bolder;
 		padding: 1em;
 	}
-}
-
-.reset-dice-button {
-	height: 125px;
-	width: 125px;
-	// in line DiceRoller.tsx // border-radius: 25%;
-}
-
-.reset-dice-button:hover {
-	animation: shaking 0.5s infinite;
 }
 
 .footer-tips {
