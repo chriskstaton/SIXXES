@@ -29,7 +29,7 @@ $dice-dimensions: 150px;
 .dice-selected {
 	height: $dice-dimensions;
 	width: $dice-dimensions;
-	background-color: #e1a6ff;
+	background-color: gray; //#e1a6ff;
 	/* dark #8500CC */
 	display: inline-block;
 	vertical-align: middle;
