@@ -280,6 +280,7 @@ function DiceRoller() {
 					rollCount={rollCount}
 				/>
 			</div>
+			<div className="turn-counter">Turns remaining: {13 - turnCount}</div>
 		</>
 	);
 }

@@ -5,7 +5,12 @@ import Tips from "./Tips";
 function App() {
 	return (
 		<div className="App">
-			<h1>lite-SIXES</h1>
+			<h1>
+				SIXES
+				<span>-lite</span>
+				<div className="dotted" />
+			</h1>
+
 			<DiceRoller />
 			<Tips />
 		</div>

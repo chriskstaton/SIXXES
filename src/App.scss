@@ -17,4 +17,27 @@ body {
 h1 {
 	position: relative;
 	padding: 1rem;
+	font-size: 4em;
+
+	span {
+		font-size: xx-large;
+		opacity: 69%;
+	}
+}
+
+.dotted {
+	height: 8px;
+	width: 8px;
+	border-radius: 100%;
+	background-color: black;
+	display: inline-flex;
+	position: relative;
+	left: -36px;
+	margin-bottom: 19px;
+}
+
+h2 {
+	position: relative;
+	display: inline-flex;
+	font-size: xx-large;
 }
