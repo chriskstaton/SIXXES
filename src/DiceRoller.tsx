@@ -281,10 +281,10 @@ export function DiceRoller() {
 			<div>
 				<Scoreboard
 					diceCurrentValueArray={diceCurrentValueArray}
-					rollCount={rollCount}
 					turnCount={turnCount}
 					setTurnCount={setTurnCount}
 				/>
+				{/* rollCount={rollCount} */}
 			</div>
 			<div className="turn-counter">
 				<p>Turns remaining: {totalTurns - turnCount}</p>
