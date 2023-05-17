@@ -105,11 +105,11 @@ function Scoreboard(props: {
 		];
 
 		var filterLengths = allFiltersArray.map((a) => a.length);
+		var filterLengthThree = filterLengths.filter((el) => {
+			return el === 3;
+		});
 
-		//console.log('split!!!')
-		// Math.max(...filterLengths).filter((el) => {return el === 2;});
-
-		if (Math.max(...filterLengths) == 3 || Math.max(...filterLengths) == 6) {
+		if (filterLengthThree.length == 2 || Math.max(...filterLengths) == 6) {
 			return setSplitVal(
 				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
 			);
