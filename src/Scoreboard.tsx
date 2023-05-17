@@ -12,9 +12,10 @@ interface Categories {
 
 function Scoreboard(props: {
 	diceCurrentValueArray: number[];
-	rollCount: number;
+	//rollCount: number;
 	turnCount: number;
 	setTurnCount: Function;
+	resetDice(): void;
 }) {
 	var [onesScore, setOnesScore] = useState(0);
 	var [twosScore, setTwosScore] = useState(0);
@@ -60,6 +61,7 @@ function Scoreboard(props: {
 	function onesAdder(arr: number[]) {
 		var sumOnes = categoryFilter(props.diceCurrentValueArray, 1);
 		setOnesLocked(true);
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 		return setOnesScore(sumOnes);
 	}
@@ -67,6 +69,7 @@ function Scoreboard(props: {
 	function twosAdder(arr: number[]) {
 		var sumTwos = categoryFilter(props.diceCurrentValueArray, 2);
 		setTwosLocked(true);
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 		return setTwosScore(sumTwos);
 	}
@@ -74,6 +77,7 @@ function Scoreboard(props: {
 	function threesAdder(arr: number[]) {
 		var sumThrees = categoryFilter(props.diceCurrentValueArray, 3);
 		setThreesLocked(true);
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 		return setThreesScore(sumThrees);
 	}
@@ -81,6 +85,7 @@ function Scoreboard(props: {
 	function foursAdder(arr: number[]) {
 		var sumFours = categoryFilter(props.diceCurrentValueArray, 4);
 		setFoursLocked(true);
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 		return setFoursScore(sumFours);
 	}
@@ -88,6 +93,7 @@ function Scoreboard(props: {
 	function fivesAdder(arr: number[]) {
 		var sumFives = categoryFilter(props.diceCurrentValueArray, 5);
 		setFivesLocked(true);
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 		return setFivesScore(sumFives);
 	}
@@ -95,6 +101,7 @@ function Scoreboard(props: {
 	function sixesAdder(arr: number[]) {
 		var sumSixes = categoryFilter(props.diceCurrentValueArray, 6);
 		setSixesLocked(true);
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 		return setSixesScore(sumSixes);
 	}
@@ -102,6 +109,7 @@ function Scoreboard(props: {
 	function choiceAdder(arr: number[]) {
 		var choiceSum = arr.reduce((a, b) => a + b, 0);
 		setChoiceLock(true);
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 		return setChoiceScore(choiceSum);
 	}
@@ -142,6 +150,7 @@ function Scoreboard(props: {
 
 		setSplitLock(true);
 
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 
 		if (filterLengthThree.length == 2 || Math.max(...filterLengths) == 6) {
@@ -190,6 +199,7 @@ function Scoreboard(props: {
 
 		setFourKindLock(true);
 
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 
 		if (Math.max(...filterLengths) >= 4) {
@@ -232,6 +242,7 @@ function Scoreboard(props: {
 
 		console.log("max filterLength:" + Math.max(...filterLengths));
 
+		props.resetDice();
 		setFiveKindLock(true);
 
 		props.setTurnCount(props.turnCount + 1);
@@ -250,6 +261,7 @@ function Scoreboard(props: {
 
 		setSmallStraightLock(true);
 
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 
 		if (
@@ -266,6 +278,7 @@ function Scoreboard(props: {
 
 		setLargeStraightLock(true);
 
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 
 		if (
@@ -311,7 +324,7 @@ function Scoreboard(props: {
 		console.log("max filterLength:" + Math.max(...filterLengths));
 
 		setYachtLock(true);
-
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 
 		if (Math.max(...filterLengths) == 6) {

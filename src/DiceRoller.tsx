@@ -283,6 +283,7 @@ export function DiceRoller() {
 					diceCurrentValueArray={diceCurrentValueArray}
 					turnCount={turnCount}
 					setTurnCount={setTurnCount}
+					resetDice={resetDice}
 				/>
 				{/* rollCount={rollCount} */}
 			</div>
