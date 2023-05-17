@@ -23,7 +23,7 @@ $dice-dimensions: 150px;
 	vertical-align: middle;
 	margin: 10px;
 	border-radius: 15px;
-	animation: jump 0.75s;
+	animation: jump 1.5s;
 }
 
 .dice-selected {
@@ -88,19 +88,11 @@ $dice-dimensions: 150px;
 	font-family: "Roboto Mono", monospace;
 }
 
-.my-button:hover {
-	animation: shaking 0.5s infinite;
-}
-
-// .my-button:active {
-// 	animation: cupdump 2s;
-// }
-
 .roll-dice-button:hover {
 	animation: shaking 0.5s 0.5s infinite;
 }
 .roll-dice-button:active {
-	animation: cupdump 2s;
+	animation: cupdump 1.75s;
 }
 
 .roll-button-disabled {

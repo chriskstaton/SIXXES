@@ -300,8 +300,8 @@ function Scoreboard(props: {
 	var upperSum =
 		onesScore + twosScore + threesScore + foursScore + fivesScore + sixesScore;
 
-	if (upperSum >= 63) {
-		bonusVal = 45;
+	if (upperSum >= 66) {
+		bonusVal = 54;
 	}
 
 	var lowerSum =
@@ -399,7 +399,7 @@ function Scoreboard(props: {
 							<td>{sixesScore}</td>
 						</tr>
 						<tr className="upper-sum">
-							<th>Categories Sum</th>
+							<th>Upper Sum (Bonus {">="} 66)</th>
 							<td>{upperSum}</td>
 						</tr>
 						<tr

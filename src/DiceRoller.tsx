@@ -14,6 +14,7 @@ import Scoreboard from "./Scoreboard";
 
 function DiceRoller() {
 	var [rollCount, setRollCount] = useState(0);
+	var [turnCount, setTurnCount] = useState(0);
 
 	var [rollDisable, setRollDisable] = useState(false);
 
@@ -62,7 +63,7 @@ function DiceRoller() {
 	useEffect(() => console.log(diceCurrentValueArray), [rollCount]);
 
 	const maxRolls = 4;
-	const rollDelay = 1000;
+	const rollDelay = 1400;
 	const resetDelay = 1500;
 	const dumpDelay = 2000;
 
@@ -81,6 +82,7 @@ function DiceRoller() {
 	}
 
 	function resetDice() {
+		setTurnCount(turnCount + 1);
 		setResetAllDice(true);
 		setRollCount(0);
 		setValueOne(0);
@@ -110,42 +112,33 @@ function DiceRoller() {
 		if (isSelectedOne) {
 			var randomNumber1 = Math.floor(Math.random() * 6 + 1);
 			setValueOne(randomNumber1);
-			setTimeout(() => setImageOne(diceImages[randomNumber1]), rollDelay / 2.5);
+			setTimeout(() => setImageOne(diceImages[randomNumber1]), rollDelay);
 		}
 		if (isSelectedTwo) {
 			var randomNumber2 = Math.floor(Math.random() * 6 + 1);
 			setValueTwo(randomNumber2);
-			setTimeout(() => setImageTwo(diceImages[randomNumber2]), rollDelay / 2.5);
+			setTimeout(() => setImageTwo(diceImages[randomNumber2]), rollDelay);
 		}
 		if (isSelectedThree) {
 			var randomNumber3 = Math.floor(Math.random() * 6 + 1);
 			setValueThree(randomNumber3);
-			setTimeout(
-				() => setImageThree(diceImages[randomNumber3]),
-				rollDelay / 2.5
-			);
+			setTimeout(() => setImageThree(diceImages[randomNumber3]), rollDelay);
 		}
 		if (isSelectedFour) {
 			var randomNumber4 = Math.floor(Math.random() * 6 + 1);
 			setValueFour(randomNumber4);
-			setTimeout(
-				() => setImageFour(diceImages[randomNumber4]),
-				rollDelay / 2.5
-			);
+			setTimeout(() => setImageFour(diceImages[randomNumber4]), rollDelay);
 		}
 		if (isSelectedFive) {
 			var randomNumber5 = Math.floor(Math.random() * 6 + 1);
 			setValueFive(randomNumber5);
-			setTimeout(
-				() => setImageFive(diceImages[randomNumber5]),
-				rollDelay / 2.5
-			);
+			setTimeout(() => setImageFive(diceImages[randomNumber5]), rollDelay);
 		}
 
 		if (isSelectedSix) {
 			var randomNumber6 = Math.floor(Math.random() * 6 + 1);
 			setValueSix(randomNumber6);
-			setTimeout(() => setImageSix(diceImages[randomNumber6]), rollDelay / 2.5);
+			setTimeout(() => setImageSix(diceImages[randomNumber6]), rollDelay);
 		}
 		setTimeout(() => setRollingOne(false), rollDelay);
 		setTimeout(() => setRollingTwo(false), rollDelay);
