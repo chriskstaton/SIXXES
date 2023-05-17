@@ -268,8 +268,7 @@ function DiceRoller() {
 										backgroundColor: "#bc40ff",
 										borderRadius: "20%",
 										fontSize: "25px",
-										fontFamily: "'Roboto Mono', monospace",
-										marginRight: "35px",
+										fontFamily: "'Roboto Mono', monospace"
 								  }
 						}
 						disabled={rollCount >= maxRolls ? true : rollDisable}
