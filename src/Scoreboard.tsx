@@ -14,22 +14,37 @@ function Scoreboard(props: {
 	diceCurrentValueArray: number[];
 	rollCount: number;
 }) {
-	var [onesCatVal, setOnesCatVal] = useState(0);
-	var [twosCatVal, setTwosCatVal] = useState(0);
-	var [threesCatVal, setThreesCatVal] = useState(0);
-	var [foursCatVal, setFoursCatVal] = useState(0);
-	var [fivesCatVal, setFivesCatVal] = useState(0);
-	var [sixesCatVal, setSixesCatVal] = useState(0);
+	var [onesScore, setOnesScore] = useState(0);
+	var [twosScore, setTwosScore] = useState(0);
+	var [threesScore, setThreesScore] = useState(0);
+	var [foursScore, setFoursScore] = useState(0);
+	var [fivesScore, setFivesScore] = useState(0);
+	var [sixesScore, setSixesScore] = useState(0);
 
-	var [fourKindVal, setFourKindVal] = useState(0);
-	var [fiveKindVal, setFiveKindVal] = useState(0);
+	var [onesLocked, setOnesLocked] = useState(false);
+	var [twosLocked, setTwosLocked] = useState(false);
+	var [threesLocked, setThreesLocked] = useState(false);
+	var [foursLocked, setFoursLocked] = useState(false);
+	var [fivesLocked, setFivesLocked] = useState(false);
+	var [sixesLocked, setSixesLocked] = useState(false);
+
+	var [fourKindScore, setFourKindVal] = useState(0);
+	var [fiveKindScore, setFiveKindVal] = useState(0);
 	var [splitVal, setSplitVal] = useState(0);
 	var [smallStraightVal, setSmallStraightVal] = useState(0);
 	var [largeStraightVal, setLargeStraightVal] = useState(0);
 
-	var [choiceCatVal, setChoiceCatVal] = useState(0);
+	var [fourKindLock, setFourKindLock] = useState(false);
+	var [fiveKindLock, setFiveKindLock] = useState(false);
+	var [splitLock, setSplitLock] = useState(false);
+	var [smallStraightLock, setSmallStraightLock] = useState(false);
+	var [largeStraightLock, setLargeStraightLock] = useState(false);
 
-	var [yachtCatVal, setYachtCatVal] = useState(0);
+	var [choiceScore, setChoiceScore] = useState(0);
+	var [choiceLock, setChoiceLock] = useState(false);
+
+	var [yachtScore, setYachtScore] = useState(0);
+	var [yachtLock, setYachtLock] = useState(false);
 
 	var bonusVal = 0;
 
@@ -42,37 +57,44 @@ function Scoreboard(props: {
 
 	function onesAdder(arr: number[]) {
 		var sumOnes = categoryFilter(props.diceCurrentValueArray, 1);
-		return setOnesCatVal(sumOnes);
+		setOnesLocked(true);
+		return setOnesScore(sumOnes);
 	}
 
 	function twosAdder(arr: number[]) {
 		var sumTwos = categoryFilter(props.diceCurrentValueArray, 2);
-		return setTwosCatVal(sumTwos);
+		setTwosLocked(true);
+		return setTwosScore(sumTwos);
 	}
 
 	function threesAdder(arr: number[]) {
 		var sumThrees = categoryFilter(props.diceCurrentValueArray, 3);
-		return setThreesCatVal(sumThrees);
+		setThreesLocked(true);
+		return setThreesScore(sumThrees);
 	}
 
 	function foursAdder(arr: number[]) {
 		var sumFours = categoryFilter(props.diceCurrentValueArray, 4);
-		return setFoursCatVal(sumFours);
+		setFoursLocked(true);
+		return setFoursScore(sumFours);
 	}
 
 	function fivesAdder(arr: number[]) {
 		var sumFives = categoryFilter(props.diceCurrentValueArray, 5);
-		return setFivesCatVal(sumFives);
+		setFivesLocked(true);
+		return setFivesScore(sumFives);
 	}
 
 	function sixesAdder(arr: number[]) {
 		var sumSixes = categoryFilter(props.diceCurrentValueArray, 6);
-		return setSixesCatVal(sumSixes);
+		setSixesLocked(true);
+		return setSixesScore(sumSixes);
 	}
 
 	function choiceAdder(arr: number[]) {
 		var choiceSum = arr.reduce((a, b) => a + b, 0);
-		return setChoiceCatVal(choiceSum);
+		setChoiceLock(true);
+		return setChoiceScore(choiceSum);
 	}
 
 	function checkSplit(arr: number[]) {
@@ -109,6 +131,7 @@ function Scoreboard(props: {
 			return el === 3;
 		});
 
+		setSplitLock(true);
 		if (filterLengthThree.length == 2 || Math.max(...filterLengths) == 6) {
 			return setSplitVal(
 				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
@@ -153,6 +176,8 @@ function Scoreboard(props: {
 		// console.log(
 		// 	allFiltersArray[filterLengths.indexOf(Math.max(...filterLengths))]
 		// );
+
+		setFourKindLock(true);
 		if (Math.max(...filterLengths) >= 4) {
 			return setFourKindVal(
 				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
@@ -196,6 +221,7 @@ function Scoreboard(props: {
 
 		console.log("max filterLength:" + Math.max(...filterLengths));
 
+		setFiveKindLock(true);
 		if (Math.max(...filterLengths) >= 5) {
 			return setFiveKindVal(
 				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
@@ -210,6 +236,7 @@ function Scoreboard(props: {
 		const arrSmallStraight1 = [1, 2, 3, 4];
 		const arrSmallStraight2 = [2, 3, 4, 5];
 		const arrSmallStraight3 = [3, 4, 5, 6];
+		setSmallStraightLock(true);
 		if (
 			arrSmallStraight1.every((i) => arr.includes(i)) ||
 			arrSmallStraight2.every((i) => arr.includes(i)) ||
@@ -222,6 +249,7 @@ function Scoreboard(props: {
 	function checkLargeStraight(arr: number[]) {
 		const arrLargeStraight1 = [1, 2, 3, 4, 5];
 		const arrLargeStraight2 = [2, 3, 4, 5, 6];
+		setLargeStraightLock(true);
 		if (
 			arrLargeStraight1.every((i) => arr.includes(i)) ||
 			arrLargeStraight2.every((i) => arr.includes(i))
@@ -263,44 +291,39 @@ function Scoreboard(props: {
 		var filterLengths = allFiltersArray.map((a) => a.length);
 
 		console.log("max filterLength:" + Math.max(...filterLengths));
-
+		setYachtLock(true);
 		if (Math.max(...filterLengths) == 6) {
-			return setYachtCatVal(100);
-		} else return setYachtCatVal(0);
+			return setYachtScore(100);
+		} else return setYachtScore(0);
 	}
 
 	var upperSum =
-		onesCatVal +
-		twosCatVal +
-		threesCatVal +
-		foursCatVal +
-		fivesCatVal +
-		sixesCatVal;
+		onesScore + twosScore + threesScore + foursScore + fivesScore + sixesScore;
 
 	if (upperSum >= 63) {
 		bonusVal = 45;
 	}
 
 	var lowerSum =
-		choiceCatVal +
-		fourKindVal +
-		fiveKindVal +
+		choiceScore +
+		fourKindScore +
+		fiveKindScore +
 		splitVal +
 		smallStraightVal +
 		largeStraightVal +
-		yachtCatVal;
+		yachtScore;
 
 	var totalSum = upperSum + lowerSum + bonusVal;
 
 	// useEffect(() => {
 	// 	console.log(
 	// 		"sums ",
-	// 		onesCatVal,
-	// 		twosCatVal,
-	// 		threesCatVal,
-	// 		foursCatVal,
-	// 		fivesCatVal,
-	// 		sixesCatVal
+	// 		onesScore,
+	// 		twosScore,
+	// 		threesScore,
+	// 		foursScore,
+	// 		fivesScore,
+	// 		sixesScore
 	// 	);
 	// }, [props.rollCount]);
 
@@ -309,61 +332,139 @@ function Scoreboard(props: {
 			<div className="scoreboard">
 				<table className="upper-categories">
 					<thead>
-						<tr onClick={() => onesAdder(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								onesLocked
+									? () => {}
+									: () => onesAdder(props.diceCurrentValueArray)
+							}
+						>
 							<th>Ones</th>
-							<td>{onesCatVal}</td>
+							<td>{onesScore}</td>
 						</tr>
-						<tr onClick={() => twosAdder(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								twosLocked
+									? () => {}
+									: () => twosAdder(props.diceCurrentValueArray)
+							}
+						>
 							<th>Twos</th>
-							<td>{twosCatVal}</td>
+							<td>{twosScore}</td>
 						</tr>
-						<tr onClick={() => threesAdder(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								threesLocked
+									? () => {}
+									: () => threesAdder(props.diceCurrentValueArray)
+							}
+						>
 							<th>Threes</th>
-							<td>{threesCatVal}</td>
+							<td>{threesScore}</td>
 						</tr>
-						<tr onClick={() => foursAdder(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								foursLocked
+									? () => {}
+									: () => foursAdder(props.diceCurrentValueArray)
+							}
+						>
 							<th>Fours</th>
-							<td>{foursCatVal}</td>
+							<td>{foursScore}</td>
 						</tr>
-						<tr onClick={() => fivesAdder(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								fivesLocked
+									? () => {}
+									: () => fivesAdder(props.diceCurrentValueArray)
+							}
+						>
 							<th>Fives</th>
-							<td>{fivesCatVal}</td>
+							<td>{fivesScore}</td>
 						</tr>
-						<tr onClick={() => sixesAdder(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								sixesLocked
+									? () => {}
+									: () => sixesAdder(props.diceCurrentValueArray)
+							}
+						>
 							<th>Sixes</th>
-							<td>{sixesCatVal}</td>
+							<td>{sixesScore}</td>
 						</tr>
 						<tr className="upper-sum">
 							<th>Categories Sum</th>
 							<td>{upperSum}</td>
 						</tr>
-						<tr onClick={() => choiceAdder(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								choiceLock
+									? () => {}
+									: () => choiceAdder(props.diceCurrentValueArray)
+							}
+						>
 							<th>Choice</th>
-							<td>{choiceCatVal}</td>
+							<td>{choiceScore}</td>
 						</tr>
-						<tr onClick={() => checkFourKind(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								fourKindLock
+									? () => {}
+									: () => checkFourKind(props.diceCurrentValueArray)
+							}
+						>
 							<th>Four of a kind</th>
-							<td>{fourKindVal}</td>
+							<td>{fourKindScore}</td>
 						</tr>
-						<tr onClick={() => checkFiveKind(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								fiveKindLock
+									? () => {}
+									: () => checkFiveKind(props.diceCurrentValueArray)
+							}
+						>
 							<th>Five of a kind</th>
-							<td>{fiveKindVal}</td>
+							<td>{fiveKindScore}</td>
 						</tr>
-						<tr onClick={() => checkSplit(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								splitLock
+									? () => {}
+									: () => checkSplit(props.diceCurrentValueArray)
+							}
+						>
 							<th>Split</th>
 							<td>{splitVal}</td>
 						</tr>
-						<tr onClick={() => checkSmallStraight(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								smallStraightLock
+									? () => {}
+									: () => checkSmallStraight(props.diceCurrentValueArray)
+							}
+						>
 							<th>Small Straight</th>
 							<td>{smallStraightVal}</td>
 						</tr>
-						<tr onClick={() => checkLargeStraight(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								largeStraightLock
+									? () => {}
+									: () => checkLargeStraight(props.diceCurrentValueArray)
+							}
+						>
 							<th>Large Straight</th>
 							<td>{largeStraightVal}</td>
 						</tr>
-						<tr onClick={() => checkYacht(props.diceCurrentValueArray)}>
+						<tr
+							onClick={
+								yachtLock
+									? () => {}
+									: () => checkYacht(props.diceCurrentValueArray)
+							}
+						>
 							<th>Yacht!</th>
-							<td>{yachtCatVal}</td>
+							<td>{yachtScore}</td>
 						</tr>
 						<tr className="total-score">
 							<th>Total Score</th>
