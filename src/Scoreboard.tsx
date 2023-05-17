@@ -193,17 +193,42 @@ function Scoreboard(props: {
 	}
 
 	function checkYacht(arr: number[]) {
-		props.diceCurrentValueArray.filter((el, value) => {});
-		// filter currentDiceArray for each possible dice value
-		// length of filtered array >= 6 kind minimum
-	}
+		var filterOnes = arr.filter((el) => {
+			return el === 1;
+		});
+		var filterTwos = arr.filter((el) => {
+			return el === 2;
+		});
+		var filterThrees = arr.filter((el) => {
+			return el === 3;
+		});
+		var filterFours = arr.filter((el) => {
+			return el === 4;
+		});
+		var filterFives = arr.filter((el) => {
+			return el === 5;
+		});
+		var filterSixes = arr.filter((el) => {
+			return el === 6;
+		});
 
-	// var sumTwos = categoryFilter(props.diceCurrentValueArray, 2);
-	// var sumThrees = categoryFilter(props.diceCurrentValueArray, 3);
-	// var sumFours = categoryFilter(props.diceCurrentValueArray, 4);
-	// var sumFives = categoryFilter(props.diceCurrentValueArray, 5);
-	// var sumSixes = categoryFilter(props.diceCurrentValueArray, 6);
-	// var sumChoice = choiceAdder(props.diceCurrentValueArray);
+		var allFiltersArray = [
+			filterOnes,
+			filterTwos,
+			filterThrees,
+			filterFours,
+			filterFives,
+			filterSixes,
+		];
+
+		var filterLengths = allFiltersArray.map((a) => a.length);
+
+		console.log("max filterLength:" + Math.max(...filterLengths));
+
+		if (Math.max(...filterLengths) == 6) {
+			return setYachtCatVal(100);
+		} else return setYachtCatVal(0);
+	}
 
 	var upperSum =
 		onesCatVal +
@@ -217,8 +242,9 @@ function Scoreboard(props: {
 		bonusVal = 45;
 	}
 
-	var lowerSum = choiceCatVal;
-	fourKindVal +
+	var lowerSum =
+		choiceCatVal +
+		fourKindVal +
 		fiveKindVal +
 		splitVal +
 		smallStraightVal +
@@ -228,17 +254,15 @@ function Scoreboard(props: {
 	var totalSum = upperSum + lowerSum + bonusVal;
 
 	// useEffect(() => {
-	// 	if (sumOnes || sumTwos || sumThrees || sumFours || sumFives || sumSixes) {
-	// 		console.log(
-	// 			"sums ",
-	// 			sumOnes,
-	// 			sumTwos,
-	// 			sumThrees,
-	// 			sumFours,
-	// 			sumFives,
-	// 			sumSixes
-	// 		);
-	// 	}
+	// 	console.log(
+	// 		"sums ",
+	// 		onesCatVal,
+	// 		twosCatVal,
+	// 		threesCatVal,
+	// 		foursCatVal,
+	// 		fivesCatVal,
+	// 		sixesCatVal
+	// 	);
 	// }, [props.rollCount]);
 
 	return (
@@ -293,7 +317,6 @@ function Scoreboard(props: {
 							<th>Split</th>
 							<td>{splitVal}</td>
 						</tr>
-
 						<tr onClick={() => checkSmallStraight(props.diceCurrentValueArray)}>
 							<th>Small Straight</th>
 							<td>{smallStraightVal}</td>
