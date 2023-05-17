@@ -63,47 +63,52 @@ function DiceRoller() {
 	useEffect(() => console.log(diceCurrentValueArray), [rollCount]);
 
 	const maxRolls = 4;
+	const totalTurns = 13;
 	const rollDelay = 1400;
 	const resetDelay = 1500;
 	const dumpDelay = 2000;
 
 	function handleRoll() {
-		setRollDisable(true);
-		setRollingOne(true);
-		setRollingTwo(true);
-		setRollingThree(true);
-		setRollingFour(true);
-		setRollingFive(true);
-		setRollingSix(true);
-		setButtonDumping(true);
-		setTimeout(() => setButtonDumping(false), dumpDelay);
-		rollDice();
-		setTimeout(() => setRollDisable(false), rollDelay);
+		if (turnCount < totalTurns) {
+			setRollDisable(true);
+			setRollingOne(true);
+			setRollingTwo(true);
+			setRollingThree(true);
+			setRollingFour(true);
+			setRollingFive(true);
+			setRollingSix(true);
+			setButtonDumping(true);
+			setTimeout(() => setButtonDumping(false), dumpDelay);
+			rollDice();
+			setTimeout(() => setRollDisable(false), rollDelay);
+		} else return;
 	}
 
 	function resetDice() {
-		setTurnCount(turnCount + 1);
-		setResetAllDice(true);
-		setRollCount(0);
-		setValueOne(0);
-		setValueTwo(0);
-		setValueThree(0);
-		setValueFour(0);
-		setValueFive(0);
-		setValueSix(0);
-		setTimeout(() => setImageOne(diceImages[0]), resetDelay);
-		setTimeout(() => setImageTwo(diceImages[0]), resetDelay);
-		setTimeout(() => setImageThree(diceImages[0]), resetDelay);
-		setTimeout(() => setImageFour(diceImages[0]), resetDelay);
-		setTimeout(() => setImageFive(diceImages[0]), resetDelay);
-		setTimeout(() => setImageSix(diceImages[0]), resetDelay);
-		setIsSelectedOne(true);
-		setIsSelectedTwo(true);
-		setIsSelectedThree(true);
-		setIsSelectedFour(true);
-		setIsSelectedFive(true);
-		setIsSelectedSix(true);
-		setTimeout(() => setResetAllDice(false), resetDelay);
+		if (turnCount < totalTurns) {
+			setTurnCount(turnCount + 1);
+			setResetAllDice(true);
+			setRollCount(0);
+			setValueOne(0);
+			setValueTwo(0);
+			setValueThree(0);
+			setValueFour(0);
+			setValueFive(0);
+			setValueSix(0);
+			setTimeout(() => setImageOne(diceImages[0]), resetDelay);
+			setTimeout(() => setImageTwo(diceImages[0]), resetDelay);
+			setTimeout(() => setImageThree(diceImages[0]), resetDelay);
+			setTimeout(() => setImageFour(diceImages[0]), resetDelay);
+			setTimeout(() => setImageFive(diceImages[0]), resetDelay);
+			setTimeout(() => setImageSix(diceImages[0]), resetDelay);
+			setIsSelectedOne(true);
+			setIsSelectedTwo(true);
+			setIsSelectedThree(true);
+			setIsSelectedFour(true);
+			setIsSelectedFive(true);
+			setIsSelectedSix(true);
+			setTimeout(() => setResetAllDice(false), resetDelay);
+		} else return;
 	}
 
 	function rollDice() {
@@ -244,7 +249,7 @@ function DiceRoller() {
 			</div>
 
 			<div className={"button-container"}>
-				<div onClick={handleRoll}>
+				<div>
 					<Button
 						onClick={handleRoll}
 						className={buttonDumping ? "cup-dumping" : "roll-dice-button"}
@@ -273,14 +278,18 @@ function DiceRoller() {
 					</Button>
 				</div>
 			</div>
-			<div className="roll-counter">Rolls remaining: {4 - rollCount}</div>
+			<div className="roll-counter">
+				Rolls remaining: {maxRolls - rollCount}
+			</div>
 			<div onClick={resetDice}>
 				<Scoreboard
 					diceCurrentValueArray={diceCurrentValueArray}
 					rollCount={rollCount}
 				/>
 			</div>
-			<div className="turn-counter">Turns remaining: {13 - turnCount}</div>
+			<div className="turn-counter">
+				<p>Turns remaining: {totalTurns - turnCount}</p>
+			</div>
 		</>
 	);
 }

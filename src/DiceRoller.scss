@@ -13,6 +13,7 @@ $dice-dimensions: 150px;
 	vertical-align: middle;
 	margin: 10px;
 	border-radius: 15px;
+	cursor: pointer;
 }
 
 .dice-roll {
@@ -106,12 +107,23 @@ $dice-dimensions: 150px;
 	font-size: xx-large;
 	font-family: "Roboto Mono", monospace;
 	margin-top: 15px;
+	cursor: default;
 }
 
 .turn-counter {
-	color: #bc40ff;
-	font-size: xx-large;
-	font-family: "Roboto Mono", monospace;
+	background-color: white;
+	width: 75vw;
+	text-align: center;
+	border-radius: 20px;
+	margin-top: 125px;
+	margin: auto;
+	cursor: default;
+	p {
+		color: #e1a6ff;
+		font-size: xx-large;
+		font-weight: bolder;
+		padding: 2em;
+	}
 }
 
 .reset-dice-button {

@@ -15,7 +15,7 @@ function App() {
 			</div>
 
 			<DiceRoller />
-			<Tips />
+			{/* <Tips /> */}
 		</div>
 	);
 }
