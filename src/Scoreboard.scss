@@ -1,50 +1,48 @@
 $scoreboard-border: 4px solid rgba(255, 255, 255, 0.4);
 
 .scoreboard-container {
-	margin-top: 50px;
-	display: inline-grid;
-	border: 4px solid white;
-	border-radius: 20px;
-	table-layout: auto;
-	font-size: x-large;
-	width: 75vw;
-	max-width: 600px;
-	overflow: hidden;
+	.scoreboard {
+		margin-top: 50px;
+		display: inline-grid;
+		border: 4px solid white;
+		border-radius: 20px;
+		table-layout: auto;
+		font-size: x-large;
+		width: 75vw;
+		max-width: 600px;
+		overflow: hidden;
 
-	table {
-		text-align: center;
-		border-collapse: collapse;
-		height: 90vh;
-	}
+		table {
+			text-align: center;
+			border-collapse: collapse;
+			height: 90vh;
+		}
 
-	tr {
-		border-bottom: $scoreboard-border;
-	}
+		tr {
+			border-bottom: $scoreboard-border;
+		}
 
-	th {
-		text-align: left;
-		padding-left: 20px;
-	}
+		th {
+			text-align: left;
+			padding-left: 20px;
+		}
 
-	td {
-		text-align: center;
-		width: 100px;
-		font-family: "Roboto Mono", monospace;
-	}
+		td {
+			text-align: center;
+			width: 100px;
+			font-family: "Roboto Mono", monospace;
+		}
 
-	.upper-sum {
-		color: rgb(230, 230, 230);
-		height: 75px;
-	}
+		.upper-sum {
+			color: rgb(230, 230, 230);
+			height: 75px;
+		}
 
-	.choice-category {
-		border-top: $scoreboard-border;
-	}
-
-	.total-score {
-		color: #e1a6ff;
-		height: 75px;
-		border: none;
-		background-color: white;
+		.total-score {
+			color: #e1a6ff;
+			height: 75px;
+			border: none;
+			background-color: white;
+		}
 	}
 }

@@ -9,6 +9,7 @@ import Dice3 from "../src/images/dice3.svg";
 import Dice4 from "../src/images/dice4.svg";
 import Dice5 from "../src/images/dice5.svg";
 import Dice6 from "../src/images/dice6.svg";
+
 import Scoreboard from "./Scoreboard";
 
 function DiceRoller() {
@@ -158,7 +159,6 @@ function DiceRoller() {
 
 	return (
 		<>
-			<h1>Yacht Dice</h1>
 			<div className="dice-container">
 				<img
 					className={
@@ -280,7 +280,7 @@ function DiceRoller() {
 					Reset Dice
 				</Button>
 			</div>
-			<div className="roll-counter">Roll Count: {rollCount}</div>
+			{/* <div className="roll-counter">Roll Count: {rollCount}</div> */}
 			<Scoreboard
 				diceCurrentValueArray={diceCurrentValueArray}
 				rollCount={rollCount}
