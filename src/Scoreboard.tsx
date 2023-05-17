@@ -40,6 +40,36 @@ function Scoreboard(props: {
 		return onlyCategory.reduce((a, b) => a + b, 0); //reconsider extraction of this line
 	}
 
+	function onesAdder(arr: number[]) {
+		var sumOnes = categoryFilter(props.diceCurrentValueArray, 1);
+		return setOnesCatVal(sumOnes);
+	}
+
+	function twosAdder(arr: number[]) {
+		var sumTwos = categoryFilter(props.diceCurrentValueArray, 2);
+		return setTwosCatVal(sumTwos);
+	}
+
+	function threesAdder(arr: number[]) {
+		var sumThrees = categoryFilter(props.diceCurrentValueArray, 3);
+		return setThreesCatVal(sumThrees);
+	}
+
+	function foursAdder(arr: number[]) {
+		var sumFours = categoryFilter(props.diceCurrentValueArray, 4);
+		return setFoursCatVal(sumFours);
+	}
+
+	function fivesAdder(arr: number[]) {
+		var sumFives = categoryFilter(props.diceCurrentValueArray, 5);
+		return setFivesCatVal(sumFives);
+	}
+
+	function sixesAdder(arr: number[]) {
+		var sumSixes = categoryFilter(props.diceCurrentValueArray, 6);
+		return setSixesCatVal(sumSixes);
+	}
+
 	function choiceAdder(arr: number[]) {
 		var choiceSum = arr.reduce((a, b) => a + b, 0);
 		return setChoiceCatVal(choiceSum);
@@ -146,7 +176,7 @@ function Scoreboard(props: {
 			arrSmallStraight2.every((i) => arr.includes(i)) ||
 			arrSmallStraight3.every((i) => arr.includes(i))
 		) {
-			console.log("small straight!");
+			//console.log("small straight!");
 			return setSmallStraightVal(45);
 		} else return setSmallStraightVal(0);
 	}
@@ -157,7 +187,7 @@ function Scoreboard(props: {
 			arrLargeStraight1.every((i) => arr.includes(i)) ||
 			arrLargeStraight2.every((i) => arr.includes(i))
 		) {
-			console.log("large straight!");
+			//console.log("large straight!");
 			return setLargeStraightVal(60);
 		} else return setLargeStraightVal(0);
 	}
@@ -168,12 +198,11 @@ function Scoreboard(props: {
 		// length of filtered array >= 6 kind minimum
 	}
 
-	var sumOnes = categoryFilter(props.diceCurrentValueArray, 1);
-	var sumTwos = categoryFilter(props.diceCurrentValueArray, 2);
-	var sumThrees = categoryFilter(props.diceCurrentValueArray, 3);
-	var sumFours = categoryFilter(props.diceCurrentValueArray, 4);
-	var sumFives = categoryFilter(props.diceCurrentValueArray, 5);
-	var sumSixes = categoryFilter(props.diceCurrentValueArray, 6);
+	// var sumTwos = categoryFilter(props.diceCurrentValueArray, 2);
+	// var sumThrees = categoryFilter(props.diceCurrentValueArray, 3);
+	// var sumFours = categoryFilter(props.diceCurrentValueArray, 4);
+	// var sumFives = categoryFilter(props.diceCurrentValueArray, 5);
+	// var sumSixes = categoryFilter(props.diceCurrentValueArray, 6);
 	// var sumChoice = choiceAdder(props.diceCurrentValueArray);
 
 	var upperSum =
@@ -198,46 +227,46 @@ function Scoreboard(props: {
 
 	var totalSum = upperSum + lowerSum + bonusVal;
 
-	useEffect(() => {
-		if (sumOnes || sumTwos || sumThrees || sumFours || sumFives || sumSixes) {
-			console.log(
-				"sums ",
-				sumOnes,
-				sumTwos,
-				sumThrees,
-				sumFours,
-				sumFives,
-				sumSixes
-			);
-		}
-	}, [props.rollCount]);
+	// useEffect(() => {
+	// 	if (sumOnes || sumTwos || sumThrees || sumFours || sumFives || sumSixes) {
+	// 		console.log(
+	// 			"sums ",
+	// 			sumOnes,
+	// 			sumTwos,
+	// 			sumThrees,
+	// 			sumFours,
+	// 			sumFives,
+	// 			sumSixes
+	// 		);
+	// 	}
+	// }, [props.rollCount]);
 
 	return (
 		<div className="scoreboard-container">
 			<div className="scoreboard">
 				<table className="upper-categories">
 					<thead>
-						<tr onClick={() => setOnesCatVal(sumOnes)}>
+						<tr onClick={() => onesAdder(props.diceCurrentValueArray)}>
 							<th>Ones</th>
 							<td>{onesCatVal}</td>
 						</tr>
-						<tr onClick={() => setTwosCatVal(sumTwos)}>
+						<tr onClick={() => twosAdder(props.diceCurrentValueArray)}>
 							<th>Twos</th>
 							<td>{twosCatVal}</td>
 						</tr>
-						<tr onClick={() => setThreesCatVal(sumThrees)}>
+						<tr onClick={() => threesAdder(props.diceCurrentValueArray)}>
 							<th>Threes</th>
 							<td>{threesCatVal}</td>
 						</tr>
-						<tr onClick={() => setFoursCatVal(sumFours)}>
+						<tr onClick={() => foursAdder(props.diceCurrentValueArray)}>
 							<th>Fours</th>
 							<td>{foursCatVal}</td>
 						</tr>
-						<tr onClick={() => setFivesCatVal(sumFives)}>
+						<tr onClick={() => fivesAdder(props.diceCurrentValueArray)}>
 							<th>Fives</th>
 							<td>{fivesCatVal}</td>
 						</tr>
-						<tr onClick={() => setSixesCatVal(sumSixes)}>
+						<tr onClick={() => sixesAdder(props.diceCurrentValueArray)}>
 							<th>Sixes</th>
 							<td>{sixesCatVal}</td>
 						</tr>
