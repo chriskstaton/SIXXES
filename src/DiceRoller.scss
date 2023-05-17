@@ -68,7 +68,7 @@ $dice-dimensions: 150px;
 }
 
 .roll-dice-button:hover {
-	animation: cupdump 1.5s;
+	animation: cupdump 2s;
 }
 
 .roll-counter {
@@ -156,8 +156,8 @@ $dice-dimensions: 150px;
 	30% {
 		transform: rotate(-20deg);
 	}
-	40% {
-		transform: rotate(20deg);
+	50% {
+		transform: rotate(40deg);
 	}
 	70% {
 		transform: rotate(-140deg);
