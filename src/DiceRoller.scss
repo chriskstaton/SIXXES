@@ -97,7 +97,7 @@ $dice-dimensions: 150px;
 // }
 
 .roll-dice-button:hover {
-	animation: shaking 0.5s infinite;
+	animation: shaking 0.5s 0.5s infinite;
 }
 .roll-dice-button:active {
 	animation: cupdump 2s;

@@ -89,12 +89,12 @@ function DiceRoller() {
 		setValueFour(0);
 		setValueFive(0);
 		setValueSix(0);
-		setTimeout(() => setImageOne(diceImages[0]), resetDelay * 0.5);
-		setTimeout(() => setImageTwo(diceImages[0]), resetDelay * 0.5);
-		setTimeout(() => setImageThree(diceImages[0]), resetDelay * 0.5);
-		setTimeout(() => setImageFour(diceImages[0]), resetDelay * 0.5);
-		setTimeout(() => setImageFive(diceImages[0]), resetDelay * 0.5);
-		setTimeout(() => setImageSix(diceImages[0]), resetDelay * 0.5);
+		setTimeout(() => setImageOne(diceImages[0]), resetDelay);
+		setTimeout(() => setImageTwo(diceImages[0]), resetDelay);
+		setTimeout(() => setImageThree(diceImages[0]), resetDelay);
+		setTimeout(() => setImageFour(diceImages[0]), resetDelay);
+		setTimeout(() => setImageFive(diceImages[0]), resetDelay);
+		setTimeout(() => setImageSix(diceImages[0]), resetDelay);
 		setIsSelectedOne(true);
 		setIsSelectedTwo(true);
 		setIsSelectedThree(true);
@@ -280,23 +280,6 @@ function DiceRoller() {
 					</Button>
 				</div>
 			</div>
-			{/* <div className="button-container">
-				<Button
-					onClick={resetDice}
-					className="reset-dice-button"
-					sx={{
-						color: "white",
-						backgroundColor: "#FF0000",
-						borderRadius: "20%",
-						fontSize: "25px",
-						fontFamily: "'Roboto Mono', monospace",
-						marginLeft: "35px",
-					}}
-					disabled={rollDisable}
-				>
-					Reset Dice
-				</Button>
-			</div> */}
 			<div className="roll-counter">Rolls remaining: {4 - rollCount}</div>
 			<div onClick={resetDice}>
 				<Scoreboard
