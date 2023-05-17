@@ -5,11 +5,14 @@ import Tips from "./Tips";
 function App() {
 	return (
 		<div className="App">
-			<h1>
-				SIXES
-				<span>-lite</span>
-				<div className="dotted" />
-			</h1>
+			<div className="header-container">
+				<div className="header">
+					SI<span className="x">X</span>ES
+					<span>-lite</span>
+					<div className="dotted" />
+				</div>
+				<span className="XX">XX</span>
+			</div>
 
 			<DiceRoller />
 			<Tips />
