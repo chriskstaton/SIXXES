@@ -65,7 +65,7 @@ function DiceRoller() {
 	const maxRolls = 4;
 	const totalTurns = 13;
 	const rollDelay = 1400;
-	const resetDelay = 750;
+	const resetDelay = 1500;
 	const dumpDelay = 2000;
 
 	function handleRoll() {
@@ -95,12 +95,12 @@ function DiceRoller() {
 			setValueFour(0);
 			setValueFive(0);
 			setValueSix(0);
-			setTimeout(() => setImageOne(diceImages[0]), resetDelay);
-			setTimeout(() => setImageTwo(diceImages[0]), resetDelay);
-			setTimeout(() => setImageThree(diceImages[0]), resetDelay);
-			setTimeout(() => setImageFour(diceImages[0]), resetDelay);
-			setTimeout(() => setImageFive(diceImages[0]), resetDelay);
-			setTimeout(() => setImageSix(diceImages[0]), resetDelay);
+			setTimeout(() => setImageOne(diceImages[0]), resetDelay / 2);
+			setTimeout(() => setImageTwo(diceImages[0]), resetDelay / 2);
+			setTimeout(() => setImageThree(diceImages[0]), resetDelay / 2);
+			setTimeout(() => setImageFour(diceImages[0]), resetDelay / 2);
+			setTimeout(() => setImageFive(diceImages[0]), resetDelay / 2);
+			setTimeout(() => setImageSix(diceImages[0]), resetDelay / 2);
 			setIsSelectedOne(true);
 			setIsSelectedTwo(true);
 			setIsSelectedThree(true);
