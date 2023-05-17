@@ -12,7 +12,7 @@ import Dice6 from "../src/images/dice6.svg";
 
 import Scoreboard from "./Scoreboard";
 
-function DiceRoller() {
+export function DiceRoller() {
 	var [rollCount, setRollCount] = useState(0);
 	var [turnCount, setTurnCount] = useState(0);
 
@@ -80,6 +80,7 @@ function DiceRoller() {
 			setButtonDumping(true);
 			setTimeout(() => setButtonDumping(false), dumpDelay);
 			rollDice();
+			setRollCount(rollCount + 1);
 			setTimeout(() => setRollDisable(false), rollDelay);
 		} else return;
 	}
@@ -112,8 +113,6 @@ function DiceRoller() {
 	}
 
 	function rollDice() {
-		setRollCount(rollCount + 1);
-
 		if (isSelectedOne) {
 			var randomNumber1 = Math.floor(Math.random() * 6 + 1);
 			setValueOne(randomNumber1);
@@ -279,10 +278,12 @@ function DiceRoller() {
 			<div className="roll-counter">
 				Rolls remaining: {maxRolls - rollCount}
 			</div>
-			<div onClick={resetDice}>
+			<div>
 				<Scoreboard
 					diceCurrentValueArray={diceCurrentValueArray}
 					rollCount={rollCount}
+					turnCount={turnCount}
+					setTurnCount={setTurnCount}
 				/>
 			</div>
 			<div className="turn-counter">
