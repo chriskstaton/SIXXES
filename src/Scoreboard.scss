@@ -50,7 +50,9 @@ $scoreboard-border: 4px solid rgba(255, 255, 255, 0.4);
 		}
 
 		.locked-row {
+			color: #e1a6ff;
 			cursor: default;
+			background-color: white;
 		}
 	}
 }
