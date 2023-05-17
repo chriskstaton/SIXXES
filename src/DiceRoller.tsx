@@ -58,9 +58,9 @@ function DiceRoller() {
 		valueSix,
 	];
 
-	//console.log(diceCurrentValueArray);
-	//console.log(valueOne, valueTwo, valueThree, valueFour, valueFive);
+	useEffect(() => console.log(diceCurrentValueArray), [rollCount]);
 
+	const maxRolls = 4;
 	const rollDelay = 1000;
 	const resetDelay = 1500;
 
@@ -249,21 +249,32 @@ function DiceRoller() {
 			<div className="button-container">
 				<Button
 					onClick={handleRoll}
-					className="roll-dice-button"
-					sx={{
-						color: "white",
-						backgroundColor: "#bc40ff",
-						borderRadius: "20%",
-						fontSize: "25px",
-						fontFamily: "'Roboto Mono', monospace",
-						marginRight: "35px",
-					}}
-					disabled={rollDisable}
+					className={"roll-dice-button"}
+					sx={
+						rollCount >= maxRolls
+							? {
+									color: "white",
+									backgroundColor: "rgb(200, 200, 200)",
+									borderRadius: "20%",
+									fontSize: "25px",
+									fontFamily: "'Roboto Mono', monospace",
+									marginRight: "35px",
+							  }
+							: {
+									color: "white",
+									backgroundColor: "#bc40ff",
+									borderRadius: "20%",
+									fontSize: "25px",
+									fontFamily: "'Roboto Mono', monospace",
+									marginRight: "35px",
+							  }
+					}
+					disabled={rollCount >= maxRolls ? true : false} //rollDisable
 				>
 					Roll Dice
 				</Button>
 			</div>
-			<div className="button-container">
+			{/* <div className="button-container">
 				<Button
 					onClick={resetDice}
 					className="reset-dice-button"
@@ -279,12 +290,14 @@ function DiceRoller() {
 				>
 					Reset Dice
 				</Button>
+			</div> */}
+			<div className="roll-counter">Rolls remaining: {4 - rollCount}</div>
+			<div onClick={resetDice}>
+				<Scoreboard
+					diceCurrentValueArray={diceCurrentValueArray}
+					rollCount={rollCount}
+				/>
 			</div>
-			{/* <div className="roll-counter">Roll Count: {rollCount}</div> */}
-			<Scoreboard
-				diceCurrentValueArray={diceCurrentValueArray}
-				rollCount={rollCount}
-			/>
 		</>
 	);
 }

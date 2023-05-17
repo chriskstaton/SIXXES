@@ -68,7 +68,16 @@ $dice-dimensions: 150px;
 }
 
 .roll-dice-button:hover {
+	animation: shaking 0.5s infinite;
+}
+.roll-dice-button:active {
 	animation: cupdump 2s;
+}
+
+.roll-button-disabled {
+	height: 125px;
+	width: 125px;
+	color: gray;
 }
 
 .roll-counter {

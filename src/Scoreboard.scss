@@ -36,7 +36,8 @@ $scoreboard-border: 4px solid rgba(255, 255, 255, 0.4);
 		}
 
 		.upper-sum {
-			color: rgb(230, 230, 230);
+			background-color: white;
+			color: rgb(200, 200, 200);
 			height: 75px;
 			cursor: default;
 		}
@@ -46,6 +47,7 @@ $scoreboard-border: 4px solid rgba(255, 255, 255, 0.4);
 			height: 75px;
 			border: none;
 			background-color: white;
+			font-size: xx-large;
 			cursor: default;
 		}
 

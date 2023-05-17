@@ -132,6 +132,7 @@ function Scoreboard(props: {
 		});
 
 		setSplitLock(true);
+
 		if (filterLengthThree.length == 2 || Math.max(...filterLengths) == 6) {
 			return setSplitVal(
 				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
@@ -140,6 +141,10 @@ function Scoreboard(props: {
 	}
 
 	function checkFourKind(arr: number[]) {
+		// filter currentDiceArray for each possible dice value
+		// length of filtered array >= 4 kind minimum
+		// return sum of filtered array
+
 		var filterOnes = arr.filter((el) => {
 			return el === 1;
 		});
@@ -172,22 +177,15 @@ function Scoreboard(props: {
 		// console.log(filterLengths.indexOf(Math.max(...filterLengths))); //
 		console.log("max filterLength:" + Math.max(...filterLengths));
 
-		// console.log("filter lengths" + filterLengths);
-		// console.log(
-		// 	allFiltersArray[filterLengths.indexOf(Math.max(...filterLengths))]
-		// );
-
 		setFourKindLock(true);
+
 		if (Math.max(...filterLengths) >= 4) {
 			return setFourKindVal(
 				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
 			);
 		}
-		// filter currentDiceArray for each possible dice value
-		// length of filtered array >= 4 kind minimum
-
-		// return sum of filtered array
 	}
+
 	function checkFiveKind(arr: number[]) {
 		var filterOnes = arr.filter((el) => {
 			return el === 1;
@@ -227,29 +225,29 @@ function Scoreboard(props: {
 				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
 			);
 		} else return setFiveKindVal(0);
-		// filter currentDiceArray for each possible dice value
-		// length of filtered array >= 4 kind minimum
-		// return sum of filtered array
 	}
 
 	function checkSmallStraight(arr: number[]) {
 		const arrSmallStraight1 = [1, 2, 3, 4];
 		const arrSmallStraight2 = [2, 3, 4, 5];
 		const arrSmallStraight3 = [3, 4, 5, 6];
+
 		setSmallStraightLock(true);
+
 		if (
 			arrSmallStraight1.every((i) => arr.includes(i)) ||
 			arrSmallStraight2.every((i) => arr.includes(i)) ||
 			arrSmallStraight3.every((i) => arr.includes(i))
 		) {
-			//console.log("small straight!");
 			return setSmallStraightVal(45);
 		} else return setSmallStraightVal(0);
 	}
 	function checkLargeStraight(arr: number[]) {
 		const arrLargeStraight1 = [1, 2, 3, 4, 5];
 		const arrLargeStraight2 = [2, 3, 4, 5, 6];
+
 		setLargeStraightLock(true);
+
 		if (
 			arrLargeStraight1.every((i) => arr.includes(i)) ||
 			arrLargeStraight2.every((i) => arr.includes(i))
@@ -291,7 +289,9 @@ function Scoreboard(props: {
 		var filterLengths = allFiltersArray.map((a) => a.length);
 
 		console.log("max filterLength:" + Math.max(...filterLengths));
+
 		setYachtLock(true);
+
 		if (Math.max(...filterLengths) == 6) {
 			return setYachtScore(100);
 		} else return setYachtScore(0);
