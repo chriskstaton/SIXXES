@@ -188,8 +188,8 @@ function Scoreboard(props: {
 		bonusVal = 45;
 	}
 
-	var lowerSum =
-		fourKindVal +
+	var lowerSum = choiceCatVal;
+	fourKindVal +
 		fiveKindVal +
 		splitVal +
 		smallStraightVal +

@@ -159,7 +159,6 @@ function DiceRoller() {
 
 	return (
 		<>
-			<h1>liteSIXES</h1>
 			<div className="dice-container">
 				<img
 					className={
