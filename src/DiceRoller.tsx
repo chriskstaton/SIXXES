@@ -1,6 +1,5 @@
 import { LegacyRef, useEffect, useState } from "react";
 import Button from "@mui/material/Button";
-import "./DiceRoller.scss";
 
 import Dice0 from "../src/images/dice0.svg";
 import Dice1 from "../src/images/dice1.svg";
@@ -9,9 +8,11 @@ import Dice3 from "../src/images/dice3.svg";
 import Dice4 from "../src/images/dice4.svg";
 import Dice5 from "../src/images/dice5.svg";
 import Dice6 from "../src/images/dice6.svg";
-import Lock from "../src/images/lock.svg";
 
 import Scoreboard from "./Scoreboard";
+import DiceElement from "./DiceElement";
+import "./DiceRoller.scss";
+import RollButton from "./RollButton";
 
 export function DiceRoller(props: {
 	headerScrollElement: LegacyRef<HTMLDivElement> | undefined;
@@ -38,6 +39,7 @@ export function DiceRoller(props: {
 	var [rollingFour, setRollingFour] = useState(false);
 	var [rollingFive, setRollingFive] = useState(false);
 	var [rollingSix, setRollingSix] = useState(false);
+
 	var [buttonDumping, setButtonDumping] = useState(false);
 
 	var [resetAllDice, setResetAllDice] = useState(false);
@@ -201,138 +203,65 @@ export function DiceRoller(props: {
 	return (
 		<>
 			<div className="dice-container" ref={props.diceScrollElement}>
-				<img
-					className={
-						!isSelectedOne
-							? "dice-selected"
-							: rollingOne
-							? "dice-roll"
-							: resetAllDice
-							? "dice-reset"
-							: "dice-static"
-					}
-					onClick={() => setIsSelectedOne(!isSelectedOne)}
-					src={imageOne}
-					key={"A"}
+				<DiceElement
+					isSelected={isSelectedOne}
+					rollingNumber={rollingOne}
+					resetAllDice={resetAllDice}
+					setIsSelected={setIsSelectedOne}
+					imageSrc={imageOne}
+					key="A"
 				/>
-				<img
-					className={
-						!isSelectedTwo
-							? "dice-selected"
-							: rollingTwo
-							? "dice-roll"
-							: resetAllDice
-							? "dice-reset"
-							: "dice-static"
-					}
-					onClick={() => setIsSelectedTwo(!isSelectedTwo)}
-					src={imageTwo}
-					key={"B"}
+				<DiceElement
+					isSelected={isSelectedTwo}
+					rollingNumber={rollingTwo}
+					resetAllDice={resetAllDice}
+					setIsSelected={setIsSelectedTwo}
+					imageSrc={imageTwo}
+					key="B"
 				/>
-				<img
-					className={
-						!isSelectedThree
-							? "dice-selected"
-							: rollingThree
-							? "dice-roll"
-							: resetAllDice
-							? "dice-reset"
-							: "dice-static"
-					}
-					onClick={() => setIsSelectedThree(!isSelectedThree)}
-					src={imageThree}
-					key={"C"}
+				<DiceElement
+					isSelected={isSelectedThree}
+					rollingNumber={rollingThree}
+					resetAllDice={resetAllDice}
+					setIsSelected={setIsSelectedThree}
+					imageSrc={imageThree}
+					key="C"
 				/>
-				<img
-					className={
-						!isSelectedFour
-							? "dice-selected"
-							: rollingFour
-							? "dice-roll"
-							: resetAllDice
-							? "dice-reset"
-							: "dice-static"
-					}
-					onClick={() => setIsSelectedFour(!isSelectedFour)}
-					src={imageFour}
-					key={"D"}
+				<DiceElement
+					isSelected={isSelectedFour}
+					rollingNumber={rollingFour}
+					resetAllDice={resetAllDice}
+					setIsSelected={setIsSelectedFour}
+					imageSrc={imageFour}
+					key="D"
 				/>
-				<img
-					className={
-						!isSelectedFive
-							? "dice-selected"
-							: rollingFive
-							? "dice-roll"
-							: resetAllDice
-							? "dice-reset"
-							: "dice-static"
-					}
-					onClick={() => setIsSelectedFive(!isSelectedFive)}
-					src={imageFive}
-					key={"E"}
+				<DiceElement
+					isSelected={isSelectedFive}
+					rollingNumber={rollingFive}
+					resetAllDice={resetAllDice}
+					setIsSelected={setIsSelectedFive}
+					imageSrc={imageFive}
+					key="E"
 				/>
-				<img
-					className={
-						!isSelectedSix
-							? "dice-selected"
-							: rollingSix
-							? "dice-roll"
-							: resetAllDice
-							? "dice-reset"
-							: "dice-static"
-					}
-					onClick={() => setIsSelectedSix(!isSelectedSix)}
-					src={imageSix}
-					key={"F"}
+				<DiceElement
+					isSelected={isSelectedSix}
+					rollingNumber={rollingSix}
+					resetAllDice={resetAllDice}
+					setIsSelected={setIsSelectedSix}
+					imageSrc={imageSix}
+					key="F"
 				/>
 			</div>
 
-			<div className={"button-container"} onClick={handleLock}>
-				<Button
-					onClick={!turnComplete ? handleRoll : undefined}
-					className={buttonDumping ? "cup-dumping" : "roll-dice-button"}
-					sx={
-						rollCount >= maxRolls
-							? {
-									color: "white",
-									backgroundColor: "rgb(200, 200, 200)",
-									borderRadius: "15px",
-									fontSize: "30px",
-									fontFamily: "'Roboto Mono', monospace",
-							  }
-							: {
-									color: "white",
-									backgroundColor: "#bc40ff !important",
-									borderRadius: "15px",
-									fontSize: "30px",
-									fontFamily: "'Roboto Mono', monospace",
-							  }
-					}
-					disabled={turnComplete || rollCount >= maxRolls ? true : rollDisable}
-				>
-					{turnComplete ? (
-						<span className="padlock-container">
-							<span className="padlock-body">
-								<span className="padlock-shackle" />
-							</span>
-						</span>
-					) : maxRolls - rollCount < 2 ? (
-						"LAST ROLL"
-					) : maxRolls - rollCount < 4 ? (
-						maxRolls - rollCount
-					) : (
-						"ROLL DICE"
-					)}
-					{/* {turnComplete && (
-						<span
-							className="lock-div"
-							onClick={() =>
-								props.setScrollPosition(props.scoreboardScrollElement)
-							}
-						/>
-					)} */}
-				</Button>
-			</div>
+			<RollButton
+				handleLock={handleLock}
+				handleRoll={handleRoll}
+				buttonDumping={buttonDumping}
+				rollCount={rollCount}
+				maxRolls={maxRolls}
+				turnComplete={turnComplete}
+				rollDisable={rollDisable}
+			/>
 
 			<Scoreboard
 				diceCurrentValueArray={diceCurrentValueArray}

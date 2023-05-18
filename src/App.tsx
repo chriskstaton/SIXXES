@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import "./App.scss";
+import { useRef } from "react";
+
 import DiceRoller from "./DiceRoller";
-import Tips from "./Tips";
+import SixesHeader from "./SixesHeader";
+import "./App.scss";
 
 function App() {
 	const headerScrollElement = useRef(null);
@@ -17,22 +18,16 @@ function App() {
 
 	return (
 		<div className="App">
-			<div className="header-container" ref={headerScrollElement}>
-				<div className="header">
-					SI<span className="x">X</span>ES
-					<span>-lite</span>
-					<div className="dotted" />
-				</div>
-				<span className="XX">XX</span>
-			</div>
-
+			<SixesHeader
+				headerScrollElement={headerScrollElement}
+				setScrollPosition={setScrollPosition}
+			/>
 			<DiceRoller
 				setScrollPosition={setScrollPosition}
 				diceScrollElement={diceScrollElement}
 				headerScrollElement={headerScrollElement}
 				scoreboardScrollElement={scoreboardScrollElement}
 			/>
-			{/* <Tips /> */}
 		</div>
 	);
 }
