@@ -19,18 +19,19 @@ function App() {
 	// 	};
 	// }, [scrollPosition]);
 
+	const headerScrollElement = useRef(null);
 	const diceScrollElement = useRef(null);
 
 	const setScrollPosition = (ref: { current: { offsetTop: any } }) => {
 		window.scrollTo({
-			top: ref.current.offsetTop,
+			top: ref.current.offsetTop - 40,
 			behavior: "smooth",
 		});
 	};
 
 	return (
 		<div className="App">
-			<div className="header-container">
+			<div className="header-container" ref={headerScrollElement}>
 				<div className="header">
 					SI<span className="x">X</span>ES
 					<span>-lite</span>
@@ -42,6 +43,7 @@ function App() {
 			<DiceRoller
 				setScrollPosition={setScrollPosition}
 				diceScrollElement={diceScrollElement}
+				headerScrollElement={headerScrollElement}
 			/>
 			{/* <Tips /> */}
 		</div>

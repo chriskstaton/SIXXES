@@ -13,6 +13,7 @@ import Dice6 from "../src/images/dice6.svg";
 import Scoreboard from "./Scoreboard";
 
 export function DiceRoller(props: {
+	headerScrollElement: LegacyRef<HTMLDivElement> | undefined;
 	diceScrollElement: LegacyRef<HTMLDivElement> | undefined;
 	setScrollPosition: Function;
 }) {
@@ -89,8 +90,8 @@ export function DiceRoller(props: {
 	}
 
 	function resetDice() {
-		props.setScrollPosition(props.diceScrollElement);
 		if (turnCount < totalTurns) {
+			props.setScrollPosition(props.diceScrollElement);
 			setTurnCount(turnCount + 1);
 			setResetAllDice(true);
 			setRollCount(0);
