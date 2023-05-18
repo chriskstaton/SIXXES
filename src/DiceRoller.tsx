@@ -205,7 +205,7 @@ export function DiceRoller(props: {
 					resetAllDice={resetAllDice}
 					setIsSelected={setIsSelectedOne}
 					imageSrc={imageOne}
-					key="A"
+					key="dice1"
 				/>
 				<DiceElement
 					isSelected={isSelectedTwo}
@@ -213,7 +213,7 @@ export function DiceRoller(props: {
 					resetAllDice={resetAllDice}
 					setIsSelected={setIsSelectedTwo}
 					imageSrc={imageTwo}
-					key="B"
+					key="dice2"
 				/>
 				<DiceElement
 					isSelected={isSelectedThree}
@@ -221,7 +221,7 @@ export function DiceRoller(props: {
 					resetAllDice={resetAllDice}
 					setIsSelected={setIsSelectedThree}
 					imageSrc={imageThree}
-					key="C"
+					key="dice3"
 				/>
 				<DiceElement
 					isSelected={isSelectedFour}
@@ -229,7 +229,7 @@ export function DiceRoller(props: {
 					resetAllDice={resetAllDice}
 					setIsSelected={setIsSelectedFour}
 					imageSrc={imageFour}
-					key="D"
+					key="dice4"
 				/>
 				<DiceElement
 					isSelected={isSelectedFive}
@@ -237,7 +237,7 @@ export function DiceRoller(props: {
 					resetAllDice={resetAllDice}
 					setIsSelected={setIsSelectedFive}
 					imageSrc={imageFive}
-					key="E"
+					key="dice5"
 				/>
 				<DiceElement
 					isSelected={isSelectedSix}
@@ -245,7 +245,7 @@ export function DiceRoller(props: {
 					resetAllDice={resetAllDice}
 					setIsSelected={setIsSelectedSix}
 					imageSrc={imageSix}
-					key="F"
+					key="dice6"
 				/>
 			</div>
 

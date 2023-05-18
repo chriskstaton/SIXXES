@@ -21,7 +21,6 @@ function DiceElement(props: {
 				props.setIsSelected(!props.isSelected);
 			}}
 			src={props.imageSrc}
-			key={props.key}
 		/>
 	);
 }
