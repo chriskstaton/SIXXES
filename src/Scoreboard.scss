@@ -16,7 +16,7 @@ $scoreboard-border: 4px solid rgba(255, 255, 255, 0.4);
 		table {
 			text-align: center;
 			border-collapse: collapse;
-			height: 90vh;
+			height: 80vh;
 		}
 
 		tr {
@@ -36,6 +36,13 @@ $scoreboard-border: 4px solid rgba(255, 255, 255, 0.4);
 		}
 
 		.upper-sum {
+			background-color: white;
+			color: rgb(200, 200, 200);
+			height: 75px;
+			cursor: default;
+		}
+
+		.bonus {
 			background-color: white;
 			color: rgb(200, 200, 200);
 			height: 75px;
