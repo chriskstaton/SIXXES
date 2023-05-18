@@ -69,7 +69,7 @@ export function DiceRoller(props: {
 	const maxRolls = 4;
 	const scrollDelay = 500;
 	const totalTurns = 13;
-	const rollDelay = 1400;
+	const rollDelay = 1500;
 	const resetDelay = 1500;
 	const dumpDelay = 2000;
 
@@ -85,6 +85,7 @@ export function DiceRoller(props: {
 					),
 				scrollDelay
 			);
+
 			setRollDisable(true);
 			setRollingOne(true);
 			setRollingTwo(true);
@@ -95,7 +96,7 @@ export function DiceRoller(props: {
 			setButtonDumping(true);
 			setTimeout(() => setButtonDumping(false), dumpDelay);
 			rollDice();
-			setRollCount(rollCount + 1);
+			setTimeout(() => setRollCount(rollCount + 1), rollDelay * 0.75);
 			setTimeout(() => setRollDisable(false), rollDelay);
 		} else return;
 	}
@@ -111,7 +112,6 @@ export function DiceRoller(props: {
 					),
 				500
 			);
-			setTurnCount(turnCount + 1);
 			setResetAllDice(true);
 			setRollCount(0);
 			setValueOne(0);
@@ -300,7 +300,7 @@ export function DiceRoller(props: {
 				</div>
 			</div>
 			{/* <div className="roll-counter">
-				Rolls remaining: {maxRolls - rollCount}
+				Rolls remaining: {maxRolls - rollCount} 
 			</div> */}
 			<div>
 				<Scoreboard
@@ -309,6 +309,7 @@ export function DiceRoller(props: {
 					setTurnCount={setTurnCount}
 					resetDice={resetDice}
 					totalTurns={totalTurns}
+					//rollDelay={rollDelay}
 					//scrollPosition={props.scrollPosition}
 					//setScrollPosition={props.setScrollPosition}
 				/>
