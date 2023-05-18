@@ -24,7 +24,7 @@ $dice-dimensions: 150px;
 	vertical-align: middle;
 	margin: 10px;
 	border-radius: 15px;
-	animation: jump 1.5s;
+	animation: shimmy 1.5s;
 }
 
 .dice-selected {
@@ -151,24 +151,24 @@ $dice-dimensions: 150px;
 	}
 }
 
-@keyframes jump {
+@keyframes shimmy {
 	0% {
 		transform: translateX(0);
 	}
 	30% {
-		transform: translateY(-10px);
+		transform: translateX(-10px);
 	}
 	45% {
-		transform: translateY(10px);
+		transform: translateX(10px);
 	}
 	60% {
-		transform: translateY(-10px);
+		transform: translateX(-10px);
 	}
 	75% {
-		transform: translateY(10px);
+		transform: translateX(10px);
 	}
 	100% {
-		transform: translateY(0);
+		transform: translateX(0);
 	}
 }
 
