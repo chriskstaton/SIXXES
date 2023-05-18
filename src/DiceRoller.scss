@@ -81,7 +81,8 @@ $dice-dimensions: 150px;
 }
 
 .roll-dice-button:hover {
-	animation: shaking 0.5s 0.5s infinite;
+	animation: shaking 0.5s 0.5s;
+	animation-iteration-count: 4;
 }
 
 .roll-dice-button:active {
