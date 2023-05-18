@@ -1,4 +1,4 @@
-import { LegacyRef, Ref, useEffect, useState } from "react";
+import { LegacyRef, useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import "./DiceRoller.scss";
 
@@ -110,7 +110,7 @@ export function DiceRoller(props: {
 							? props.diceScrollElement
 							: props.headerScrollElement
 					),
-				500
+				scrollDelay
 			);
 			setResetAllDice(true);
 			setRollCount(0);
