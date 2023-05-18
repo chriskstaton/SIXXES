@@ -438,8 +438,9 @@ function Scoreboard(props: {
 							<td>{upperSum}</td>
 						</tr>
 						<tr className="bonus">
-<th>Bonus</th><td>(bonus)<td>{bonusVal}</td>
-      </tr>
+							<th>Bonus</th>
+							<td>{bonusVal}</td>
+						</tr>
 						<tr
 							onClick={
 								choiceLock
