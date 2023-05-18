@@ -6,6 +6,7 @@ import Tips from "./Tips";
 function App() {
 	const headerScrollElement = useRef(null);
 	const diceScrollElement = useRef(null);
+ const scoreboardScrollElement = useRef(null);
 
 	const setScrollPosition = (ref: { current: { offsetTop: any } }) => {
 		window.scrollTo({
@@ -29,6 +30,7 @@ function App() {
 				setScrollPosition={setScrollPosition}
 				diceScrollElement={diceScrollElement}
 				headerScrollElement={headerScrollElement}
+    scoreboardScrollElement={scoreboardScrollElement}
 			/>
 			{/* <Tips /> */}
 		</div>
