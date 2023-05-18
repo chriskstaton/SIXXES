@@ -110,6 +110,12 @@ export function DiceRoller(props: {
 		} else return;
 	}
 
+	function handleLock() {
+		if (rollCount == maxRolls) {
+			props.setScrollPosition(props.scoreboardScrollElement);
+		}
+	}
+
 	function resetDice() {
 		if (turnCount < totalTurns - 1) {
 			setTurnComplete(false);
@@ -281,12 +287,9 @@ export function DiceRoller(props: {
 				/>
 			</div>
 
-			<div className={"button-container"}>
+			<div className={"button-container"} onClick={handleLock}>
 				<Button
-					onClick={
-						!turnComplete ? handleRoll : undefined
-						// : props.setScrollPosition(props.scoreboardScrollElement)
-					}
+					onClick={!turnComplete ? handleRoll : undefined}
 					className={buttonDumping ? "cup-dumping" : "roll-dice-button"}
 					sx={
 						rollCount >= maxRolls
@@ -308,12 +311,7 @@ export function DiceRoller(props: {
 					disabled={turnComplete || rollCount >= maxRolls ? true : rollDisable}
 				>
 					{turnComplete ? (
-						<span
-							className="padlock-container"
-							onClick={() =>
-								props.setScrollPosition(props.scoreboardScrollElement)
-							}
-						>
+						<span className="padlock-container">
 							<span className="padlock-body">
 								<span className="padlock-shackle" />
 							</span>
