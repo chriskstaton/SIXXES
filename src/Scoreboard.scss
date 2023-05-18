@@ -41,8 +41,8 @@ $scoreboard-border-color: rgb(225, 225, 225);
 			color: rgb(200, 200, 200);
 			border-color: $scoreboard-border-color;
 			height: 40px;
-
 			cursor: default;
+
 			th {
 				padding-left: 100px;
 				text-align: center;
@@ -54,7 +54,6 @@ $scoreboard-border-color: rgb(225, 225, 225);
 			color: rgb(200, 200, 200);
 			height: 40px;
 			border-color: $scoreboard-border-color;
-
 			cursor: default;
 
 			th {
@@ -67,8 +66,8 @@ $scoreboard-border-color: rgb(225, 225, 225);
 			background-color: white;
 			color: rgb(200, 200, 200);
 			height: 40px;
-			cursor: default;
 			border-color: $scoreboard-border-color;
+			cursor: default;
 
 			th {
 				padding-left: 100px;
@@ -81,7 +80,6 @@ $scoreboard-border-color: rgb(225, 225, 225);
 			color: #e1a6ff;
 			height: 40px;
 			border-color: $scoreboard-border-color;
-
 			cursor: default;
 
 			th {
@@ -106,9 +104,9 @@ $scoreboard-border-color: rgb(225, 225, 225);
 
 		.locked-row {
 			color: #e1a6ff;
-			cursor: default;
 			background-color: white;
 			border-color: $scoreboard-border-color;
+			cursor: default;
 		}
 	}
 }
