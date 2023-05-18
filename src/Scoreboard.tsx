@@ -1,23 +1,14 @@
 import { useEffect, useState } from "react";
 import "./Scoreboard.scss";
 
-interface Categories {
-	ones: number;
-	twos: number;
-	threes: number;
-	fours: number;
-	fives: number;
-	sixes: number;
-}
+//three pairs?
+//4 - 2 still a split?
 
 function Scoreboard(props: {
 	diceCurrentValueArray: number[];
-	//rollCount: number;
 	turnCount: number;
 	setTurnCount: Function;
 	resetDice(): void;
-	//setScrollPosition: Function;
-	//scrollPosition: number;
 }) {
 	var [onesScore, setOnesScore] = useState(0);
 	var [twosScore, setTwosScore] = useState(0);
