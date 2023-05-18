@@ -1,5 +1,4 @@
 import { LegacyRef, useEffect, useState } from "react";
-import Button from "@mui/material/Button";
 
 import Dice0 from "../src/images/dice0.svg";
 import Dice1 from "../src/images/dice1.svg";
@@ -11,8 +10,8 @@ import Dice6 from "../src/images/dice6.svg";
 
 import Scoreboard from "./Scoreboard";
 import DiceElement from "./DiceElement";
-import "./DiceRoller.scss";
 import RollButton from "./RollButton";
+import "./DiceRoller.scss";
 
 export function DiceRoller(props: {
 	headerScrollElement: LegacyRef<HTMLDivElement> | undefined;
@@ -103,11 +102,9 @@ export function DiceRoller(props: {
 			rollDice();
 			setTimeout(() => setRollCount(rollCount + 1), rollDelay * 0.75);
 			setTimeout(() => setRollDisable(false), rollDelay);
-			// console.log("out of rolls " + turnComplete);
 
 			if (rollCount == maxRolls - 1) {
 				setTurnComplete(true);
-				// console.log("out of rolls " + turnComplete);
 			}
 		} else return;
 	}
