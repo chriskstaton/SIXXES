@@ -6,7 +6,11 @@ function SixesHeader(props: {
 	setScrollPosition: Function;
 }) {
 	return (
-		<div className="header-container" ref={props.headerScrollElement}>
+		<div
+			className="header-container"
+			ref={props.headerScrollElement}
+			onClick={() => window.location.reload()}
+		>
 			<div className="header">
 				SI<span className="x">X</span>ES
 				<span>-lite</span>
