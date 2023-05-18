@@ -26,11 +26,11 @@ function Scoreboard(props: {
 	var [fivesLocked, setFivesLocked] = useState(false);
 	var [sixesLocked, setSixesLocked] = useState(false);
 
-	var [fourKindScore, setFourKindVal] = useState(0);
-	var [fiveKindScore, setFiveKindVal] = useState(0);
-	var [splitVal, setSplitVal] = useState(0);
-	var [smallStraightVal, setSmallStraightVal] = useState(0);
-	var [largeStraightVal, setLargeStraightVal] = useState(0);
+	var [fourKindScore, setFourKindScore] = useState(0);
+	var [fiveKindScore, setFiveKindScore] = useState(0);
+	var [splitScore, setSplitScore] = useState(0);
+	var [smallStraightScore, setSmallStraightScore] = useState(0);
+	var [largeStraightScore, setLargeStraightScore] = useState(0);
 
 	var [fourKindLock, setFourKindLock] = useState(false);
 	var [fiveKindLock, setFiveKindLock] = useState(false);
@@ -47,6 +47,62 @@ function Scoreboard(props: {
 	var bonusVal = 0;
 	const bonusMin = 66;
 
+	var sumOnes = categoryFilter(props.diceCurrentValueArray, 1);
+	var sumTwos = categoryFilter(props.diceCurrentValueArray, 2);
+	var sumThrees = categoryFilter(props.diceCurrentValueArray, 3);
+	var sumFours = categoryFilter(props.diceCurrentValueArray, 4);
+	var sumFives = categoryFilter(props.diceCurrentValueArray, 5);
+	var sumSixes = categoryFilter(props.diceCurrentValueArray, 6);
+
+	var sumChoice = props.diceCurrentValueArray.reduce((a, b) => a + b, 0);
+
+	//todo map filter
+	var filterOnes = props.diceCurrentValueArray.filter((el) => {
+		return el === 1;
+	});
+	var filterTwos = props.diceCurrentValueArray.filter((el) => {
+		return el === 2;
+	});
+	var filterThrees = props.diceCurrentValueArray.filter((el) => {
+		return el === 3;
+	});
+	var filterFours = props.diceCurrentValueArray.filter((el) => {
+		return el === 4;
+	});
+	var filterFives = props.diceCurrentValueArray.filter((el) => {
+		return el === 5;
+	});
+	var filterSixes = props.diceCurrentValueArray.filter((el) => {
+		return el === 6;
+	});
+
+	var allFiltersArray = [
+		filterOnes,
+		filterTwos,
+		filterThrees,
+		filterFours,
+		filterFives,
+		filterSixes,
+	];
+
+	var filterLengths = allFiltersArray.map((a) => a.length);
+	var filterLengthThree = filterLengths.filter((el) => {
+		return el === 3;
+	});
+
+	const arrSmallStraight1 = [1, 2, 3, 4];
+	const arrSmallStraight2 = [2, 3, 4, 5];
+	const arrSmallStraight3 = [3, 4, 5, 6];
+	const arrLargeStraight1 = [1, 2, 3, 4, 5];
+	const arrLargeStraight2 = [2, 3, 4, 5, 6];
+
+	var sumFourKind = fourKindAdder(props.diceCurrentValueArray);
+	var sumFiveKind = fiveKindAdder(props.diceCurrentValueArray);
+	var sumSplit = splitAdder(props.diceCurrentValueArray);
+	var sumSmallStraight = smallStraightAdder(props.diceCurrentValueArray);
+	var sumLargeStraight = largeStraightAdder(props.diceCurrentValueArray);
+	var sumYacht = yachtAdder(props.diceCurrentValueArray);
+
 	function categoryFilter(arr: number[], value: number) {
 		var onlyCategory = arr.filter((el) => {
 			return el === value;
@@ -55,7 +111,6 @@ function Scoreboard(props: {
 	}
 
 	function onesAdder(arr: number[]) {
-		var sumOnes = categoryFilter(props.diceCurrentValueArray, 1);
 		setOnesLocked(true);
 		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
@@ -63,7 +118,6 @@ function Scoreboard(props: {
 	}
 
 	function twosAdder(arr: number[]) {
-		var sumTwos = categoryFilter(props.diceCurrentValueArray, 2);
 		setTwosLocked(true);
 		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
@@ -71,7 +125,6 @@ function Scoreboard(props: {
 	}
 
 	function threesAdder(arr: number[]) {
-		var sumThrees = categoryFilter(props.diceCurrentValueArray, 3);
 		setThreesLocked(true);
 		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
@@ -79,7 +132,6 @@ function Scoreboard(props: {
 	}
 
 	function foursAdder(arr: number[]) {
-		var sumFours = categoryFilter(props.diceCurrentValueArray, 4);
 		setFoursLocked(true);
 		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
@@ -87,7 +139,6 @@ function Scoreboard(props: {
 	}
 
 	function fivesAdder(arr: number[]) {
-		var sumFives = categoryFilter(props.diceCurrentValueArray, 5);
 		setFivesLocked(true);
 		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
@@ -95,7 +146,6 @@ function Scoreboard(props: {
 	}
 
 	function sixesAdder(arr: number[]) {
-		var sumSixes = categoryFilter(props.diceCurrentValueArray, 6);
 		setSixesLocked(true);
 		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
@@ -103,151 +153,83 @@ function Scoreboard(props: {
 	}
 
 	function choiceAdder(arr: number[]) {
-		var choiceSum = arr.reduce((a, b) => a + b, 0);
 		setChoiceLock(true);
 		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
-		return setChoiceScore(choiceSum);
+		return setChoiceScore(sumChoice);
+	}
+
+	function splitAdder(arr: number[]): number {
+		if (filterLengthThree.length == 2 || Math.max(...filterLengths) == 6) {
+			sumSplit = props.diceCurrentValueArray.reduce((a, b) => a + b, 0);
+		} else sumSplit = 0;
+		return sumSplit;
 	}
 
 	function checkSplit(arr: number[]) {
-		var filterOnes = arr.filter((el) => {
-			return el === 1;
-		});
-		var filterTwos = arr.filter((el) => {
-			return el === 2;
-		});
-		var filterThrees = arr.filter((el) => {
-			return el === 3;
-		});
-		var filterFours = arr.filter((el) => {
-			return el === 4;
-		});
-		var filterFives = arr.filter((el) => {
-			return el === 5;
-		});
-		var filterSixes = arr.filter((el) => {
-			return el === 6;
-		});
-
-		var allFiltersArray = [
-			filterOnes,
-			filterTwos,
-			filterThrees,
-			filterFours,
-			filterFives,
-			filterSixes,
-		];
-
-		var filterLengths = allFiltersArray.map((a) => a.length);
-		var filterLengthThree = filterLengths.filter((el) => {
-			return el === 3;
-		});
-
 		setSplitLock(true);
 
 		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 
 		if (filterLengthThree.length == 2 || Math.max(...filterLengths) == 6) {
-			return setSplitVal(
+			return setSplitScore(
 				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
 			);
-		} else return setSplitVal(0);
+		} else return setSplitScore(0);
+	}
+
+	function fourKindAdder(arr: number[]): number {
+		if (Math.max(...filterLengths) >= 4) {
+			sumFourKind = props.diceCurrentValueArray.reduce((a, b) => a + b, 0);
+		} else sumFourKind = 0;
+		return sumFourKind;
 	}
 
 	function checkFourKind(arr: number[]) {
 		// filter currentDiceArray for each possible dice value
 		// length of filtered array >= 4 kind minimum
 		// return sum of filtered array
-
-		var filterOnes = arr.filter((el) => {
-			return el === 1;
-		});
-		var filterTwos = arr.filter((el) => {
-			return el === 2;
-		});
-		var filterThrees = arr.filter((el) => {
-			return el === 3;
-		});
-		var filterFours = arr.filter((el) => {
-			return el === 4;
-		});
-		var filterFives = arr.filter((el) => {
-			return el === 5;
-		});
-		var filterSixes = arr.filter((el) => {
-			return el === 6;
-		});
-
-		var allFiltersArray = [
-			filterOnes,
-			filterTwos,
-			filterThrees,
-			filterFours,
-			filterFives,
-			filterSixes,
-		];
-
-		var filterLengths = allFiltersArray.map((a) => a.length);
-		// console.log(filterLengths.indexOf(Math.max(...filterLengths))); //
-		console.log("max filterLength:" + Math.max(...filterLengths));
-
 		setFourKindLock(true);
 
 		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 
 		if (Math.max(...filterLengths) >= 4) {
-			return setFourKindVal(
+			return setFourKindScore(
 				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
 			);
-		}
+		} else return setFourKindScore(0);
+	}
+
+	function fiveKindAdder(arr: number[]): number {
+		if (Math.max(...filterLengths) >= 5) {
+			sumFiveKind = props.diceCurrentValueArray.reduce((a, b) => a + b, 0);
+		} else sumFiveKind = 0;
+		return sumFiveKind;
 	}
 
 	function checkFiveKind(arr: number[]) {
-		var filterOnes = arr.filter((el) => {
-			return el === 1;
-		});
-		var filterTwos = arr.filter((el) => {
-			return el === 2;
-		});
-		var filterThrees = arr.filter((el) => {
-			return el === 3;
-		});
-		var filterFours = arr.filter((el) => {
-			return el === 4;
-		});
-		var filterFives = arr.filter((el) => {
-			return el === 5;
-		});
-		var filterSixes = arr.filter((el) => {
-			return el === 6;
-		});
-
-		var allFiltersArray = [
-			filterOnes,
-			filterTwos,
-			filterThrees,
-			filterFours,
-			filterFives,
-			filterSixes,
-		];
-
-		var filterLengths = allFiltersArray.map((a) => a.length);
-
-		console.log("max filterLength:" + Math.max(...filterLengths));
-
-		props.resetDice();
 		setFiveKindLock(true);
 
+		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 
 		if (Math.max(...filterLengths) >= 5) {
-			return setFiveKindVal(
+			return setFiveKindScore(
 				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
 			);
-		} else return setFiveKindVal(0);
+		} else return setFiveKindScore(0);
+	}
+
+	function smallStraightAdder(arr: number[]): number {
+		if (
+			arrSmallStraight1.every((i) => arr.includes(i)) ||
+			arrSmallStraight2.every((i) => arr.includes(i)) ||
+			arrSmallStraight3.every((i) => arr.includes(i))
+		) {
+			return (sumSmallStraight = 45);
+		} else return (sumSmallStraight = 0);
 	}
 
 	function checkSmallStraight(arr: number[]) {
@@ -265,13 +247,20 @@ function Scoreboard(props: {
 			arrSmallStraight2.every((i) => arr.includes(i)) ||
 			arrSmallStraight3.every((i) => arr.includes(i))
 		) {
-			return setSmallStraightVal(45);
-		} else return setSmallStraightVal(0);
+			return setSmallStraightScore(45);
+		} else return setSmallStraightScore(0);
 	}
-	function checkLargeStraight(arr: number[]) {
-		const arrLargeStraight1 = [1, 2, 3, 4, 5];
-		const arrLargeStraight2 = [2, 3, 4, 5, 6];
 
+	function largeStraightAdder(arr: number[]): number {
+		if (
+			arrLargeStraight1.every((i) => arr.includes(i)) ||
+			arrLargeStraight2.every((i) => arr.includes(i))
+		) {
+			return (sumLargeStraight = 60);
+		} else return (sumLargeStraight = 0);
+	}
+
+	function checkLargeStraight(arr: number[]) {
 		setLargeStraightLock(true);
 
 		props.resetDice();
@@ -281,45 +270,19 @@ function Scoreboard(props: {
 			arrLargeStraight1.every((i) => arr.includes(i)) ||
 			arrLargeStraight2.every((i) => arr.includes(i))
 		) {
-			//console.log("large straight!");
-			return setLargeStraightVal(60);
-		} else return setLargeStraightVal(0);
+			return setLargeStraightScore(60);
+		} else return setLargeStraightScore(0);
+	}
+
+	function yachtAdder(arr: number[]): number {
+		if (Math.max(...filterLengths) == 6) {
+			return (sumYacht = 100);
+		} else return (sumYacht = 0);
 	}
 
 	function checkYacht(arr: number[]) {
-		var filterOnes = arr.filter((el) => {
-			return el === 1;
-		});
-		var filterTwos = arr.filter((el) => {
-			return el === 2;
-		});
-		var filterThrees = arr.filter((el) => {
-			return el === 3;
-		});
-		var filterFours = arr.filter((el) => {
-			return el === 4;
-		});
-		var filterFives = arr.filter((el) => {
-			return el === 5;
-		});
-		var filterSixes = arr.filter((el) => {
-			return el === 6;
-		});
-
-		var allFiltersArray = [
-			filterOnes,
-			filterTwos,
-			filterThrees,
-			filterFours,
-			filterFives,
-			filterSixes,
-		];
-
-		var filterLengths = allFiltersArray.map((a) => a.length);
-
-		console.log("max filterLength:" + Math.max(...filterLengths));
-
 		setYachtLock(true);
+
 		props.resetDice();
 		props.setTurnCount(props.turnCount + 1);
 
@@ -339,9 +302,9 @@ function Scoreboard(props: {
 		choiceScore +
 		fourKindScore +
 		fiveKindScore +
-		splitVal +
-		smallStraightVal +
-		largeStraightVal +
+		splitScore +
+		smallStraightScore +
+		largeStraightScore +
 		yachtScore;
 
 	var totalSum = upperSum + lowerSum + bonusVal;
@@ -364,8 +327,8 @@ function Scoreboard(props: {
 				<table className="upper-categories">
 					<thead>
 						<tr className="turn-count">
-							<th>Turns Remaining</th>
-							<td>{props.totalTurns - props.turnCount}</td>
+							<th>{props.totalTurns - props.turnCount} Turns Remaining</th>
+							<td></td>
 						</tr>
 						<tr
 							onClick={
@@ -376,7 +339,7 @@ function Scoreboard(props: {
 							className={onesLocked ? "locked-row" : ""}
 						>
 							<th>Ones</th>
-							<td>{onesScore}</td>
+							<td>{onesLocked ? onesScore : sumOnes}</td>
 						</tr>
 						<tr
 							onClick={
@@ -387,7 +350,7 @@ function Scoreboard(props: {
 							className={twosLocked ? "locked-row" : ""}
 						>
 							<th>Twos</th>
-							<td>{twosScore}</td>
+							<td>{twosLocked ? twosScore : sumTwos}</td>
 						</tr>
 						<tr
 							onClick={
@@ -398,7 +361,7 @@ function Scoreboard(props: {
 							className={threesLocked ? "locked-row" : ""}
 						>
 							<th>Threes</th>
-							<td>{threesScore}</td>
+							<td>{threesLocked ? threesScore : sumThrees}</td>
 						</tr>
 						<tr
 							onClick={
@@ -409,7 +372,7 @@ function Scoreboard(props: {
 							className={foursLocked ? "locked-row" : ""}
 						>
 							<th>Fours</th>
-							<td>{foursScore}</td>
+							<td>{foursLocked ? foursScore : sumFours}</td>
 						</tr>
 						<tr
 							onClick={
@@ -420,7 +383,7 @@ function Scoreboard(props: {
 							className={fivesLocked ? "locked-row" : ""}
 						>
 							<th>Fives</th>
-							<td>{fivesScore}</td>
+							<td>{fivesLocked ? fivesScore : sumFives}</td>
 						</tr>
 						<tr
 							onClick={
@@ -431,7 +394,7 @@ function Scoreboard(props: {
 							className={sixesLocked ? "locked-row" : ""}
 						>
 							<th>Sixes</th>
-							<td>{sixesScore}</td>
+							<td>{sixesLocked ? sixesScore : sumSixes}</td>
 						</tr>
 						<tr className="upper-sum">
 							<th>Upper Sum</th>
@@ -450,7 +413,7 @@ function Scoreboard(props: {
 							className={choiceLock ? "locked-row" : ""}
 						>
 							<th>Choice</th>
-							<td>{choiceScore}</td>
+							<td>{choiceLock ? choiceScore : sumChoice}</td>
 						</tr>
 						<tr
 							onClick={
@@ -461,7 +424,7 @@ function Scoreboard(props: {
 							className={fourKindLock ? "locked-row" : ""}
 						>
 							<th>Four of a kind</th>
-							<td>{fourKindScore}</td>
+							<td>{fourKindLock ? fourKindScore : sumFourKind}</td>
 						</tr>
 						<tr
 							onClick={
@@ -472,7 +435,7 @@ function Scoreboard(props: {
 							className={fiveKindLock ? "locked-row" : ""}
 						>
 							<th>Five of a kind</th>
-							<td>{fiveKindScore}</td>
+							<td>{fiveKindLock ? fiveKindScore : sumFiveKind}</td>
 						</tr>
 						<tr
 							onClick={
@@ -483,7 +446,7 @@ function Scoreboard(props: {
 							className={splitLock ? "locked-row" : ""}
 						>
 							<th>Split</th>
-							<td>{splitVal}</td>
+							<td>{splitLock ? splitScore : sumSplit}</td>
 						</tr>
 						<tr
 							onClick={
@@ -494,7 +457,9 @@ function Scoreboard(props: {
 							className={smallStraightLock ? "locked-row" : ""}
 						>
 							<th>Small Straight</th>
-							<td>{smallStraightVal}</td>
+							<td>
+								{smallStraightLock ? smallStraightScore : sumSmallStraight}
+							</td>
 						</tr>
 						<tr
 							onClick={
@@ -505,7 +470,9 @@ function Scoreboard(props: {
 							className={largeStraightLock ? "locked-row" : ""}
 						>
 							<th>Large Straight</th>
-							<td>{largeStraightVal}</td>
+							<td>
+								{largeStraightLock ? largeStraightScore : sumLargeStraight}
+							</td>
 						</tr>
 						<tr
 							onClick={
@@ -516,7 +483,7 @@ function Scoreboard(props: {
 							className={yachtLock ? "locked-row" : ""}
 						>
 							<th>Yacht!</th>
-							<td>{yachtScore}</td>
+							<td>{yachtLock ? yachtScore : sumYacht}</td>
 						</tr>
 						<tr className="total-score">
 							<th>Total Score</th>
