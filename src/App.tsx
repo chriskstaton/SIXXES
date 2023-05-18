@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from "react";
-import isMobile from "react-device-detect";
 import "./App.scss";
 import DiceRoller from "./DiceRoller";
 import Tips from "./Tips";
