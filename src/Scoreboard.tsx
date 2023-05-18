@@ -44,7 +44,7 @@ function Scoreboard(props: {
 	var [yachtLock, setYachtLock] = useState(false);
 
 	var bonusVal = 0;
-	const bonusMin = 5;
+	const bonusMin = 66;
 
 	function categoryFilter(arr: number[], value: number) {
 		var onlyCategory = arr.filter((el) => {
