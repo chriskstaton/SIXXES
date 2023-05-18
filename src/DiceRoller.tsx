@@ -308,14 +308,15 @@ export function DiceRoller(props: {
 					turnCount={turnCount}
 					setTurnCount={setTurnCount}
 					resetDice={resetDice}
+					totalTurns={totalTurns}
 					//scrollPosition={props.scrollPosition}
 					//setScrollPosition={props.setScrollPosition}
 				/>
 				{/* rollCount={rollCount} */}
 			</div>
-			<div className="turn-counter">
+			{/* <div className="turn-counter">
 				<p>Turns remaining: {totalTurns - turnCount}</p>
-			</div>
+			</div> */}
 		</>
 	);
 }

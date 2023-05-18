@@ -9,6 +9,7 @@ function Scoreboard(props: {
 	turnCount: number;
 	setTurnCount: Function;
 	resetDice(): void;
+	totalTurns: number;
 }) {
 	var [onesScore, setOnesScore] = useState(0);
 	var [twosScore, setTwosScore] = useState(0);
@@ -361,6 +362,10 @@ function Scoreboard(props: {
 			<div className="scoreboard">
 				<table className="upper-categories">
 					<thead>
+						<tr className="turn-count">
+							<th>Turns Remaining</th>
+							<td>{props.totalTurns - props.turnCount}</td>
+						</tr>
 						<tr
 							onClick={
 								onesLocked
