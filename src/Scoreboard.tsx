@@ -50,6 +50,7 @@ function Scoreboard(props: {
 	var [yachtLock, setYachtLock] = useState(false);
 
 	var bonusVal = 0;
+	const bonusMin = 5;
 
 	function categoryFilter(arr: number[], value: number) {
 		var onlyCategory = arr.filter((el) => {
@@ -335,7 +336,7 @@ function Scoreboard(props: {
 	var upperSum =
 		onesScore + twosScore + threesScore + foursScore + fivesScore + sixesScore;
 
-	if (upperSum >= 66) {
+	if (upperSum >= bonusMin) {
 		bonusVal = 54;
 	}
 
@@ -437,7 +438,7 @@ function Scoreboard(props: {
 							<th>Upper Sum</th>
 							<td>{upperSum}</td>
 						</tr>
-						<tr className="bonus">
+						<tr className={bonusVal >= bonusMin ? "bonus-true" : "bonus-false"}>
 							<th>Bonus</th>
 							<td>{bonusVal}</td>
 						</tr>
