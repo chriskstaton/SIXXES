@@ -9,6 +9,7 @@ import Dice3 from "../src/images/dice3.svg";
 import Dice4 from "../src/images/dice4.svg";
 import Dice5 from "../src/images/dice5.svg";
 import Dice6 from "../src/images/dice6.svg";
+import Lock from "../src/images/lock.svg";
 
 import Scoreboard from "./Scoreboard";
 
@@ -21,6 +22,7 @@ export function DiceRoller(props: {
 	var [turnCount, setTurnCount] = useState(0);
 
 	var [rollDisable, setRollDisable] = useState(false);
+	var [turnComplete, setTurnComplete] = useState(false);
 
 	var [valueOne, setValueOne] = useState(0);
 	var [valueTwo, setValueTwo] = useState(0);
@@ -98,11 +100,18 @@ export function DiceRoller(props: {
 			rollDice();
 			setTimeout(() => setRollCount(rollCount + 1), rollDelay * 0.75);
 			setTimeout(() => setRollDisable(false), rollDelay);
+			// console.log("out of rolls " + turnComplete);
+
+			if (rollCount == maxRolls - 1) {
+				setTurnComplete(true);
+				// console.log("out of rolls " + turnComplete);
+			}
 		} else return;
 	}
 
 	function resetDice() {
 		if (turnCount < totalTurns - 1) {
+			setTurnComplete(false);
 			setTimeout(
 				() =>
 					props.setScrollPosition(
@@ -270,35 +279,63 @@ export function DiceRoller(props: {
 					key={"F"}
 				/>
 			</div>
-
-			<div className={"button-container"}>
-				<div>
-					<Button
-						onClick={handleRoll}
-						className={buttonDumping ? "cup-dumping" : "roll-dice-button"}
-						sx={
-							rollCount >= maxRolls
-								? {
-										color: "white",
-										backgroundColor: "rgb(200, 200, 200)",
-										borderRadius: "20%",
-										fontSize: "30px",
-										fontFamily: "'Roboto Mono', monospace",
-								  }
-								: {
-										color: "white",
-										backgroundColor: "#bc40ff !important",
-										borderRadius: "20%",
-										fontSize: "30px",
-										fontFamily: "'Roboto Mono', monospace",
-								  }
-						}
-						disabled={rollCount >= maxRolls ? true : rollDisable}
-					>
-						{maxRolls - rollCount < 4 ? maxRolls - rollCount : "Roll Dice"}
-					</Button>
+			{!turnComplete && (
+				<div className={"button-container"}>
+					<div>
+						<Button
+							onClick={handleRoll}
+							className={buttonDumping ? "cup-dumping" : "roll-dice-button"}
+							sx={
+								rollCount >= maxRolls
+									? {
+											color: "white",
+											backgroundColor: "rgb(200, 200, 200)",
+											borderRadius: "20%",
+											fontSize: "30px",
+											fontFamily: "'Roboto Mono', monospace",
+									  }
+									: {
+											color: "white",
+											backgroundColor: "#bc40ff !important",
+											borderRadius: "20%",
+											fontSize: "30px",
+											fontFamily: "'Roboto Mono', monospace",
+									  }
+							}
+							disabled={
+								turnComplete || rollCount >= maxRolls ? true : rollDisable
+							}
+						>
+							{maxRolls - rollCount < 2
+								? "LAST ROLL"
+								: maxRolls - rollCount < 4
+								? maxRolls - rollCount
+								: "ROLL DICE"}
+						</Button>
+					</div>
 				</div>
-			</div>
+			)}
+			{turnComplete && (
+				<div className={"button-container-lock"}>
+					<div>
+						{/* <img src={Lock} className="lock" /> */}
+						<Button
+							//onClick={handleRoll}
+							className={buttonDumping ? "cup-dumping" : "roll-dice-button"}
+							sx={{
+								color: "white",
+								backgroundColor: "rgb(200, 200, 200)",
+								borderRadius: "20%",
+								fontSize: "30px",
+								fontFamily: "'Roboto Mono', monospace",
+							}}
+							disabled={turnComplete ? true : rollDisable}
+						>
+							{"LOCKED"}
+						</Button>
+					</div>
+				</div>
+			)}
 			{/* <div className="roll-counter">
 				Rolls remaining: {maxRolls - rollCount} 
 			</div> */}

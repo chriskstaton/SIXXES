@@ -73,6 +73,16 @@ $dice-max: 166px;
 	}
 }
 
+.button-container-lock {
+	margin-top: 35px;
+	margin-bottom: 35px;
+	display: inline-block;
+
+	:focus {
+		outline: none;
+	}
+}
+
 .roll-dice-button {
 	height: 125px;
 	width: 125px;
@@ -103,6 +113,13 @@ $dice-max: 166px;
 	height: 125px;
 	width: 125px;
 	color: gray;
+}
+
+.lock {
+	height: 125px;
+	width: 125px;
+	//animation: fade 1.5s;
+	//morph svg animation here
 }
 
 .roll-counter {
@@ -219,5 +236,17 @@ $dice-max: 166px;
 	}
 	100% {
 		opacity: 100%;
+	}
+}
+
+@keyframes morph {
+	// TODO morph
+	0% {
+		border-radius: 15px;
+		//square from lock svg path
+	}
+	100% {
+		border-radius: 0;
+		//lock svg path
 	}
 }
