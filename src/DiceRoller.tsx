@@ -91,7 +91,11 @@ export function DiceRoller(props: {
 
 	function resetDice() {
 		if (turnCount < totalTurns) {
-			props.setScrollPosition(props.diceScrollElement);
+			props.setScrollPosition(
+				window.innerWidth < 800
+					? props.diceScrollElement
+					: props.headerScrollElement
+			);
 			setTurnCount(turnCount + 1);
 			setResetAllDice(true);
 			setRollCount(0);

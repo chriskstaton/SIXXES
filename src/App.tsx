@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import isMobile from "react-device-detect";
 import "./App.scss";
 import DiceRoller from "./DiceRoller";
 import Tips from "./Tips";
@@ -24,7 +25,7 @@ function App() {
 
 	const setScrollPosition = (ref: { current: { offsetTop: any } }) => {
 		window.scrollTo({
-			top: ref.current.offsetTop - 40,
+			top: ref.current.offsetTop,
 			behavior: "smooth",
 		});
 	};
