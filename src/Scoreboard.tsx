@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { LegacyRef, useEffect, useState } from "react";
 import "./Scoreboard.scss";
 
 //three pairs?
@@ -10,6 +10,7 @@ function Scoreboard(props: {
 	setTurnCount: Function;
 	resetDice(): void;
 	totalTurns: number;
+	refEl: LegacyRef<HTMLDivElement> | undefined;
 }) {
 	var [onesScore, setOnesScore] = useState(0);
 	var [twosScore, setTwosScore] = useState(0);
@@ -358,7 +359,7 @@ function Scoreboard(props: {
 	// }, [props.rollCount]);
 
 	return (
-		<div className="scoreboard-container">
+		<div className="scoreboard-container" ref={props.refEl}>
 			<div className="scoreboard">
 				<table className="upper-categories">
 					<thead>

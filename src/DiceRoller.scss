@@ -30,7 +30,7 @@ $dice-max: 166px;
 	vertical-align: middle;
 	margin: 10px;
 	border-radius: 15px;
-	animation: shimmy 1.5s, fade 1.5s;
+	animation: shimmy 1.5s, fade 1.5s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 .dice-selected {
@@ -62,7 +62,7 @@ $dice-max: 166px;
 .button-container {
 	margin-top: 35px;
 	margin-bottom: 35px;
-	display: inline-block;
+	display: inline-flex;
 
 	button:focus {
 		outline: none;
@@ -70,6 +70,34 @@ $dice-max: 166px;
 
 	:hover {
 		color: black;
+	}
+
+	.padlock-container {
+		position: relative;
+		animation: fade-in 3s cubic-bezier(0.42, 0, 0.58, 1);
+		transform: translateY(25px);
+
+		.padlock-body {
+			display: inline-flex;
+			height: 80px;
+			width: 100px;
+			border-radius: 15px;
+			color: rgb(100, 100, 100);
+			background-color: rgb(100, 100, 100);
+		}
+		.padlock-shackle {
+			display: inline-flex;
+			position: relative;
+			margin: auto;
+			transform: translateY(-50px);
+			height: 50px;
+			width: 50px;
+			border-radius: 15px;
+			border: 10px solid rgb(100, 100, 100);
+			//color: rgb(100, 100, 100);
+			//background-color: rgb(100, 100, 100);
+			animation: popup 3s;
+		}
 	}
 }
 
@@ -105,45 +133,10 @@ $dice-max: 166px;
 	animation-iteration-count: 4;
 }
 
-.roll-dice-button:active {
-	animation: cupdump 1.75s;
-}
-
 .roll-button-disabled {
 	height: 125px;
 	width: 125px;
 	color: gray;
-}
-
-.lock {
-	height: 125px;
-	width: 125px;
-	//animation: fade 1.5s;
-	//morph svg animation here
-}
-
-.roll-counter {
-	color: #bc40ff;
-	font-size: xx-large;
-	font-family: "Roboto Mono", monospace;
-	margin-top: 15px;
-	cursor: default;
-}
-
-.turn-counter {
-	background-color: white;
-	width: 90vw;
-	text-align: center;
-	border-radius: 20px;
-	margin-top: 125px;
-	margin: auto;
-	cursor: default;
-	p {
-		color: #e1a6ff;
-		font-size: xx-large;
-		font-weight: bolder;
-		padding: 1em;
-	}
 }
 
 .footer-tips {
@@ -239,14 +232,26 @@ $dice-max: 166px;
 	}
 }
 
-@keyframes morph {
-	// TODO morph
+@keyframes fade-in {
 	0% {
-		border-radius: 15px;
-		//square from lock svg path
+		opacity: 0%;
+	}
+	66% {
+		opacity: 0%;
 	}
 	100% {
-		border-radius: 0;
-		//lock svg path
+		opacity: 100%;
+	}
+}
+
+@keyframes popup {
+	0% {
+		transform: translateY(0);
+	}
+	80% {
+		transform: translateY(0);
+	}
+	100% {
+		transform: translateY(-50px);
 	}
 }

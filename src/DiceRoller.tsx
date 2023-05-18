@@ -17,7 +17,7 @@ export function DiceRoller(props: {
 	headerScrollElement: LegacyRef<HTMLDivElement> | undefined;
 	diceScrollElement: LegacyRef<HTMLDivElement> | undefined;
 	scoreboardScrollElement: LegacyRef<HTMLDivElement> | undefined;
- setScrollPosition: Function;
+	setScrollPosition: Function;
 }) {
 	var [rollCount, setRollCount] = useState(0);
 	var [turnCount, setTurnCount] = useState(0);
@@ -281,62 +281,60 @@ export function DiceRoller(props: {
 				/>
 			</div>
 
-			{!turnComplete && (
-				<div className={"button-container"}>
-					<Button
-						onClick={handleRoll}
-						className={buttonDumping ? "cup-dumping" : "roll-dice-button"}
-						sx={
-							rollCount >= maxRolls
-								? {
-										color: "white",
-										backgroundColor: "rgb(200, 200, 200)",
-										borderRadius: "20%",
-										fontSize: "30px",
-										fontFamily: "'Roboto Mono', monospace",
-								  }
-								: {
-										color: "white",
-										backgroundColor: "#bc40ff !important",
-										borderRadius: "20%",
-										fontSize: "30px",
-										fontFamily: "'Roboto Mono', monospace",
-								  }
-						}
-						disabled={
-							turnComplete || rollCount >= maxRolls ? true : rollDisable
-						}
-					>
-						{maxRolls - rollCount < 2
-							? "LAST ROLL"
-							: maxRolls - rollCount < 4
-							? maxRolls - rollCount
-							: "ROLL DICE"}
-					</Button>
-				</div>
-			)}
-
-			{turnComplete && (
-				<div className={"button-container-lock"}>
-					<div>
-						{/* <img src={Lock} className="lock" /> */}
-						<Button
-							//onClick={handleRoll}
-							className={buttonDumping ? "cup-dumping" : "roll-dice-button"}
-							sx={{
-								color: "white",
-								backgroundColor: "rgb(200, 200, 200)",
-								borderRadius: "20%",
-								fontSize: "30px",
-								fontFamily: "'Roboto Mono', monospace",
-							}}
-							disabled={turnComplete ? true : rollDisable}
+			<div className={"button-container"}>
+				<Button
+					onClick={
+						!turnComplete ? handleRoll : undefined
+						// : props.setScrollPosition(props.scoreboardScrollElement)
+					}
+					className={buttonDumping ? "cup-dumping" : "roll-dice-button"}
+					sx={
+						rollCount >= maxRolls
+							? {
+									color: "white",
+									backgroundColor: "rgb(200, 200, 200)",
+									borderRadius: "15px",
+									fontSize: "30px",
+									fontFamily: "'Roboto Mono', monospace",
+							  }
+							: {
+									color: "white",
+									backgroundColor: "#bc40ff !important",
+									borderRadius: "15px",
+									fontSize: "30px",
+									fontFamily: "'Roboto Mono', monospace",
+							  }
+					}
+					disabled={turnComplete || rollCount >= maxRolls ? true : rollDisable}
+				>
+					{turnComplete ? (
+						<span
+							className="padlock-container"
+							onClick={() =>
+								props.setScrollPosition(props.scoreboardScrollElement)
+							}
 						>
-							{"LOCKED"}
-						</Button>
-					</div>
-				</div>
-			)}
+							<span className="padlock-body">
+								<span className="padlock-shackle" />
+							</span>
+						</span>
+					) : maxRolls - rollCount < 2 ? (
+						"LAST ROLL"
+					) : maxRolls - rollCount < 4 ? (
+						maxRolls - rollCount
+					) : (
+						"ROLL DICE"
+					)}
+					{/* {turnComplete && (
+						<span
+							className="lock-div"
+							onClick={() =>
+								props.setScrollPosition(props.scoreboardScrollElement)
+							}
+						/>
+					)} */}
+				</Button>
+			</div>
 
 			<Scoreboard
 				diceCurrentValueArray={diceCurrentValueArray}
@@ -344,6 +342,7 @@ export function DiceRoller(props: {
 				setTurnCount={setTurnCount}
 				resetDice={resetDice}
 				totalTurns={totalTurns}
+				refEl={props.scoreboardScrollElement}
 			/>
 		</>
 	);
