@@ -4,21 +4,6 @@ import DiceRoller from "./DiceRoller";
 import Tips from "./Tips";
 
 function App() {
-	// const [scrollPosition, setScrollPosition] = useState(0);
-	// const handleScroll = () => {
-	// 	const position = window.pageYOffset;
-	// 	setScrollPosition(position);
-	// };
-
-	// useEffect(() => {
-	// 	window.addEventListener("scroll", handleScroll, { passive: false });
-	// 	console.log(scrollPosition);
-
-	// 	return () => {
-	// 		window.removeEventListener("scroll", handleScroll);
-	// 	};
-	// }, [scrollPosition]);
-
 	const headerScrollElement = useRef(null);
 	const diceScrollElement = useRef(null);
 

@@ -279,6 +279,7 @@ export function DiceRoller(props: {
 					key={"F"}
 				/>
 			</div>
+
 			{!turnComplete && (
 				<div className={"button-container"}>
 					<div>
@@ -315,6 +316,7 @@ export function DiceRoller(props: {
 					</div>
 				</div>
 			)}
+
 			{turnComplete && (
 				<div className={"button-container-lock"}>
 					<div>
@@ -336,25 +338,17 @@ export function DiceRoller(props: {
 					</div>
 				</div>
 			)}
-			{/* <div className="roll-counter">
-				Rolls remaining: {maxRolls - rollCount} 
-			</div> */}
-			<div>
-				<Scoreboard
-					diceCurrentValueArray={diceCurrentValueArray}
-					turnCount={turnCount}
-					setTurnCount={setTurnCount}
-					resetDice={resetDice}
-					totalTurns={totalTurns}
-					//rollDelay={rollDelay}
-					//scrollPosition={props.scrollPosition}
-					//setScrollPosition={props.setScrollPosition}
-				/>
-				{/* rollCount={rollCount} */}
-			</div>
-			{/* <div className="turn-counter">
-				<p>Turns remaining: {totalTurns - turnCount}</p>
-			</div> */}
+
+			<Scoreboard
+				diceCurrentValueArray={diceCurrentValueArray}
+				turnCount={turnCount}
+				setTurnCount={setTurnCount}
+				resetDice={resetDice}
+				totalTurns={totalTurns}
+				//rollDelay={rollDelay}
+				//scrollPosition={props.scrollPosition}
+				//setScrollPosition={props.setScrollPosition}
+			/>
 		</>
 	);
 }
