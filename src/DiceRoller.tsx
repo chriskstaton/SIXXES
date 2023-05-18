@@ -282,38 +282,36 @@ export function DiceRoller(props: {
 
 			{!turnComplete && (
 				<div className={"button-container"}>
-					<div>
-						<Button
-							onClick={handleRoll}
-							className={buttonDumping ? "cup-dumping" : "roll-dice-button"}
-							sx={
-								rollCount >= maxRolls
-									? {
-											color: "white",
-											backgroundColor: "rgb(200, 200, 200)",
-											borderRadius: "20%",
-											fontSize: "30px",
-											fontFamily: "'Roboto Mono', monospace",
-									  }
-									: {
-											color: "white",
-											backgroundColor: "#bc40ff !important",
-											borderRadius: "20%",
-											fontSize: "30px",
-											fontFamily: "'Roboto Mono', monospace",
-									  }
-							}
-							disabled={
-								turnComplete || rollCount >= maxRolls ? true : rollDisable
-							}
-						>
-							{maxRolls - rollCount < 2
-								? "LAST ROLL"
-								: maxRolls - rollCount < 4
-								? maxRolls - rollCount
-								: "ROLL DICE"}
-						</Button>
-					</div>
+					<Button
+						onClick={handleRoll}
+						className={buttonDumping ? "cup-dumping" : "roll-dice-button"}
+						sx={
+							rollCount >= maxRolls
+								? {
+										color: "white",
+										backgroundColor: "rgb(200, 200, 200)",
+										borderRadius: "20%",
+										fontSize: "30px",
+										fontFamily: "'Roboto Mono', monospace",
+								  }
+								: {
+										color: "white",
+										backgroundColor: "#bc40ff !important",
+										borderRadius: "20%",
+										fontSize: "30px",
+										fontFamily: "'Roboto Mono', monospace",
+								  }
+						}
+						disabled={
+							turnComplete || rollCount >= maxRolls ? true : rollDisable
+						}
+					>
+						{maxRolls - rollCount < 2
+							? "LAST ROLL"
+							: maxRolls - rollCount < 4
+							? maxRolls - rollCount
+							: "ROLL DICE"}
+					</Button>
 				</div>
 			)}
 
@@ -345,9 +343,6 @@ export function DiceRoller(props: {
 				setTurnCount={setTurnCount}
 				resetDice={resetDice}
 				totalTurns={totalTurns}
-				//rollDelay={rollDelay}
-				//scrollPosition={props.scrollPosition}
-				//setScrollPosition={props.setScrollPosition}
 			/>
 		</>
 	);
