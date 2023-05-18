@@ -1,11 +1,15 @@
-$dice-dimensions: 150px;
+$dice-dimensions: 40vw;
+$dice-max: 166px;
 
 .dice-container {
 	padding-top: 25px;
 	padding-bottom: 25px;
+	max-width: 666px;
 }
 
 .dice-static {
+	max-width: $dice-max;
+	max-height: $dice-max;
 	height: $dice-dimensions;
 	width: $dice-dimensions;
 	background-color: white;
@@ -17,6 +21,8 @@ $dice-dimensions: 150px;
 }
 
 .dice-roll {
+	max-width: $dice-max;
+	max-height: $dice-max;
 	height: $dice-dimensions;
 	width: $dice-dimensions;
 	background-color: white;
@@ -24,10 +30,12 @@ $dice-dimensions: 150px;
 	vertical-align: middle;
 	margin: 10px;
 	border-radius: 15px;
-	animation: shimmy 1.5s;
+	animation: shimmy 1.5s, fade 1.5s;
 }
 
 .dice-selected {
+	max-width: $dice-max;
+	max-height: $dice-max;
 	height: $dice-dimensions;
 	width: $dice-dimensions;
 	background-color: gray; //#e1a6ff;
@@ -39,6 +47,8 @@ $dice-dimensions: 150px;
 }
 
 .dice-reset {
+	max-width: $dice-max;
+	max-height: $dice-max;
 	height: $dice-dimensions;
 	width: $dice-dimensions;
 	background-color: white;

@@ -140,33 +140,33 @@ export function DiceRoller(props: {
 		if (isSelectedOne) {
 			var randomNumber1 = Math.floor(Math.random() * 6 + 1);
 			setValueOne(randomNumber1);
-			setTimeout(() => setImageOne(diceImages[randomNumber1]), rollDelay);
+			setTimeout(() => setImageOne(diceImages[randomNumber1]), rollDelay / 2);
 		}
 		if (isSelectedTwo) {
 			var randomNumber2 = Math.floor(Math.random() * 6 + 1);
 			setValueTwo(randomNumber2);
-			setTimeout(() => setImageTwo(diceImages[randomNumber2]), rollDelay);
+			setTimeout(() => setImageTwo(diceImages[randomNumber2]), rollDelay / 2);
 		}
 		if (isSelectedThree) {
 			var randomNumber3 = Math.floor(Math.random() * 6 + 1);
 			setValueThree(randomNumber3);
-			setTimeout(() => setImageThree(diceImages[randomNumber3]), rollDelay);
+			setTimeout(() => setImageThree(diceImages[randomNumber3]), rollDelay / 2);
 		}
 		if (isSelectedFour) {
 			var randomNumber4 = Math.floor(Math.random() * 6 + 1);
 			setValueFour(randomNumber4);
-			setTimeout(() => setImageFour(diceImages[randomNumber4]), rollDelay);
+			setTimeout(() => setImageFour(diceImages[randomNumber4]), rollDelay / 2);
 		}
 		if (isSelectedFive) {
 			var randomNumber5 = Math.floor(Math.random() * 6 + 1);
 			setValueFive(randomNumber5);
-			setTimeout(() => setImageFive(diceImages[randomNumber5]), rollDelay);
+			setTimeout(() => setImageFive(diceImages[randomNumber5]), rollDelay / 2);
 		}
 
 		if (isSelectedSix) {
 			var randomNumber6 = Math.floor(Math.random() * 6 + 1);
 			setValueSix(randomNumber6);
-			setTimeout(() => setImageSix(diceImages[randomNumber6]), rollDelay);
+			setTimeout(() => setImageSix(diceImages[randomNumber6]), rollDelay / 2);
 		}
 		setTimeout(() => setRollingOne(false), rollDelay);
 		setTimeout(() => setRollingTwo(false), rollDelay);
