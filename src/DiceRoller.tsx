@@ -77,6 +77,46 @@ export function DiceRoller(props: {
 	const resetDelay = 1500;
 	const dumpDelay = 2000;
 
+	function rollDice() {
+		if (isSelectedOne) {
+			var randomNumber1 = Math.floor(Math.random() * 6 + 1);
+			setValueOne(randomNumber1);
+			setTimeout(() => setImageOne(diceImages[randomNumber1]), rollDelay / 2);
+		}
+		if (isSelectedTwo) {
+			var randomNumber2 = Math.floor(Math.random() * 6 + 1);
+			setValueTwo(randomNumber2);
+			setTimeout(() => setImageTwo(diceImages[randomNumber2]), rollDelay / 2);
+		}
+		if (isSelectedThree) {
+			var randomNumber3 = Math.floor(Math.random() * 6 + 1);
+			setValueThree(randomNumber3);
+			setTimeout(() => setImageThree(diceImages[randomNumber3]), rollDelay / 2);
+		}
+		if (isSelectedFour) {
+			var randomNumber4 = Math.floor(Math.random() * 6 + 1);
+			setValueFour(randomNumber4);
+			setTimeout(() => setImageFour(diceImages[randomNumber4]), rollDelay / 2);
+		}
+		if (isSelectedFive) {
+			var randomNumber5 = Math.floor(Math.random() * 6 + 1);
+			setValueFive(randomNumber5);
+			setTimeout(() => setImageFive(diceImages[randomNumber5]), rollDelay / 2);
+		}
+		if (isSelectedSix) {
+			var randomNumber6 = Math.floor(Math.random() * 6 + 1);
+			setValueSix(randomNumber6);
+			setTimeout(() => setImageSix(diceImages[randomNumber6]), rollDelay / 2);
+		}
+
+		setTimeout(() => setRollingOne(false), rollDelay);
+		setTimeout(() => setRollingTwo(false), rollDelay);
+		setTimeout(() => setRollingThree(false), rollDelay);
+		setTimeout(() => setRollingFour(false), rollDelay);
+		setTimeout(() => setRollingFive(false), rollDelay);
+		setTimeout(() => setRollingSix(false), rollDelay);
+	}
+
 	function handleRoll() {
 		if (turnCount < totalTurns) {
 			// props.setScrollPosition(props.diceScrollElement);
@@ -107,12 +147,6 @@ export function DiceRoller(props: {
 				setTurnComplete(true);
 			}
 		} else return;
-	}
-
-	function handleLock() {
-		if (rollCount == maxRolls) {
-			props.setScrollPosition(props.scoreboardScrollElement);
-		}
 	}
 
 	function resetDice() {
@@ -151,44 +185,10 @@ export function DiceRoller(props: {
 		} else return;
 	}
 
-	function rollDice() {
-		if (isSelectedOne) {
-			var randomNumber1 = Math.floor(Math.random() * 6 + 1);
-			setValueOne(randomNumber1);
-			setTimeout(() => setImageOne(diceImages[randomNumber1]), rollDelay / 2);
+	function handleLock() {
+		if (rollCount == maxRolls) {
+			props.setScrollPosition(props.scoreboardScrollElement);
 		}
-		if (isSelectedTwo) {
-			var randomNumber2 = Math.floor(Math.random() * 6 + 1);
-			setValueTwo(randomNumber2);
-			setTimeout(() => setImageTwo(diceImages[randomNumber2]), rollDelay / 2);
-		}
-		if (isSelectedThree) {
-			var randomNumber3 = Math.floor(Math.random() * 6 + 1);
-			setValueThree(randomNumber3);
-			setTimeout(() => setImageThree(diceImages[randomNumber3]), rollDelay / 2);
-		}
-		if (isSelectedFour) {
-			var randomNumber4 = Math.floor(Math.random() * 6 + 1);
-			setValueFour(randomNumber4);
-			setTimeout(() => setImageFour(diceImages[randomNumber4]), rollDelay / 2);
-		}
-		if (isSelectedFive) {
-			var randomNumber5 = Math.floor(Math.random() * 6 + 1);
-			setValueFive(randomNumber5);
-			setTimeout(() => setImageFive(diceImages[randomNumber5]), rollDelay / 2);
-		}
-
-		if (isSelectedSix) {
-			var randomNumber6 = Math.floor(Math.random() * 6 + 1);
-			setValueSix(randomNumber6);
-			setTimeout(() => setImageSix(diceImages[randomNumber6]), rollDelay / 2);
-		}
-		setTimeout(() => setRollingOne(false), rollDelay);
-		setTimeout(() => setRollingTwo(false), rollDelay);
-		setTimeout(() => setRollingThree(false), rollDelay);
-		setTimeout(() => setRollingFour(false), rollDelay);
-		setTimeout(() => setRollingFive(false), rollDelay);
-		setTimeout(() => setRollingSix(false), rollDelay);
 	}
 
 	useEffect(() => {
