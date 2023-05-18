@@ -1,8 +1,33 @@
+import { useEffect, useRef, useState } from "react";
 import "./App.scss";
 import DiceRoller from "./DiceRoller";
 import Tips from "./Tips";
 
 function App() {
+	// const [scrollPosition, setScrollPosition] = useState(0);
+	// const handleScroll = () => {
+	// 	const position = window.pageYOffset;
+	// 	setScrollPosition(position);
+	// };
+
+	// useEffect(() => {
+	// 	window.addEventListener("scroll", handleScroll, { passive: false });
+	// 	console.log(scrollPosition);
+
+	// 	return () => {
+	// 		window.removeEventListener("scroll", handleScroll);
+	// 	};
+	// }, [scrollPosition]);
+
+	const diceScrollElement = useRef(null);
+
+	const setScrollPosition = (ref: { current: { offsetTop: any } }) => {
+		window.scrollTo({
+			top: ref.current.offsetTop,
+			behavior: "smooth",
+		});
+	};
+
 	return (
 		<div className="App">
 			<div className="header-container">
@@ -14,7 +39,10 @@ function App() {
 				<span className="XX">XX</span>
 			</div>
 
-			<DiceRoller />
+			<DiceRoller
+				setScrollPosition={setScrollPosition}
+				diceScrollElement={diceScrollElement}
+			/>
 			{/* <Tips /> */}
 		</div>
 	);

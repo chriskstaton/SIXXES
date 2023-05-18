@@ -16,6 +16,8 @@ function Scoreboard(props: {
 	turnCount: number;
 	setTurnCount: Function;
 	resetDice(): void;
+	//setScrollPosition: Function;
+	//scrollPosition: number;
 }) {
 	var [onesScore, setOnesScore] = useState(0);
 	var [twosScore, setTwosScore] = useState(0);

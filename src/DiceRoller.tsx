@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { LegacyRef, Ref, useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import "./DiceRoller.scss";
 
@@ -12,7 +12,10 @@ import Dice6 from "../src/images/dice6.svg";
 
 import Scoreboard from "./Scoreboard";
 
-export function DiceRoller() {
+export function DiceRoller(props: {
+	diceScrollElement: LegacyRef<HTMLDivElement> | undefined;
+	setScrollPosition: Function;
+}) {
 	var [rollCount, setRollCount] = useState(0);
 	var [turnCount, setTurnCount] = useState(0);
 
@@ -86,6 +89,7 @@ export function DiceRoller() {
 	}
 
 	function resetDice() {
+		props.setScrollPosition(props.diceScrollElement);
 		if (turnCount < totalTurns) {
 			setTurnCount(turnCount + 1);
 			setResetAllDice(true);
@@ -160,7 +164,7 @@ export function DiceRoller() {
 
 	return (
 		<>
-			<div className="dice-container">
+			<div className="dice-container" ref={props.diceScrollElement}>
 				<img
 					className={
 						!isSelectedOne
@@ -284,6 +288,8 @@ export function DiceRoller() {
 					turnCount={turnCount}
 					setTurnCount={setTurnCount}
 					resetDice={resetDice}
+					//scrollPosition={props.scrollPosition}
+					//setScrollPosition={props.setScrollPosition}
 				/>
 				{/* rollCount={rollCount} */}
 			</div>
