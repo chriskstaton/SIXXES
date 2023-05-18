@@ -67,6 +67,7 @@ export function DiceRoller(props: {
 	useEffect(() => console.log(diceCurrentValueArray), [rollCount]);
 
 	const maxRolls = 4;
+	const scrollDelay = 500;
 	const totalTurns = 13;
 	const rollDelay = 1400;
 	const resetDelay = 1500;
@@ -74,6 +75,16 @@ export function DiceRoller(props: {
 
 	function handleRoll() {
 		if (turnCount < totalTurns) {
+			// props.setScrollPosition(props.diceScrollElement);
+			setTimeout(
+				() =>
+					props.setScrollPosition(
+						window.innerWidth < 800
+							? props.diceScrollElement
+							: props.headerScrollElement
+					),
+				scrollDelay
+			);
 			setRollDisable(true);
 			setRollingOne(true);
 			setRollingTwo(true);
@@ -91,10 +102,14 @@ export function DiceRoller(props: {
 
 	function resetDice() {
 		if (turnCount < totalTurns) {
-			props.setScrollPosition(
-				window.innerWidth < 800
-					? props.diceScrollElement
-					: props.headerScrollElement
+			setTimeout(
+				() =>
+					props.setScrollPosition(
+						window.innerWidth < 800
+							? props.diceScrollElement
+							: props.headerScrollElement
+					),
+				500
 			);
 			setTurnCount(turnCount + 1);
 			setResetAllDice(true);
@@ -267,26 +282,26 @@ export function DiceRoller(props: {
 										color: "white",
 										backgroundColor: "rgb(200, 200, 200)",
 										borderRadius: "20%",
-										fontSize: "25px",
+										fontSize: "30px",
 										fontFamily: "'Roboto Mono', monospace",
 								  }
 								: {
 										color: "white",
 										backgroundColor: "#bc40ff !important",
 										borderRadius: "20%",
-										fontSize: "25px",
+										fontSize: "30px",
 										fontFamily: "'Roboto Mono', monospace",
 								  }
 						}
 						disabled={rollCount >= maxRolls ? true : rollDisable}
 					>
-						Roll Dice
+						{maxRolls - rollCount < 4 ? maxRolls - rollCount : "Roll Dice"}
 					</Button>
 				</div>
 			</div>
-			<div className="roll-counter">
+			{/* <div className="roll-counter">
 				Rolls remaining: {maxRolls - rollCount}
-			</div>
+			</div> */}
 			<div>
 				<Scoreboard
 					diceCurrentValueArray={diceCurrentValueArray}
