@@ -119,7 +119,6 @@ export function DiceRoller(props: {
 
 	function handleRoll() {
 		if (turnCount < totalTurns) {
-			// props.setScrollPosition(props.diceScrollElement);
 			setTimeout(
 				() =>
 					props.setScrollPosition(

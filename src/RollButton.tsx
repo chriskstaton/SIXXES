@@ -2,8 +2,8 @@ import Button from "@mui/material/Button";
 
 function rollButton(props: {
 	handleLock: () => void;
-	turnComplete: boolean;
 	handleRoll: () => void;
+	turnComplete: boolean;
 	buttonDumping: boolean;
 	rollCount: number;
 	maxRolls: number;
