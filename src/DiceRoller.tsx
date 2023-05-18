@@ -16,7 +16,8 @@ import Scoreboard from "./Scoreboard";
 export function DiceRoller(props: {
 	headerScrollElement: LegacyRef<HTMLDivElement> | undefined;
 	diceScrollElement: LegacyRef<HTMLDivElement> | undefined;
-	setScrollPosition: Function;
+	scoreboardScrollElement: LegacyRef<HTMLDivElement> | undefined;
+ setScrollPosition: Function;
 }) {
 	var [rollCount, setRollCount] = useState(0);
 	var [turnCount, setTurnCount] = useState(0);
