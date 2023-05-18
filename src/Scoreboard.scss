@@ -45,8 +45,12 @@ $scoreboard-border-color: rgb(225, 225, 225);
 			cursor: default;
 
 			th {
-				padding-left: 100px;
 				text-align: center;
+				padding-left: 50px;
+			}
+
+			td {
+				width: 0px;
 			}
 		}
 
@@ -58,8 +62,8 @@ $scoreboard-border-color: rgb(225, 225, 225);
 			cursor: default;
 
 			th {
+				padding-left: 50px;
 				text-align: center;
-				padding-left: 100px;
 			}
 		}
 
@@ -71,7 +75,7 @@ $scoreboard-border-color: rgb(225, 225, 225);
 			cursor: default;
 
 			th {
-				padding-left: 100px;
+				padding-left: 50px;
 				text-align: center;
 			}
 		}
@@ -84,7 +88,7 @@ $scoreboard-border-color: rgb(225, 225, 225);
 			cursor: default;
 
 			th {
-				padding-left: 100px;
+				padding-left: 50px;
 				text-align: center;
 			}
 		}
@@ -98,7 +102,7 @@ $scoreboard-border-color: rgb(225, 225, 225);
 			cursor: text;
 
 			th {
-				padding-left: 100px;
+				padding-left: 50px;
 				text-align: center;
 			}
 		}

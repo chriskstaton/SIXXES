@@ -327,8 +327,8 @@ function Scoreboard(props: {
 				<table className="upper-categories">
 					<thead>
 						<tr className="turn-count">
-							<th>{props.totalTurns - props.turnCount} Turns Remaining</th>
-							<td></td>
+							<th>Turns Remaining</th>
+							<td>{props.totalTurns - props.turnCount}</td>
 						</tr>
 						<tr
 							onClick={
