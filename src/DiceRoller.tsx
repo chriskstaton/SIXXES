@@ -19,6 +19,9 @@ export function DiceRoller(props: {
 	scoreboardScrollElement: LegacyRef<HTMLDivElement> | undefined;
 	setScrollPosition: Function;
 }) {
+	const max_rolls = 4;
+	const total_turns = 13;
+
 	var [rollCount, setRollCount] = useState(0);
 	var [turnCount, setTurnCount] = useState(0);
 
@@ -68,15 +71,12 @@ export function DiceRoller(props: {
 		valueSix,
 	];
 
-	useEffect(() => console.log(diceCurrentValueArray), [rollCount]);
-
-	const max_rolls = 4;
-	const total_turns = 13;
-
 	const delay_scroll = 500;
 	const delay_roll = 3000;
 	const delay_reset = 3000;
 	const delay_dump = 2000;
+
+	useEffect(() => console.log(diceCurrentValueArray), [rollCount]);
 
 	function rollDice() {
 		if (isSelectedOne) {
