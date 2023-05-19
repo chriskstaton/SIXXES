@@ -61,13 +61,12 @@ function App() {
 			</div>
 			<div className="commit-container">
 				<span className="commit-message">
-					{"[" + abbreviatedSha + "] " + commitMessage}
 					<div className="commit-message">
 						{time.toLocaleString("en-US", localeOptions)}
 					</div>
+					{"[" + abbreviatedSha + "] " + commitMessage}
 				</span>
 			</div>
-			<div className="author-date"></div>
 		</div>
 	);
 }
