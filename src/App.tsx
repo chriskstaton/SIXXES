@@ -43,7 +43,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<SixesHeader
+			<SixesHeader //use Netron
 				headerScrollElement={headerScrollElement}
 				setScrollPosition={setScrollPosition}
 			/>
@@ -62,7 +62,7 @@ function App() {
 			<div className="commit-container">
 				<span className="commit-message">
 					<div className="commit-message">
-						{time.toLocaleString("en-US", localeOptions)}
+						Latest update: {time.toLocaleString("en-US", localeOptions)}
 					</div>
 					{"[" + abbreviatedSha + "] " + commitMessage}
 				</span>

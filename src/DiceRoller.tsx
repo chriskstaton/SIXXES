@@ -203,8 +203,8 @@ export function DiceRoller(props: {
 	return (
 		<>
 			<div className="dice-container" ref={props.diceScrollElement}>
-				<DiceElement
-					isSelected={isSelectedOne}
+				<DiceElement //TODO map through these
+					isSelected={isSelectedOne} //TODO back ticks method for changing states
 					rollingNumber={rollingOne}
 					resetAllDice={resetAllDice}
 					setIsSelected={setIsSelectedOne}
@@ -263,7 +263,7 @@ export function DiceRoller(props: {
 				rollDisable={rollDisable}
 			/>
 
-			<Scoreboard
+			<Scoreboard //TODO fade in description on row header click or reveal all toggle
 				diceCurrentValueArray={diceCurrentValueArray}
 				turnCount={turnCount}
 				setTurnCount={setTurnCount}
