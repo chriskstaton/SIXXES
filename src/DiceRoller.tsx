@@ -70,55 +70,59 @@ export function DiceRoller(props: {
 
 	useEffect(() => console.log(diceCurrentValueArray), [rollCount]);
 
-	const maxRolls = 4;
-	const scrollDelay = 500;
-	const totalTurns = 13;
-	const rollDelay = 1500;
-	const resetDelay = 1500;
-	const dumpDelay = 2000;
+	const max_rolls = 4;
+	const total_turns = 13;
+
+	const delay_scroll = 500;
+	const delay_roll = 3000;
+	const delay_reset = 3000;
+	const delay_dump = 2000;
 
 	function rollDice() {
 		if (isSelectedOne) {
 			var randomNumber1 = Math.floor(Math.random() * 6 + 1);
 			setValueOne(randomNumber1);
-			setTimeout(() => setImageOne(diceImages[randomNumber1]), rollDelay / 2);
+			setTimeout(() => setImageOne(diceImages[randomNumber1]), delay_roll / 2);
 		}
 		if (isSelectedTwo) {
 			var randomNumber2 = Math.floor(Math.random() * 6 + 1);
 			setValueTwo(randomNumber2);
-			setTimeout(() => setImageTwo(diceImages[randomNumber2]), rollDelay / 2);
+			setTimeout(() => setImageTwo(diceImages[randomNumber2]), delay_roll / 2);
 		}
 		if (isSelectedThree) {
 			var randomNumber3 = Math.floor(Math.random() * 6 + 1);
 			setValueThree(randomNumber3);
-			setTimeout(() => setImageThree(diceImages[randomNumber3]), rollDelay / 2);
+			setTimeout(
+				() => setImageThree(diceImages[randomNumber3]),
+				delay_roll / 2
+			);
 		}
 		if (isSelectedFour) {
 			var randomNumber4 = Math.floor(Math.random() * 6 + 1);
 			setValueFour(randomNumber4);
-			setTimeout(() => setImageFour(diceImages[randomNumber4]), rollDelay / 2);
+			setTimeout(() => setImageFour(diceImages[randomNumber4]), delay_roll / 2);
 		}
 		if (isSelectedFive) {
 			var randomNumber5 = Math.floor(Math.random() * 6 + 1);
 			setValueFive(randomNumber5);
-			setTimeout(() => setImageFive(diceImages[randomNumber5]), rollDelay / 2);
+			setTimeout(() => setImageFive(diceImages[randomNumber5]), delay_roll / 2);
 		}
 		if (isSelectedSix) {
 			var randomNumber6 = Math.floor(Math.random() * 6 + 1);
 			setValueSix(randomNumber6);
-			setTimeout(() => setImageSix(diceImages[randomNumber6]), rollDelay / 2);
+			setTimeout(() => setImageSix(diceImages[randomNumber6]), delay_roll / 2);
 		}
 
-		setTimeout(() => setRollingOne(false), rollDelay);
-		setTimeout(() => setRollingTwo(false), rollDelay);
-		setTimeout(() => setRollingThree(false), rollDelay);
-		setTimeout(() => setRollingFour(false), rollDelay);
-		setTimeout(() => setRollingFive(false), rollDelay);
-		setTimeout(() => setRollingSix(false), rollDelay);
+		setTimeout(() => setRollingOne(false), delay_roll);
+		setTimeout(() => setRollingTwo(false), delay_roll);
+		setTimeout(() => setRollingThree(false), delay_roll);
+		setTimeout(() => setRollingFour(false), delay_roll);
+		setTimeout(() => setRollingFive(false), delay_roll);
+		setTimeout(() => setRollingSix(false), delay_roll);
 	}
 
 	function handleRoll() {
-		if (turnCount < totalTurns) {
+		if (turnCount < total_turns) {
 			setTimeout(
 				() =>
 					props.setScrollPosition(
@@ -126,7 +130,7 @@ export function DiceRoller(props: {
 							? props.diceScrollElement
 							: props.headerScrollElement
 					),
-				scrollDelay
+				delay_scroll
 			);
 
 			setRollDisable(true);
@@ -137,19 +141,19 @@ export function DiceRoller(props: {
 			setRollingFive(true);
 			setRollingSix(true);
 			setButtonDumping(true);
-			setTimeout(() => setButtonDumping(false), dumpDelay);
+			setTimeout(() => setButtonDumping(false), delay_dump);
 			rollDice();
-			setTimeout(() => setRollCount(rollCount + 1), rollDelay * 0.75);
-			setTimeout(() => setRollDisable(false), rollDelay);
+			setTimeout(() => setRollCount(rollCount + 1), delay_roll * 0.75);
+			setTimeout(() => setRollDisable(false), delay_roll);
 
-			if (rollCount == maxRolls - 1) {
+			if (rollCount == max_rolls - 1) {
 				setTurnComplete(true);
 			}
 		} else return;
 	}
 
 	function resetDice() {
-		if (turnCount < totalTurns - 1) {
+		if (turnCount < total_turns - 1) {
 			setTurnComplete(false);
 			setTimeout(
 				() =>
@@ -158,7 +162,7 @@ export function DiceRoller(props: {
 							? props.diceScrollElement
 							: props.headerScrollElement
 					),
-				scrollDelay
+				delay_scroll
 			);
 			setResetAllDice(true);
 			setRollCount(0);
@@ -168,24 +172,24 @@ export function DiceRoller(props: {
 			setValueFour(0);
 			setValueFive(0);
 			setValueSix(0);
-			setTimeout(() => setImageOne(diceImages[0]), resetDelay / 2);
-			setTimeout(() => setImageTwo(diceImages[0]), resetDelay / 2);
-			setTimeout(() => setImageThree(diceImages[0]), resetDelay / 2);
-			setTimeout(() => setImageFour(diceImages[0]), resetDelay / 2);
-			setTimeout(() => setImageFive(diceImages[0]), resetDelay / 2);
-			setTimeout(() => setImageSix(diceImages[0]), resetDelay / 2);
+			setTimeout(() => setImageOne(diceImages[0]), delay_reset / 2);
+			setTimeout(() => setImageTwo(diceImages[0]), delay_reset / 2);
+			setTimeout(() => setImageThree(diceImages[0]), delay_reset / 2);
+			setTimeout(() => setImageFour(diceImages[0]), delay_reset / 2);
+			setTimeout(() => setImageFive(diceImages[0]), delay_reset / 2);
+			setTimeout(() => setImageSix(diceImages[0]), delay_reset / 2);
 			setIsSelectedOne(true);
 			setIsSelectedTwo(true);
 			setIsSelectedThree(true);
 			setIsSelectedFour(true);
 			setIsSelectedFive(true);
 			setIsSelectedSix(true);
-			setTimeout(() => setResetAllDice(false), resetDelay);
+			setTimeout(() => setResetAllDice(false), delay_reset);
 		} else return;
 	}
 
 	function handleLock() {
-		if (rollCount == maxRolls) {
+		if (rollCount == max_rolls) {
 			props.setScrollPosition(props.scoreboardScrollElement);
 		}
 	}
@@ -254,7 +258,7 @@ export function DiceRoller(props: {
 				handleRoll={handleRoll}
 				buttonDumping={buttonDumping}
 				rollCount={rollCount}
-				maxRolls={maxRolls}
+				maxRolls={max_rolls}
 				turnComplete={turnComplete}
 				rollDisable={rollDisable}
 			/>
@@ -264,7 +268,7 @@ export function DiceRoller(props: {
 				turnCount={turnCount}
 				setTurnCount={setTurnCount}
 				resetDice={resetDice}
-				totalTurns={totalTurns}
+				totalTurns={total_turns}
 				refEl={props.scoreboardScrollElement}
 			/>
 		</>
