@@ -6,10 +6,29 @@ import "./App.scss";
 import { github, abbreviatedSha, authorDate, commitMessage } from "~build/info";
 import time from "~build/time";
 
+const options = {
+	weekday: "short",
+	year: "numeric",
+	month: "2-digit",
+	day: "numeric",
+	hour: "2-digit",
+	minute: "2-digit",
+	timeZoneName: "short",
+};
+
 function App() {
 	const headerScrollElement = useRef(null);
 	const diceScrollElement = useRef(null);
 	const scoreboardScrollElement = useRef(null);
+
+	var localeOptions: object = {
+		year: "numeric",
+		month: "2-digit",
+		day: "numeric",
+		hour: "2-digit",
+		minute: "2-digit",
+		timeZoneName: "short",
+	};
 
 	const setScrollPosition = (ref: { current: { offsetTop: any } }) => {
 		window.scrollTo({
@@ -35,13 +54,20 @@ function App() {
 				scoreboardScrollElement={scoreboardScrollElement}
 			/>
 			<div
-				className="github"
+				className="github-container"
 				onClick={() => openInNewTab(github ? github : undefined)}
 			>
-				github
+				<span className="github-link">github</span>
 			</div>
-			<div className="commit">{abbreviatedSha + " - " + commitMessage}</div>
-			<div className="author-date">{time.toString()}</div>
+			<div className="commit-container">
+				<span className="commit-message">
+					{"[" + abbreviatedSha + "] " + commitMessage}
+					<div className="commit-message">
+						{time.toLocaleString("en-US", localeOptions)}
+					</div>
+				</span>
+			</div>
+			<div className="author-date"></div>
 		</div>
 	);
 }

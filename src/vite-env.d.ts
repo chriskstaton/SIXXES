@@ -5,6 +5,13 @@ declare module "~build/meta" {
 }
 
 declare module "~build/time" {
+	const dateoptions = {
+		weekday: "long",
+		year: "numeric",
+		month: "long",
+		day: "numeric",
+	};
+
 	const time: Date;
 
 	export = time;
