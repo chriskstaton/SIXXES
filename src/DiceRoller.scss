@@ -30,7 +30,7 @@ $dice-max: 166px;
 	vertical-align: middle;
 	margin: 10px;
 	border-radius: 15px;
-	animation: shimmy 1.5s, fade 1.5s cubic-bezier(0.42, 0, 0.58, 1);
+	animation: shimmy 1.5s, fade 3s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 .dice-selected {
@@ -56,7 +56,7 @@ $dice-max: 166px;
 	vertical-align: middle;
 	margin: 10px;
 	border-radius: 15px;
-	animation: fade 1.5s cubic-bezier(0.42, 0, 0.58, 1);
+	animation: fade 3s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 .button-container {
