@@ -5,7 +5,7 @@ declare module "~build/meta" {
 }
 
 declare module "~build/time" {
-	const time: string;
+	const time: Date;
 
 	export = time;
 }
