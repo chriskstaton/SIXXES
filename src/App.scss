@@ -22,11 +22,12 @@ body {
 .github-container {
 	cursor: pointer;
 	display: flex;
-	margin: auto;
-	margin-top: 50px;
+	margin-left: auto;
+ margin-right: auto;
+	margin-top: 75px;
 	margin-bottom: 50px;
-	height: 66px;
-	width: 66px;
+	height: 75px;
+	width: 75px;
 	background-color: white;
 	border-radius: 15px;
 	.github-link {
