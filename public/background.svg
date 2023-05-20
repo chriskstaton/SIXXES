@@ -1,0 +1,16 @@
+<svg viewBox="0 0 325 425" xmlns="http://www.w3.org/2000/svg">
+  <!-- <filter id="noise1" x="0" y="0" width="100%" height="100%">
+    <feTurbulence baseFrequency="0.025" />
+  </filter> -->
+  <filter id="noise2" x="0" y="0" width="100%" height="100%">
+    <feTurbulence baseFrequency="0.08" />
+  </filter>
+
+  <!-- <rect x="0" y="0" width="200" height="200" style="filter: url(#noise1);" /> -->
+  <rect
+    x="0"
+    y="0"
+    width="325"
+    height="425"
+    style="filter: url(#noise2)" />
+</svg>
