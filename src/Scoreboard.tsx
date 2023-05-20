@@ -326,10 +326,14 @@ function Scoreboard(props: {
 			<div className="scoreboard">
 				<table className="upper-categories">
 					<thead>
-						<tr className="turn-count">
-							<th>Turns</th>
-							<td>{props.totalTurns - props.turnCount}</td>
-						</tr>
+						{window.innerHeight >= 800 ? (
+							<tr className="turn-count">
+								<th>Turns</th>
+								<td>{props.totalTurns - props.turnCount}</td>
+							</tr>
+						) : (
+							<></>
+						)}
 						<tr
 							onClick={
 								onesLocked
