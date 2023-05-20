@@ -16,7 +16,7 @@ $dice-max: 166px;
 	display: inline-block;
 	vertical-align: middle;
 	margin: 10px;
-	border-radius: 15px;
+	border-radius: 20px;
 	cursor: pointer;
 }
 
@@ -29,7 +29,7 @@ $dice-max: 166px;
 	display: inline-block;
 	vertical-align: middle;
 	margin: 10px;
-	border-radius: 15px;
+	border-radius: 20px;
 	animation: shimmy 1.5s, fade 3s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
@@ -43,7 +43,7 @@ $dice-max: 166px;
 	display: inline-block;
 	vertical-align: middle;
 	margin: 10px;
-	border-radius: 15px;
+	border-radius: 20px;
 }
 
 .dice-reset {
@@ -55,7 +55,7 @@ $dice-max: 166px;
 	display: inline-block;
 	vertical-align: middle;
 	margin: 10px;
-	border-radius: 15px;
+	border-radius: 20px;
 	animation: fade 3s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
@@ -63,6 +63,13 @@ $dice-max: 166px;
 	margin-top: 20px;
 	margin-bottom: 20px;
 	display: inline-flex;
+	border: 20px #e1a6ff;
+	padding: 6px;
+	border-radius: 20px;
+
+	.roll-container {
+		background-color: rgb(225, 225, 225);
+	}
 
 	button:focus {
 		outline: none;

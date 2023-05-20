@@ -18,14 +18,13 @@ function rollButton(props: {
 					props.rollCount >= props.maxRolls
 						? {
 								color: "white",
-								backgroundColor: "rgb(200, 200, 200)",
 								borderRadius: "15px",
 								fontSize: "30px",
 								fontFamily: "'Roboto Mono', monospace",
 						  }
 						: {
 								color: "white",
-								backgroundColor: "#bc40ff !important",
+								backgroundColor: "#e1a6ff !important",
 								borderRadius: "15px",
 								fontSize: "30px",
 								fontFamily: "'Roboto Mono', monospace",
@@ -43,10 +42,8 @@ function rollButton(props: {
 							<span className="padlock-shackle" />
 						</span>
 					</span>
-				) : props.maxRolls - props.rollCount < 2 ? (
+				) : props.maxRolls - props.rollCount == 1 ? (
 					"LAST ROLL"
-				) : props.maxRolls - props.rollCount < 4 ? (
-					props.maxRolls - props.rollCount
 				) : (
 					"ROLL DICE"
 				)}
