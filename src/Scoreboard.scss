@@ -2,11 +2,10 @@ $scoreboard-border: 4px solid rgba(225, 225, 225);
 $scoreboard-border-color: rgb(225, 225, 225);
 
 .scoreboard-container {
-		margin-top: 35px;
-		margin-bottom: 35px;
+	margin-top: 25px;
 	.scoreboard {
-		padding-top: 15px;
-		margin-bottom: 15px;
+		margin-top: 25px;
+		margin-bottom: 25px;
 		display: inline-grid;
 		border: $scoreboard-border;
 		border-radius: 20px;

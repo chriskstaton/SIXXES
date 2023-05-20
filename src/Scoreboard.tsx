@@ -322,8 +322,8 @@ function Scoreboard(props: {
 	// }, [props.rollCount]);
 
 	return (
-		<div className="scoreboard-container" >
-			<div className="scoreboard" ref={props.refEl}>
+		<div className="scoreboard-container" ref={props.refEl}>
+			<div className="scoreboard">
 				<table className="upper-categories">
 					<thead>
 						<tr className="turn-count">
