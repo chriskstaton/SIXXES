@@ -74,34 +74,34 @@ $dice-max: 166px;
 	button:focus {
 		outline: none;
 	}
+}
 
-	.padlock-container {
+.padlock-container {
+	position: relative;
+	animation: fade-in 3s cubic-bezier(0.42, 0, 0.58, 1);
+	transform: translateY(25px);
+
+	.padlock-body {
+		display: inline-flex;
+		height: 80px;
+		width: 100px;
+		border-radius: 15px;
+		color: rgb(100, 100, 100);
+		background-color: rgb(100, 100, 100);
+	}
+
+	.padlock-shackle {
+		display: inline-flex;
 		position: relative;
-		animation: fade-in 3s cubic-bezier(0.42, 0, 0.58, 1);
-		transform: translateY(25px);
-
-		.padlock-body {
-			display: inline-flex;
-			height: 80px;
-			width: 100px;
-			border-radius: 15px;
-			color: rgb(100, 100, 100);
-			background-color: rgb(100, 100, 100);
-		}
-
-		.padlock-shackle {
-			display: inline-flex;
-			position: relative;
-			margin: auto;
-			transform: translateY(-50px);
-			height: 50px;
-			width: 50px;
-			border-radius: 15px;
-			border: 10px solid rgb(100, 100, 100);
-			//color: rgb(100, 100, 100);
-			//background-color: rgb(100, 100, 100);
-			animation: popup 3s;
-		}
+		margin: auto;
+		transform: translateY(-50px);
+		height: 50px;
+		width: 50px;
+		border-radius: 15px;
+		border: 10px solid rgb(100, 100, 100);
+		//color: rgb(100, 100, 100);
+		//background-color: rgb(100, 100, 100);
+		animation: popup 3s;
 	}
 }
 
