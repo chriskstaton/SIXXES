@@ -5,6 +5,7 @@ import SixesHeader from "./SixesHeader";
 import "./App.scss";
 import { github, abbreviatedSha, authorDate, commitMessage } from "~build/info";
 import time from "~build/time";
+import NetronHeader from "./NetronHeader";
 
 function App() {
 	const headerScrollElement = useRef(null);
@@ -33,7 +34,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<SixesHeader //use Netron
+			<NetronHeader
 				headerScrollElement={headerScrollElement}
 				setScrollPosition={setScrollPosition}
 			/>

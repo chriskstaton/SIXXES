@@ -24,7 +24,7 @@ function rollButton(props: {
 						  }
 						: {
 								color: "white",
-								backgroundColor: "#e1a6ff !important",
+								backgroundColor: "#d98dff !important",
 								borderRadius: "15px",
 								fontSize: "30px",
 								fontFamily: "'Roboto Mono', monospace",
