@@ -1,5 +1,5 @@
-$scoreboard-border: 4px solid rgba(225, 225, 225);
-$scoreboard-border-color: rgb(225, 225, 225);
+$scoreboard-border: 4px solid rgba(200, 200, 200);
+$scoreboard-border-color: rgb(200, 200, 200);
 
 .scoreboard-container {
 	margin-top: 25px;
@@ -40,7 +40,7 @@ $scoreboard-border-color: rgb(225, 225, 225);
 
 		.turn-count {
 			background-color: white;
-			color: rgb(200, 200, 200);
+			color: rgb(175, 175, 175);
 			border-color: $scoreboard-border-color;
 			height: 40px;
 			cursor: default;
@@ -53,7 +53,7 @@ $scoreboard-border-color: rgb(225, 225, 225);
 
 		.upper-sum {
 			background-color: white;
-			color: rgb(200, 200, 200);
+			color: rgb(175, 175, 175);
 			//height: 40px;
 			border-color: $scoreboard-border-color;
 			cursor: default;
@@ -66,7 +66,7 @@ $scoreboard-border-color: rgb(225, 225, 225);
 
 		.bonus-false {
 			background-color: white;
-			color: rgb(200, 200, 200);
+			color: rgb(175, 175, 175);
 			//height: 40px;
 			border-color: $scoreboard-border-color;
 			cursor: default;
