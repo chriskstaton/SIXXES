@@ -14,10 +14,13 @@ function sixxesHeader(props: {
 				onClick={() => window.location.reload()}
 			>
 				<div className="header">
-					SI<span className="x">X</span>XES<span className="lite">-lite</span>
+					SI<span className="x">X</span>XES
+					{/* <span className="lite">-lite</span> */}
 				</div>
 			</div>
-			<img src={logoDice6} className="logo-dice6" />
+			<div>
+				<img src={logoDice6} className="logo-dice6" />
+			</div>
 		</>
 	);
 }
