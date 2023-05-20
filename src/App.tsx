@@ -6,16 +6,6 @@ import "./App.scss";
 import { github, abbreviatedSha, authorDate, commitMessage } from "~build/info";
 import time from "~build/time";
 
-const options = {
-	weekday: "short",
-	year: "numeric",
-	month: "2-digit",
-	day: "numeric",
-	hour: "2-digit",
-	minute: "2-digit",
-	timeZoneName: "short",
-};
-
 function App() {
 	const headerScrollElement = useRef(null);
 	const diceScrollElement = useRef(null);

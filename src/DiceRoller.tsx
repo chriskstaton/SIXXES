@@ -144,7 +144,7 @@ export function DiceRoller(props: {
 			setTimeout(() => setButtonDumping(false), delay_dump);
 			rollDice();
 			setTimeout(() => setRollCount(rollCount + 1), delay_roll * 0.66);
-			setTimeout(() => setRollDisable(false), delay_roll);
+			setTimeout(() => setRollDisable(false), delay_roll * 0.75);
 
 			if (rollCount == max_rolls - 1) {
 				setTurnComplete(true);

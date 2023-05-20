@@ -2,8 +2,8 @@ $dice-dimensions: 40vw;
 $dice-max: 166px;
 
 .dice-container {
-	padding-top: 25px;
-	padding-bottom: 25px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	max-width: 666px;
 }
 
@@ -60,16 +60,12 @@ $dice-max: 166px;
 }
 
 .button-container {
-	margin-top: 35px;
-	margin-bottom: 35px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 	display: inline-flex;
 
 	button:focus {
 		outline: none;
-	}
-
-	:hover {
-		color: black;
 	}
 
 	.padlock-container {
@@ -85,6 +81,7 @@ $dice-max: 166px;
 			color: rgb(100, 100, 100);
 			background-color: rgb(100, 100, 100);
 		}
+
 		.padlock-shackle {
 			display: inline-flex;
 			position: relative;
@@ -101,20 +98,10 @@ $dice-max: 166px;
 	}
 }
 
-.button-container-lock {
-	margin-top: 35px;
-	margin-bottom: 35px;
-	display: inline-block;
-
-	:focus {
-		outline: none;
-	}
-}
-
 .roll-dice-button {
 	height: 125px;
 	width: 125px;
-	// in line DiceRoller.tsx // border-radius: 25%;
+	// in line DiceRoller.tsx
 }
 
 .cup-dumping {
@@ -166,6 +153,9 @@ $dice-max: 166px;
 	}
 	75% {
 		transform: translate(-5px, 5px) rotate(-5deg);
+	}
+	90% {
+		transform: translate(0, 0) rotate(0deg);
 	}
 	100% {
 		transform: translate(0, 0) rotate(0deg);
