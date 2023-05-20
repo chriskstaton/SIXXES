@@ -1,8 +1,8 @@
 import { LegacyRef } from "react";
-import "./NetronHeader.scss";
+import "./sixxesHeader.scss";
 import logoDice6 from "../src/images/logoDice6.svg";
 
-function NetronHeader(props: {
+function sixxesHeader(props: {
 	headerScrollElement: LegacyRef<HTMLDivElement> | undefined;
 	setScrollPosition: Function;
 }) {
@@ -22,4 +22,4 @@ function NetronHeader(props: {
 	);
 }
 
-export default NetronHeader;
+export default sixxesHeader;

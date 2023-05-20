@@ -1,11 +1,10 @@
 import { useRef } from "react";
 
 import DiceRoller from "./DiceRoller";
-import SixesHeader from "./SixesHeader";
+import SixxesHeader from "./sixxesHeader";
 import "./App.scss";
 import { github, abbreviatedSha, authorDate, commitMessage } from "~build/info";
 import time from "~build/time";
-import NetronHeader from "./NetronHeader";
 
 function App() {
 	const headerScrollElement = useRef(null);
@@ -34,7 +33,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<NetronHeader
+			<SixxesHeader
 				headerScrollElement={headerScrollElement}
 				setScrollPosition={setScrollPosition}
 			/>
