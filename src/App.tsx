@@ -33,7 +33,7 @@ function App() {
 
 	return (
 		<div className="App">
-			//<SixxesHeader headerScrollElement={headerScrollElement} setScrollPosition={setScrollPosition}/>
+			<SixxesHeader headerScrollElement={headerScrollElement} setScrollPosition={setScrollPosition}/>
 			<DiceRoller
 				setScrollPosition={setScrollPosition}
 				diceScrollElement={diceScrollElement}
