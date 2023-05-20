@@ -7,6 +7,7 @@ import Dice3 from "../src/images/dice3.svg";
 import Dice4 from "../src/images/dice4.svg";
 import Dice5 from "../src/images/dice5.svg";
 import Dice6 from "../src/images/dice6.svg";
+import DiceBlank from "../src/images/blankDice.svg";
 
 import Scoreboard from "./Scoreboard";
 import DiceElement from "./DiceElement";
@@ -46,7 +47,7 @@ export function DiceRoller(props: {
 
 	var [resetAllDice, setResetAllDice] = useState(false);
 
-	const diceImages = [Dice0, Dice1, Dice2, Dice3, Dice4, Dice5, Dice6];
+	const diceImages = [DiceBlank, Dice1, Dice2, Dice3, Dice4, Dice5, Dice6];
 
 	var [imageOne, setImageOne] = useState(diceImages[0]);
 	var [imageTwo, setImageTwo] = useState(diceImages[0]);
