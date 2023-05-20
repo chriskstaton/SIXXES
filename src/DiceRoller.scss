@@ -133,21 +133,6 @@ $dice-max: 166px;
 	color: gray;
 }
 
-.footer-tips {
-	background-color: white;
-	width: 80vw;
-	text-align: center;
-	border-radius: 20px;
-	margin-top: 125px;
-
-	p {
-		color: #e1a6ff;
-		font-size: xx-large;
-		font-weight: bolder;
-		padding: 2em;
-	}
-}
-
 @keyframes shaking {
 	0% {
 		transform: translate(0, 0) rotate(0deg);
