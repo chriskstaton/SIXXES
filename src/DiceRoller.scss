@@ -61,15 +61,12 @@ $dice-max: 166px;
 
 .button-container {
 	margin-top: 20px;
-	margin-bottom: 20px;
 	display: inline-flex;
-	border: 20px #e1a6ff;
-	padding: 6px;
+	height: 120px;
+	background-color: rgb(190, 190, 190);
+	padding: 22px;
 	border-radius: 20px;
-
-	.roll-container {
-		background-color: rgb(225, 225, 225);
-	}
+	animation: shaking 1s 0.5s;
 
 	button:focus {
 		outline: none;
@@ -83,7 +80,7 @@ $dice-max: 166px;
 
 	.padlock-body {
 		display: inline-flex;
-		height: 80px;
+		height: 75px;
 		width: 100px;
 		border-radius: 15px;
 		color: rgb(100, 100, 100);
@@ -106,15 +103,15 @@ $dice-max: 166px;
 }
 
 .roll-dice-button {
-	height: 125px;
-	width: 125px;
+	height: 120px;
+	width: 120px;
 	// in line DiceRoller.tsx
 }
 
 .cup-dumping {
 	animation: cupdump 2s;
-	height: 125px;
-	width: 125px;
+	height: 120px;
+	width: 120px;
 	color: white;
 	background-color: #bc40ff;
 	border-radius: 20%;
@@ -122,35 +119,43 @@ $dice-max: 166px;
 	font-family: "Roboto Mono", monospace;
 }
 
+.cup-dumping-container {
+	animation: cupdump 2s;
+}
+
 .roll-dice-button:hover {
-	animation: shaking 0.5s 0.5s;
-	animation-iteration-count: 4;
+	animation: shaking 1s 1.25s;
+	animation-iteration-count: 1;
 }
 
 .roll-button-disabled {
 	height: 125px;
 	width: 125px;
-	color: gray;
+	color: rgb(150, 150, 150);
 }
+
+// .last-roll {
+// 	animation: fade 1s;
+// }
 
 @keyframes shaking {
 	0% {
-		transform: translate(0, 0) rotate(0deg);
+		transform: rotate(0deg);
 	}
 	25% {
-		transform: translate(5px, 5px) rotate(5deg);
+		transform: rotate(8deg);
 	}
-	50% {
-		transform: translate(0, 0) rotate(0eg);
-	}
+	// 50% {
+	// 	transform: rotate(0eg);
+	// }
 	75% {
-		transform: translate(-5px, 5px) rotate(-5deg);
+		transform: rotate(-8deg);
 	}
-	90% {
-		transform: translate(0, 0) rotate(0deg);
-	}
+	// 90% {
+	// 	transform: rotate(0deg);
+	// }
 	100% {
-		transform: translate(0, 0) rotate(0deg);
+		transform: rotate(0deg);
 	}
 }
 
