@@ -270,7 +270,7 @@ export function DiceRoller(props: {
 				setTurnCount={setTurnCount}
 				resetDice={resetDice}
 				totalTurns={total_turns}
-				refEl={props.scoreboardScrollElement}
+				scoreboardRefEl={props.scoreboardScrollElement}
 			/>
 		</>
 	);
