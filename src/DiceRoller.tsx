@@ -21,7 +21,7 @@ export function DiceRoller(props: {
 	setScrollPosition: Function;
 }) {
 	const max_rolls = 4;
-	const total_turns = 13;
+	const total_turns = 14;
 
 	var [rollCount, setRollCount] = useState(0);
 	var [turnCount, setTurnCount] = useState(0);
