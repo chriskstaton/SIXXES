@@ -72,7 +72,7 @@ export function DiceRoller(props: {
 		valueSix,
 	];
 
-	const delay_scroll = 500;
+	const delay_scroll = 750;
 	const delay_roll = 3000;
 	const delay_reset = 3000;
 	const delay_dump = 2000;

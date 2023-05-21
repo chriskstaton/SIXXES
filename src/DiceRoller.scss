@@ -139,6 +139,20 @@ $roll-btn-dimensions: 120px;
 	color: rgb(150, 150, 150);
 }
 
+.last-roll {
+	transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.fade-out {
+	opacity: 0;
+	transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.fade-in {
+	opacity: 1;
+	transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
 @keyframes shaking {
 	0% {
 		transform: rotate(0deg);

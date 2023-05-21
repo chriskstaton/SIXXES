@@ -47,7 +47,9 @@ function rollButton(props: {
 					) : props.maxRolls - props.rollCount == 1 ? (
 						<span className="last-roll">LAST ROLL</span>
 					) : (
-						<span className="roll-dice">ROLL DICE</span>
+						<span className={props.buttonDumping ? "fade-out" : "fade-in"}>
+							ROLL DICE
+						</span>
 					)}
 				</Button>
 			</div>
