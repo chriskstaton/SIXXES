@@ -36,6 +36,7 @@ $scoreboard-border-color: rgb(200, 200, 200);
 			text-align: center;
 			width: 100px;
 			font-family: "Roboto Mono", monospace;
+			border-left: $scoreboard-border;
 		}
 
 		.turn-count {
@@ -109,6 +110,20 @@ $scoreboard-border-color: rgb(200, 200, 200);
 			background-color: white;
 			border-color: $scoreboard-border-color;
 			cursor: default;
+		}
+
+		.reveal-fade-out {
+			opacity: 0;
+			width: 0;
+			height: 0;
+			transition: width 0.5s 0.5s, height 0.5s 0.5s, opacity 0.5s;
+		}
+
+		.reveal-fade-in {
+			opacity: 1;
+			width: 100px;
+			height: 100px;
+			transition: width 0.5s, height 0.5s, opacity 0.5s 0.5s;
 		}
 	}
 }

@@ -1,5 +1,6 @@
 import { LegacyRef, useEffect, useState } from "react";
 import "./Scoreboard.scss";
+import { setTime } from "~build/time";
 
 function Scoreboard(props: {
 	diceCurrentValueArray: number[];
@@ -43,7 +44,8 @@ function Scoreboard(props: {
 	var [yachtScore, setYachtScore] = useState(0);
 	var [yachtLock, setYachtLock] = useState(false);
 
-	var bonusVal = 0;
+	var bonusScore = 0;
+	var bonusVal = 54;
 	const bonusMin = 66;
 
 	var sumOnes = categoryFilter(props.diceCurrentValueArray, 1);
@@ -306,18 +308,20 @@ function Scoreboard(props: {
 		onesScore + twosScore + threesScore + foursScore + fivesScore + sixesScore;
 
 	if (upperSum >= bonusMin) {
-		bonusVal = 54;
+		bonusScore = bonusVal;
 	}
 
-	var lowerSum = splitScore + threePairScore;
-	choiceScore +
+	var lowerSum =
+		splitScore +
+		threePairScore +
+		choiceScore +
 		fourKindScore +
 		fiveKindScore +
 		smallStraightScore +
 		largeStraightScore +
 		yachtScore;
 
-	var totalSum = upperSum + lowerSum + bonusVal;
+	var totalSum = upperSum + lowerSum + bonusScore;
 
 	// useEffect(() => {
 	// 	console.log(
@@ -331,188 +335,286 @@ function Scoreboard(props: {
 	// 	);
 	// }, [props.rollCount]);
 
+	var [reveal, setReveal] = useState(false);
+
+	function handleReveal() {
+		setReveal(!reveal);
+		setTimeout(() => setReveal(false), 5000);
+	}
+
 	return (
 		<div className="scoreboard-container" ref={props.refEl}>
 			<div className="scoreboard">
 				<table className="upper-categories">
 					<thead>
-						{window.innerHeight >= 800 ? (
+						{/* {window.innerHeight >= 800 ? (
 							<tr className="turn-count">
 								<th>Turns</th>
 								<td>{props.totalTurns - props.turnCount}</td>
 							</tr>
 						) : (
 							<></>
-						)}
-						<tr
-							onClick={
-								onesLocked
-									? () => {}
-									: () => onesAdder(props.diceCurrentValueArray)
-							}
-							className={onesLocked ? "locked-row" : ""}
-						>
-							<th>Ones</th>
-							<td>{onesLocked ? onesScore : sumOnes}</td>
+						)} */}
+						<tr className={onesLocked ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span className="reveal-fade">
+									{!reveal ? "Ones" : "Sum of only Ones"}
+								</span>
+							</th>
+							<td
+								onClick={
+									onesLocked
+										? () => {}
+										: () => onesAdder(props.diceCurrentValueArray)
+								}
+							>
+								{onesLocked ? onesScore : sumOnes}
+							</td>
 						</tr>
-						<tr
-							onClick={
-								twosLocked
-									? () => {}
-									: () => twosAdder(props.diceCurrentValueArray)
-							}
-							className={twosLocked ? "locked-row" : ""}
-						>
-							<th>Twos</th>
-							<td>{twosLocked ? twosScore : sumTwos}</td>
+						<tr className={twosLocked ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span className="reveal-fade">
+									{!reveal ? "Twos" : "Sum of only Twos"}
+								</span>
+							</th>
+							<td
+								onClick={
+									twosLocked
+										? () => {}
+										: () => twosAdder(props.diceCurrentValueArray)
+								}
+							>
+								{twosLocked ? twosScore : sumTwos}
+							</td>
 						</tr>
-						<tr
-							onClick={
-								threesLocked
-									? () => {}
-									: () => threesAdder(props.diceCurrentValueArray)
-							}
-							className={threesLocked ? "locked-row" : ""}
-						>
-							<th>Threes</th>
-							<td>{threesLocked ? threesScore : sumThrees}</td>
+						<tr className={threesLocked ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span className="reveal-fade">
+									{!reveal ? "Threes" : "Sum of only Threes"}
+								</span>
+							</th>
+							<td
+								onClick={
+									threesLocked
+										? () => {}
+										: () => threesAdder(props.diceCurrentValueArray)
+								}
+							>
+								{threesLocked ? threesScore : sumThrees}
+							</td>
 						</tr>
-						<tr
-							onClick={
-								foursLocked
-									? () => {}
-									: () => foursAdder(props.diceCurrentValueArray)
-							}
-							className={foursLocked ? "locked-row" : ""}
-						>
-							<th>Fours</th>
-							<td>{foursLocked ? foursScore : sumFours}</td>
+						<tr className={foursLocked ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span className="reveal-fade">
+									{!reveal ? "Fours" : "Sum of only Fours"}
+								</span>
+							</th>
+							<td
+								onClick={
+									foursLocked
+										? () => {}
+										: () => foursAdder(props.diceCurrentValueArray)
+								}
+							>
+								{foursLocked ? foursScore : sumFours}
+							</td>
 						</tr>
-						<tr
-							onClick={
-								fivesLocked
-									? () => {}
-									: () => fivesAdder(props.diceCurrentValueArray)
-							}
-							className={fivesLocked ? "locked-row" : ""}
-						>
-							<th>Fives</th>
-							<td>{fivesLocked ? fivesScore : sumFives}</td>
+						<tr className={fivesLocked ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span className="reveal-fade">
+									{!reveal ? "Fives" : "Sum of only Fives"}
+								</span>
+							</th>
+							<td
+								onClick={
+									fivesLocked
+										? () => {}
+										: () => fivesAdder(props.diceCurrentValueArray)
+								}
+							>
+								{fivesLocked ? fivesScore : sumFives}
+							</td>
 						</tr>
-						<tr
-							onClick={
-								sixesLocked
-									? () => {}
-									: () => sixesAdder(props.diceCurrentValueArray)
-							}
-							className={sixesLocked ? "locked-row" : ""}
-						>
-							<th>Sixes</th>
-							<td>{sixesLocked ? sixesScore : sumSixes}</td>
+						<tr className={sixesLocked ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span className="reveal-fade">
+									{!reveal ? "Sixes" : "Sum of only Sixes"}
+								</span>
+							</th>
+							<td
+								onClick={
+									sixesLocked
+										? () => {}
+										: () => sixesAdder(props.diceCurrentValueArray)
+								}
+							>
+								{sixesLocked ? sixesScore : sumSixes}
+							</td>
 						</tr>
 						<tr className="upper-sum">
-							<th>Upper Sum</th>
-							<td>{upperSum}</td>
+							<th onClick={handleReveal}>
+								<span>{!reveal ? "Upper Sum" : "if Upper Sum >="}</span>
+							</th>
+							<td>{reveal ? bonusMin + "pts" : upperSum}</td>
 						</tr>
 						<tr className={bonusVal >= bonusMin ? "bonus-true" : "bonus-false"}>
-							<th>Bonus</th>
-							<td>{bonusVal}</td>
+							<th onClick={handleReveal}>
+								<span>
+									{/* className={reveal ? "reveal-fade-in" : "reveal-fade-out"}> */}
+									{!reveal ? "Bonus" : "then Bonus ="}
+								</span>
+							</th>
+							<td>{reveal ? bonusVal + "pts" : bonusScore}</td>
 						</tr>
-						<tr
-							onClick={
-								choiceLock
-									? () => {}
-									: () => choiceAdder(props.diceCurrentValueArray)
-							}
-							className={choiceLock ? "locked-row" : ""}
-						>
-							<th>Choice</th>
-							<td>{choiceLock ? choiceScore : sumChoice}</td>
-						</tr>
-						<tr
-							onClick={
-								splitLock
-									? () => {}
-									: () => checkSplit(props.diceCurrentValueArray)
-							}
-							className={splitLock ? "locked-row" : ""}
-						>
-							<th>Split</th>
-							<td>{splitLock ? splitScore : sumSplit}</td>
-						</tr>
-						<tr
-							onClick={
-								threePairLock
-									? () => {}
-									: () => checkThreePair(props.diceCurrentValueArray)
-							}
-							className={threePairLock ? "locked-row" : ""}
-						>
-							<th>Three Pairs</th>
-							<td>{threePairLock ? threePairScore : sumThreePair}</td>
-						</tr>
-						<tr
-							onClick={
-								fourKindLock
-									? () => {}
-									: () => checkFourKind(props.diceCurrentValueArray)
-							}
-							className={fourKindLock ? "locked-row" : ""}
-						>
-							<th>Four of a Kind</th>
-							<td>{fourKindLock ? fourKindScore : sumFourKind}</td>
-						</tr>
-						<tr
-							onClick={
-								fiveKindLock
-									? () => {}
-									: () => checkFiveKind(props.diceCurrentValueArray)
-							}
-							className={fiveKindLock ? "locked-row" : ""}
-						>
-							<th>Five of a Kind</th>
-							<td>{fiveKindLock ? fiveKindScore : sumFiveKind}</td>
-						</tr>
-						<tr
-							onClick={
-								smallStraightLock
-									? () => {}
-									: () => checkSmallStraight(props.diceCurrentValueArray)
-							}
-							className={smallStraightLock ? "locked-row" : ""}
-						>
-							<th>Small Straight</th>
-							<td>
-								{smallStraightLock ? smallStraightScore : sumSmallStraight}
+						<tr className={choiceLock ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span className="reveal-fade">
+									{!reveal ? "Choice" : "Sum of all current dice"}
+								</span>
+							</th>
+							<td
+								onClick={
+									choiceLock
+										? () => {}
+										: () => choiceAdder(props.diceCurrentValueArray)
+								}
+							>
+								{choiceLock ? choiceScore : sumChoice}
 							</td>
 						</tr>
-						<tr
-							onClick={
-								largeStraightLock
-									? () => {}
-									: () => checkLargeStraight(props.diceCurrentValueArray)
-							}
-							className={largeStraightLock ? "locked-row" : ""}
-						>
-							<th>Large Straight</th>
-							<td>
-								{largeStraightLock ? largeStraightScore : sumLargeStraight}
+						<tr className={splitLock ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span className="reveal-fade">
+									{!reveal ? "Split" : "Sum if [ X X X + Y Y Y ]"}
+								</span>
+							</th>
+							<td
+								onClick={
+									splitLock
+										? () => {}
+										: () => checkSplit(props.diceCurrentValueArray)
+								}
+							>
+								{splitLock ? splitScore : sumSplit}
 							</td>
 						</tr>
-						<tr
-							onClick={
-								yachtLock
-									? () => {}
-									: () => checkYacht(props.diceCurrentValueArray)
-							}
-							className={yachtLock ? "locked-row" : ""}
-						>
-							<th>Yacht!</th>
-							<td>{yachtLock ? yachtScore : sumYacht}</td>
+						<tr className={threePairLock ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span className="reveal-fade">
+									{!reveal ? "Three Pairs" : "Sum if [ X X + Y Y + Z Z ]"}
+								</span>
+							</th>
+							<td
+								onClick={
+									threePairLock
+										? () => {}
+										: () => checkThreePair(props.diceCurrentValueArray)
+								}
+							>
+								{threePairLock ? threePairScore : sumThreePair}
+							</td>
+						</tr>
+						<tr className={fourKindLock ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span className="reveal-fade">
+									{!reveal
+										? "Four of a Kind"
+										: "Sum all dice if [ four ] are identical"}
+								</span>
+							</th>
+							<td
+								onClick={
+									fourKindLock
+										? () => {}
+										: () => checkFourKind(props.diceCurrentValueArray)
+								}
+							>
+								{fourKindLock ? fourKindScore : sumFourKind}
+							</td>
+						</tr>
+						<tr className={fiveKindLock ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span className="reveal-fade">
+									{!reveal
+										? "Five of a Kind"
+										: "Sum all dice if [ five ] are identical"}
+								</span>
+							</th>
+							<td
+								onClick={
+									fiveKindLock
+										? () => {}
+										: () => checkFiveKind(props.diceCurrentValueArray)
+								}
+							>
+								{fiveKindLock ? fiveKindScore : sumFiveKind}
+							</td>
+						</tr>
+						<tr className={smallStraightLock ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span>
+									{!reveal ? "Small Straight" : "Four consecutive dice"}
+								</span>
+							</th>
+							<td
+								onClick={
+									smallStraightLock
+										? () => {}
+										: () => checkSmallStraight(props.diceCurrentValueArray)
+								}
+							>
+								{smallStraightLock
+									? smallStraightScore
+									: reveal
+									? "45pts"
+									: sumSmallStraight}
+							</td>
+						</tr>
+						<tr className={largeStraightLock ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span>
+									{!reveal ? "Large Straight" : "Five consecutive dice"}
+								</span>
+							</th>
+							<td
+								onClick={
+									largeStraightLock
+										? () => {}
+										: () => checkLargeStraight(props.diceCurrentValueArray)
+								}
+							>
+								{largeStraightLock
+									? largeStraightScore
+									: reveal
+									? "60pts"
+									: sumLargeStraight}
+							</td>
+						</tr>
+						<tr className={yachtLock ? "locked-row" : ""}>
+							<th onClick={handleReveal}>
+								<span className="reveal-fade">
+									{!reveal ? "Yacht!" : "Six identical dice!"}
+								</span>
+							</th>
+							<td
+								onClick={
+									yachtLock
+										? () => {}
+										: () => checkYacht(props.diceCurrentValueArray)
+								}
+							>
+								{yachtLock ? yachtScore : reveal ? "100pts" : sumYacht}
+							</td>
 						</tr>
 						<tr className="total-score">
-							<th>Total Score</th>
-							<td>{totalSum}</td>
+							<th onClick={handleReveal}>
+								<span>{!reveal ? "Total Score" : "Turns remaining"}</span>
+							</th>
+							<td>
+								<span>
+									{!reveal ? totalSum : props.totalTurns - props.turnCount}
+								</span>
+							</td>
 						</tr>
 					</thead>
 				</table>
