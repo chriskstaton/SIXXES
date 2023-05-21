@@ -1,9 +1,6 @@
 import { LegacyRef, useEffect, useState } from "react";
 import "./Scoreboard.scss";
 
-//three pairs?
-//4 - 2 still a split?
-
 function Scoreboard(props: {
 	diceCurrentValueArray: number[];
 	turnCount: number;
@@ -101,10 +98,10 @@ function Scoreboard(props: {
 	const arrLargeStraight1 = [1, 2, 3, 4, 5];
 	const arrLargeStraight2 = [2, 3, 4, 5, 6];
 
-	var sumFourKind = fourKindAdder(props.diceCurrentValueArray);
-	var sumFiveKind = fiveKindAdder(props.diceCurrentValueArray);
 	var sumSplit = splitAdder(props.diceCurrentValueArray);
 	var sumThreePair = threePairAdder(props.diceCurrentValueArray);
+	var sumFourKind = fourKindAdder(props.diceCurrentValueArray);
+	var sumFiveKind = fiveKindAdder(props.diceCurrentValueArray);
 	var sumSmallStraight = smallStraightAdder(props.diceCurrentValueArray);
 	var sumLargeStraight = largeStraightAdder(props.diceCurrentValueArray);
 	var sumYacht = yachtAdder(props.diceCurrentValueArray);
@@ -179,9 +176,7 @@ function Scoreboard(props: {
 		props.setTurnCount(props.turnCount + 1);
 
 		if (filterLengthThree.length == 2 || Math.max(...filterLengths) == 6) {
-			return setSplitScore(
-				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
-			);
+			return setSplitScore(sumSplit);
 		} else return setSplitScore(0);
 	}
 
@@ -199,9 +194,7 @@ function Scoreboard(props: {
 		props.setTurnCount(props.turnCount + 1);
 
 		if (filterLengthTwo.length == 3 || Math.max(...filterLengths) == 6) {
-			return setThreePairScore(
-				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
-			);
+			return setThreePairScore(sumThreePair);
 		} else return setThreePairScore(0);
 	}
 
@@ -222,9 +215,7 @@ function Scoreboard(props: {
 		props.setTurnCount(props.turnCount + 1);
 
 		if (Math.max(...filterLengths) >= 4) {
-			return setFourKindScore(
-				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
-			);
+			return setFourKindScore(sumFourKind);
 		} else return setFourKindScore(0);
 	}
 
@@ -242,9 +233,7 @@ function Scoreboard(props: {
 		props.setTurnCount(props.turnCount + 1);
 
 		if (Math.max(...filterLengths) >= 5) {
-			return setFiveKindScore(
-				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
-			);
+			return setFiveKindScore(sumFiveKind);
 		} else return setFiveKindScore(0);
 	}
 
@@ -259,10 +248,6 @@ function Scoreboard(props: {
 	}
 
 	function checkSmallStraight(arr: number[]) {
-		const arrSmallStraight1 = [1, 2, 3, 4];
-		const arrSmallStraight2 = [2, 3, 4, 5];
-		const arrSmallStraight3 = [3, 4, 5, 6];
-
 		setSmallStraightLock(true);
 
 		props.resetDice();
