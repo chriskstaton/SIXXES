@@ -39,13 +39,15 @@ function rollButton(props: {
 					}
 				>
 					{props.turnComplete ? (
-						<span className="padlock-container">
+						<span className={"padlock-container"}>
 							<span className="padlock-body">
 								<span className="padlock-shackle" />
 							</span>
 						</span>
 					) : props.maxRolls - props.rollCount == 1 ? (
-						<span className="last-roll">LAST ROLL</span>
+						<span className={props.buttonDumping ? "fade-out" : "fade-in"}>
+							LAST ROLL
+						</span>
 					) : (
 						<span className={props.buttonDumping ? "fade-out" : "fade-in"}>
 							ROLL DICE

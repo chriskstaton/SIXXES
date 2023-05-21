@@ -30,6 +30,7 @@ $scoreboard-border-color: rgb(200, 200, 200);
 		th {
 			text-align: left;
 			padding-left: 30px;
+			transition: cub;
 		}
 
 		td {
@@ -102,6 +103,13 @@ $scoreboard-border-color: rgb(200, 200, 200);
 
 			th {
 				padding-left: 50px;
+				text-align: center;
+			}
+
+			td {
+				text-align: center;
+			}
+			span {
 				text-align: center;
 			}
 		}
