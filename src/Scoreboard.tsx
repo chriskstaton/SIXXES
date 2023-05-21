@@ -338,7 +338,7 @@ function Scoreboard(props: {
 	var [reveal, setReveal] = useState(false);
 
 	function handleReveal() {
-		setReveal(!reveal);
+		setReveal(true);
 		setTimeout(() => setReveal(false), 5000);
 	}
 
