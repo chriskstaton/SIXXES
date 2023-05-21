@@ -29,12 +29,14 @@ function Scoreboard(props: {
 	var [fourKindScore, setFourKindScore] = useState(0);
 	var [fiveKindScore, setFiveKindScore] = useState(0);
 	var [splitScore, setSplitScore] = useState(0);
+	var [threePairScore, setThreePairScore] = useState(0);
 	var [smallStraightScore, setSmallStraightScore] = useState(0);
 	var [largeStraightScore, setLargeStraightScore] = useState(0);
 
 	var [fourKindLock, setFourKindLock] = useState(false);
 	var [fiveKindLock, setFiveKindLock] = useState(false);
 	var [splitLock, setSplitLock] = useState(false);
+	var [threePairLock, setThreePairLock] = useState(false);
 	var [smallStraightLock, setSmallStraightLock] = useState(false);
 	var [largeStraightLock, setLargeStraightLock] = useState(false);
 
@@ -89,6 +91,9 @@ function Scoreboard(props: {
 	var filterLengthThree = filterLengths.filter((el) => {
 		return el === 3;
 	});
+	var filterLengthTwo = filterLengths.filter((el) => {
+		return el === 2;
+	});
 
 	const arrSmallStraight1 = [1, 2, 3, 4];
 	const arrSmallStraight2 = [2, 3, 4, 5];
@@ -99,6 +104,7 @@ function Scoreboard(props: {
 	var sumFourKind = fourKindAdder(props.diceCurrentValueArray);
 	var sumFiveKind = fiveKindAdder(props.diceCurrentValueArray);
 	var sumSplit = splitAdder(props.diceCurrentValueArray);
+	var sumThreePair = threePairAdder(props.diceCurrentValueArray);
 	var sumSmallStraight = smallStraightAdder(props.diceCurrentValueArray);
 	var sumLargeStraight = largeStraightAdder(props.diceCurrentValueArray);
 	var sumYacht = yachtAdder(props.diceCurrentValueArray);
@@ -177,6 +183,26 @@ function Scoreboard(props: {
 				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
 			);
 		} else return setSplitScore(0);
+	}
+
+	function threePairAdder(arr: number[]): number {
+		if (filterLengthTwo.length == 3 || Math.max(...filterLengths) == 6) {
+			sumThreePair = props.diceCurrentValueArray.reduce((a, b) => a + b, 0);
+		} else sumThreePair = 0;
+		return sumThreePair;
+	}
+
+	function checkThreePair(arr: number[]) {
+		setThreePairLock(true);
+
+		props.resetDice();
+		props.setTurnCount(props.turnCount + 1);
+
+		if (filterLengthTwo.length == 3 || Math.max(...filterLengths) == 6) {
+			return setThreePairScore(
+				props.diceCurrentValueArray.reduce((a, b) => a + b, 0)
+			);
+		} else return setThreePairScore(0);
 	}
 
 	function fourKindAdder(arr: number[]): number {
@@ -298,11 +324,10 @@ function Scoreboard(props: {
 		bonusVal = 54;
 	}
 
-	var lowerSum =
-		choiceScore +
+	var lowerSum = splitScore + threePairScore;
+	choiceScore +
 		fourKindScore +
 		fiveKindScore +
-		splitScore +
 		smallStraightScore +
 		largeStraightScore +
 		yachtScore;
@@ -421,13 +446,35 @@ function Scoreboard(props: {
 						</tr>
 						<tr
 							onClick={
+								splitLock
+									? () => {}
+									: () => checkSplit(props.diceCurrentValueArray)
+							}
+							className={splitLock ? "locked-row" : ""}
+						>
+							<th>Split</th>
+							<td>{splitLock ? splitScore : sumSplit}</td>
+						</tr>
+						<tr
+							onClick={
+								threePairLock
+									? () => {}
+									: () => checkThreePair(props.diceCurrentValueArray)
+							}
+							className={threePairLock ? "locked-row" : ""}
+						>
+							<th>Three Pairs</th>
+							<td>{threePairLock ? threePairScore : sumThreePair}</td>
+						</tr>
+						<tr
+							onClick={
 								fourKindLock
 									? () => {}
 									: () => checkFourKind(props.diceCurrentValueArray)
 							}
 							className={fourKindLock ? "locked-row" : ""}
 						>
-							<th>Four of a kind</th>
+							<th>Four of a Kind</th>
 							<td>{fourKindLock ? fourKindScore : sumFourKind}</td>
 						</tr>
 						<tr
@@ -438,19 +485,8 @@ function Scoreboard(props: {
 							}
 							className={fiveKindLock ? "locked-row" : ""}
 						>
-							<th>Five of a kind</th>
+							<th>Five of a Kind</th>
 							<td>{fiveKindLock ? fiveKindScore : sumFiveKind}</td>
-						</tr>
-						<tr
-							onClick={
-								splitLock
-									? () => {}
-									: () => checkSplit(props.diceCurrentValueArray)
-							}
-							className={splitLock ? "locked-row" : ""}
-						>
-							<th>Split</th>
-							<td>{splitLock ? splitScore : sumSplit}</td>
 						</tr>
 						<tr
 							onClick={
