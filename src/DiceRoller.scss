@@ -1,5 +1,6 @@
 $dice-dimensions: 40vw;
 $dice-max: 166px;
+$roll-btn-dimensions: 120px;
 
 .dice-container {
 	padding-top: 10px;
@@ -65,10 +66,10 @@ $dice-max: 166px;
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
-	height: 100px;
-	width: 100px;
+	height: $roll-btn-dimensions;
+	width: $roll-btn-dimensions;
 	background-color: rgb(190, 190, 190);
-	padding: 25px;
+	padding: 36px;
 	border-radius: 20px;
 	animation: shaking 1s 0.5s;
 
@@ -107,15 +108,15 @@ $dice-max: 166px;
 }
 
 .roll-dice-button {
-	height: 100px;
-	width: 100px;
+	height: $roll-btn-dimensions;
+	width: $roll-btn-dimensions;
 	// in line DiceRoller.tsx
 }
 
 .cup-dumping {
 	animation: cupdump 2s;
-	height: 100px;
-	width: 100px;
+	height: $roll-btn-dimensions;
+	width: $roll-btn-dimensions;
 	color: white;
 	background-color: #bc40ff;
 	border-radius: 20%;
@@ -123,13 +124,13 @@ $dice-max: 166px;
 	font-family: "Roboto Mono", monospace;
 }
 
-.cup-dumping-container {
-	animation: cupdump 2s;
+.cup-container {
+	animation: fade-in 2.5s;
 }
 
 .roll-dice-button:hover {
-	// animation: shaking 1s 1.25s;
-	// animation-iteration-count: 1;
+	animation: shaking 1s 1s;
+	animation-iteration-count: 1;
 }
 
 .roll-button-disabled {
@@ -138,26 +139,16 @@ $dice-max: 166px;
 	color: rgb(150, 150, 150);
 }
 
-// .last-roll {
-// 	animation: fade 1s;
-// }
-
 @keyframes shaking {
 	0% {
 		transform: rotate(0deg);
 	}
 	25% {
-		transform: rotate(8deg);
-	}
-	// 50% {
-	// 	transform: rotate(0eg);
-	// }
-	75% {
 		transform: rotate(-8deg);
 	}
-	// 90% {
-	// 	transform: rotate(0deg);
-	// }
+	75% {
+		transform: rotate(8deg);
+	}
 	100% {
 		transform: rotate(0deg);
 	}
@@ -188,17 +179,14 @@ $dice-max: 166px;
 	0% {
 		transform: rotate(0deg);
 	}
-	10% {
-		transform: rotate(20deg);
+	15% {
+		transform: rotate(-15deg);
 	}
-	30% {
-		transform: rotate(-20deg);
+	40% {
+		transform: rotate(25deg);
 	}
-	50% {
-		transform: rotate(40deg);
-	}
-	80% {
-		transform: rotate(-100deg);
+	60% {
+		transform: rotate(-115deg);
 	}
 	100% {
 		transform: rotate(0deg);

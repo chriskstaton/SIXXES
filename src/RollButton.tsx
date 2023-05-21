@@ -12,9 +12,7 @@ function rollButton(props: {
 }) {
 	return (
 		<div className={"button-container"} onClick={props.handleLock}>
-			<div
-				className={props.buttonDumping ? "cup-dumping-container" : undefined}
-			>
+			<div className={"cup-container"}>
 				<Button
 					onClick={!props.turnComplete ? props.handleRoll : undefined}
 					className={props.buttonDumping ? "cup-dumping" : "roll-dice-button"}
