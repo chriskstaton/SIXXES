@@ -338,8 +338,8 @@ function Scoreboard(props: {
 	var [reveal, setReveal] = useState(false);
 
 	function handleReveal() {
-		setReveal(true);
-		setTimeout(() => setReveal(false), 5000);
+		setReveal(!reveal);
+		//setTimeout(() => setReveal(false), 5000);
 	}
 
 	return (
@@ -357,7 +357,7 @@ function Scoreboard(props: {
 						)} */}
 						<tr className={onesLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className="reveal-fade">
+								<span className="reveal-fade-in">
 									{!reveal ? "Ones" : "Sum of only Ones"}
 								</span>
 							</th>
@@ -365,7 +365,10 @@ function Scoreboard(props: {
 								onClick={
 									onesLocked
 										? () => {}
-										: () => onesAdder(props.diceCurrentValueArray)
+										: () => {
+												onesAdder(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{onesLocked ? onesScore : sumOnes}
@@ -373,15 +376,16 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={twosLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className="reveal-fade">
-									{!reveal ? "Twos" : "Sum of only Twos"}
-								</span>
+								<span>{!reveal ? "Twos" : "Sum of only Twos"}</span>
 							</th>
 							<td
 								onClick={
 									twosLocked
 										? () => {}
-										: () => twosAdder(props.diceCurrentValueArray)
+										: () => {
+												twosAdder(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{twosLocked ? twosScore : sumTwos}
@@ -389,15 +393,16 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={threesLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className="reveal-fade">
-									{!reveal ? "Threes" : "Sum of only Threes"}
-								</span>
+								<span>{!reveal ? "Threes" : "Sum of only Threes"}</span>
 							</th>
 							<td
 								onClick={
 									threesLocked
 										? () => {}
-										: () => threesAdder(props.diceCurrentValueArray)
+										: () => {
+												threesAdder(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{threesLocked ? threesScore : sumThrees}
@@ -405,15 +410,16 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={foursLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className="reveal-fade">
-									{!reveal ? "Fours" : "Sum of only Fours"}
-								</span>
+								<span>{!reveal ? "Fours" : "Sum of only Fours"}</span>
 							</th>
 							<td
 								onClick={
 									foursLocked
 										? () => {}
-										: () => foursAdder(props.diceCurrentValueArray)
+										: () => {
+												foursAdder(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{foursLocked ? foursScore : sumFours}
@@ -421,15 +427,16 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={fivesLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className="reveal-fade">
-									{!reveal ? "Fives" : "Sum of only Fives"}
-								</span>
+								<span>{!reveal ? "Fives" : "Sum of only Fives"}</span>
 							</th>
 							<td
 								onClick={
 									fivesLocked
 										? () => {}
-										: () => fivesAdder(props.diceCurrentValueArray)
+										: () => {
+												fivesAdder(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{fivesLocked ? fivesScore : sumFives}
@@ -437,15 +444,16 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={sixesLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className="reveal-fade">
-									{!reveal ? "Sixes" : "Sum of only Sixes"}
-								</span>
+								<span>{!reveal ? "Sixes" : "Sum of only Sixes"}</span>
 							</th>
 							<td
 								onClick={
 									sixesLocked
 										? () => {}
-										: () => sixesAdder(props.diceCurrentValueArray)
+										: () => {
+												sixesAdder(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{sixesLocked ? sixesScore : sumSixes}
@@ -459,24 +467,22 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={bonusVal >= bonusMin ? "bonus-true" : "bonus-false"}>
 							<th onClick={handleReveal}>
-								<span>
-									{/* className={reveal ? "reveal-fade-in" : "reveal-fade-out"}> */}
-									{!reveal ? "Bonus" : "then Bonus ="}
-								</span>
+								<span>{!reveal ? "Bonus" : "then Bonus ="}</span>
 							</th>
 							<td>{reveal ? bonusVal + "pts" : bonusScore}</td>
 						</tr>
 						<tr className={choiceLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className="reveal-fade">
-									{!reveal ? "Choice" : "Sum of all current dice"}
-								</span>
+								<span>{!reveal ? "Choice" : "Sum of all current dice"}</span>
 							</th>
 							<td
 								onClick={
 									choiceLock
 										? () => {}
-										: () => choiceAdder(props.diceCurrentValueArray)
+										: () => {
+												choiceAdder(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{choiceLock ? choiceScore : sumChoice}
@@ -484,15 +490,16 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={splitLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className="reveal-fade">
-									{!reveal ? "Split" : "Sum if [ X X X + Y Y Y ]"}
-								</span>
+								<span>{!reveal ? "Split" : "Sum if [ X X X + Y Y Y ]"}</span>
 							</th>
 							<td
 								onClick={
 									splitLock
 										? () => {}
-										: () => checkSplit(props.diceCurrentValueArray)
+										: () => {
+												checkSplit(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{splitLock ? splitScore : sumSplit}
@@ -500,7 +507,7 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={threePairLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className="reveal-fade">
+								<span>
 									{!reveal ? "Three Pairs" : "Sum if [ X X + Y Y + Z Z ]"}
 								</span>
 							</th>
@@ -508,7 +515,10 @@ function Scoreboard(props: {
 								onClick={
 									threePairLock
 										? () => {}
-										: () => checkThreePair(props.diceCurrentValueArray)
+										: () => {
+												checkThreePair(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{threePairLock ? threePairScore : sumThreePair}
@@ -516,7 +526,7 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={fourKindLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className="reveal-fade">
+								<span>
 									{!reveal
 										? "Four of a Kind"
 										: "Sum all dice if [ four ] are identical"}
@@ -526,7 +536,10 @@ function Scoreboard(props: {
 								onClick={
 									fourKindLock
 										? () => {}
-										: () => checkFourKind(props.diceCurrentValueArray)
+										: () => {
+												checkFourKind(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{fourKindLock ? fourKindScore : sumFourKind}
@@ -534,7 +547,7 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={fiveKindLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className="reveal-fade">
+								<span>
 									{!reveal
 										? "Five of a Kind"
 										: "Sum all dice if [ five ] are identical"}
@@ -544,7 +557,10 @@ function Scoreboard(props: {
 								onClick={
 									fiveKindLock
 										? () => {}
-										: () => checkFiveKind(props.diceCurrentValueArray)
+										: () => {
+												checkFiveKind(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{fiveKindLock ? fiveKindScore : sumFiveKind}
@@ -560,7 +576,10 @@ function Scoreboard(props: {
 								onClick={
 									smallStraightLock
 										? () => {}
-										: () => checkSmallStraight(props.diceCurrentValueArray)
+										: () => {
+												checkSmallStraight(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{smallStraightLock
@@ -580,7 +599,10 @@ function Scoreboard(props: {
 								onClick={
 									largeStraightLock
 										? () => {}
-										: () => checkLargeStraight(props.diceCurrentValueArray)
+										: () => {
+												checkLargeStraight(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{largeStraightLock
@@ -592,15 +614,16 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={yachtLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className="reveal-fade">
-									{!reveal ? "Yacht!" : "Six identical dice!"}
-								</span>
+								<span>{!reveal ? "Yacht!" : "Six identical dice!"}</span>
 							</th>
 							<td
 								onClick={
 									yachtLock
 										? () => {}
-										: () => checkYacht(props.diceCurrentValueArray)
+										: () => {
+												checkYacht(props.diceCurrentValueArray),
+													setReveal(false);
+										  }
 								}
 							>
 								{yachtLock ? yachtScore : reveal ? "100pts" : sumYacht}
@@ -610,7 +633,7 @@ function Scoreboard(props: {
 							<th onClick={handleReveal}>
 								<span>{!reveal ? "Total Score" : "Turns remaining"}</span>
 							</th>
-							<td>
+							<td onClick={handleReveal}>
 								<span>
 									{!reveal ? totalSum : props.totalTurns - props.turnCount}
 								</span>
