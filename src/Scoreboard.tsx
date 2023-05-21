@@ -373,7 +373,7 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal ? sumOnes : onesLocked ? onesScore : ""}
+									{onesLocked ? onesScore : !reveal ? sumOnes : ""}
 								</span>
 							</td>
 						</tr>
@@ -404,7 +404,13 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal ? sumTwos : twosLocked ? twosScore : ""}
+									{twosLocked
+										? twosScore
+										: !reveal
+										? sumTwos
+										: twosLocked
+										? twosScore
+										: ""}
 								</span>
 							</td>
 						</tr>
@@ -435,7 +441,7 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal ? sumThrees : threesLocked ? threesScore : ""}
+									{threesLocked ? threesScore : !reveal ? sumThrees : ""}
 								</span>
 							</td>
 						</tr>
@@ -466,7 +472,7 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal ? sumFours : foursLocked ? foursScore : ""}
+									{foursLocked ? foursScore : !reveal ? sumFours : ""}
 								</span>
 							</td>
 						</tr>
@@ -497,7 +503,7 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal ? sumFives : fivesLocked ? fivesScore : ""}
+									{fivesLocked ? fivesScore : !reveal ? sumFives : ""}
 								</span>
 							</td>
 						</tr>
@@ -528,7 +534,7 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal ? sumSixes : sixesLocked ? sixesScore : ""}
+									{sixesLocked ? sixesScore : !reveal ? sumSixes : ""}
 								</span>
 							</td>
 						</tr>
@@ -603,7 +609,7 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal ? sumChoice : choiceLock ? choiceScore : ""}
+									{choiceLock ? choiceScore : !reveal ? sumChoice : ""}
 								</span>
 							</td>
 						</tr>
@@ -634,7 +640,7 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal ? sumSplit : splitLock ? splitScore : ""}
+									{splitLock ? splitScore : !reveal ? sumSplit : ""}
 								</span>
 							</td>
 						</tr>
@@ -665,7 +671,7 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal ? sumThreePair : threePairLock ? threePairScore : ""}
+									{threePairLock ? threePairScore : !reveal ? sumThreePair : ""}
 								</span>
 							</td>
 						</tr>
@@ -696,7 +702,7 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal ? sumFourKind : fourKindLock ? fourKindScore : ""}
+									{fourKindLock ? fourKindScore : !reveal ? sumFourKind : ""}
 								</span>
 							</td>
 						</tr>
@@ -727,7 +733,7 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal ? sumFiveKind : fiveKindLock ? fiveKindScore : ""}
+									{fiveKindLock ? fiveKindScore : !reveal ? sumFiveKind : ""}
 								</span>
 							</td>
 						</tr>
@@ -758,10 +764,10 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal
-										? sumSmallStraight
-										: smallStraightLock
+									{smallStraightLock && !reveal
 										? smallStraightScore
+										: !reveal
+										? sumSmallStraight
 										: ""}
 								</span>
 							</td>
@@ -793,10 +799,10 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal
-										? sumLargeStraight
-										: largeStraightLock
+									{largeStraightLock && !reveal
 										? largeStraightScore
+										: !reveal
+										? sumLargeStraight
 										: ""}
 								</span>
 							</td>
@@ -828,7 +834,7 @@ function Scoreboard(props: {
 								<span
 									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
 								>
-									{!reveal ? sumYacht : yachtLock ? yachtScore : ""}
+									{yachtLock && !reveal ? yachtScore : !reveal ? sumYacht : ""}
 								</span>
 							</td>
 						</tr>
