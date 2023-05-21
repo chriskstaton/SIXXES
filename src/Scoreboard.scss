@@ -109,6 +109,7 @@ $scoreboard-border-color: rgb(200, 200, 200);
 			td {
 				text-align: center;
 			}
+
 			span {
 				text-align: center;
 			}
@@ -121,4 +122,14 @@ $scoreboard-border-color: rgb(200, 200, 200);
 			cursor: default;
 		}
 	}
+}
+
+.reveal-fade-out {
+	opacity: 0;
+	transition: opacity 2s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.reveal-fade-in {
+	opacity: 1;
+	transition: opacity 2.5s cubic-bezier(0.42, 0, 0.58, 1);
 }

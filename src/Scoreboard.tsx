@@ -348,10 +348,12 @@ function Scoreboard(props: {
 					<thead>
 						<tr className={onesLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Sum of only Ones" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Ones" : ""}
 								</span>
 							</th>
@@ -365,20 +367,24 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? sumOnes : onesLocked ? onesScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className={twosLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Sum of only Twos" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Twos" : ""}
 								</span>
 							</th>
@@ -392,20 +398,24 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? sumTwos : twosLocked ? twosScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className={threesLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Sum of only Threes" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Threes" : ""}
 								</span>
 							</th>
@@ -419,20 +429,24 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? sumThrees : threesLocked ? threesScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className={foursLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Sum of only Fours" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Fours" : ""}
 								</span>
 							</th>
@@ -446,20 +460,24 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? sumFours : foursLocked ? foursScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className={fivesLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Sum of only Fives" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Fives" : ""}
 								</span>
 							</th>
@@ -473,20 +491,24 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? sumFives : fivesLocked ? fivesScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className={sixesLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Sum of only Sixes" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Sixes" : ""}
 								</span>
 							</th>
@@ -500,56 +522,68 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? sumSixes : sixesLocked ? sixesScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className="upper-sum">
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "if Upper Sum >=" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Upper Sum" : ""}
 								</span>
 							</th>
 							<td onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? bonusMin + "pts" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? upperSum : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className={bonusVal >= bonusMin ? "bonus-true" : "bonus-false"}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "then Bonus =" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Bonus" : ""}
 								</span>
 							</th>
 							<td onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? bonusVal + "pts" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? bonusScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className={choiceLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Sum of all current dice" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Choice" : ""}
 								</span>
 							</th>
@@ -563,20 +597,24 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? sumChoice : choiceLock ? choiceScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className={splitLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Sum if [ X X X + Y Y Y ]" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Split" : ""}
 								</span>
 							</th>
@@ -590,20 +628,24 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? sumSplit : splitLock ? splitScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className={threePairLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Sum if [ X X + Y Y + Z Z ]" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Three Pairs" : ""}
 								</span>
 							</th>
@@ -617,20 +659,24 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? sumThreePair : threePairLock ? threePairScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className={fourKindLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Sum all dice if [ four ] are identical" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Four of a Kind" : ""}
 								</span>
 							</th>
@@ -644,20 +690,24 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? sumFourKind : fourKindLock ? fourKindScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className={fiveKindLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Sum all dice if [ five ] are identical" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Five of a Kind" : ""}
 								</span>
 							</th>
@@ -671,20 +721,24 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? sumFiveKind : fiveKindLock ? fiveKindScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className={smallStraightLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Four consecutive dice" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Small Straight" : ""}
 								</span>
 							</th>
@@ -698,10 +752,12 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "45pts" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal
 										? sumSmallStraight
 										: smallStraightLock
@@ -712,10 +768,12 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={largeStraightLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Five consecutive dice" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Large Straight" : ""}
 								</span>
 							</th>
@@ -729,10 +787,12 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "60pts" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal
 										? sumLargeStraight
 										: largeStraightLock
@@ -743,10 +803,12 @@ function Scoreboard(props: {
 						</tr>
 						<tr className={yachtLock ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Six identical dice!" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Yacht!" : ""}
 								</span>
 							</th>
@@ -760,28 +822,34 @@ function Scoreboard(props: {
 										  }
 								}
 							>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "100pts" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? sumYacht : yachtLock ? yachtScore : ""}
 								</span>
 							</td>
 						</tr>
 						<tr className="total-score">
 							<th onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Turns remaining" : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? "Total Score" : ""}
 								</span>
 							</th>
 							<td onClick={handleReveal}>
-								<span className={reveal ? "fade-in" : "fade-out"}>
+								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? props.totalTurns - props.turnCount : ""}
 								</span>
-								<span className={!reveal ? "fade-in" : "fade-out"}>
+								<span
+									className={!reveal ? "reveal-fade-in" : "reveal-fade-out"}
+								>
 									{!reveal ? totalSum : ""}
 								</span>
 							</td>
