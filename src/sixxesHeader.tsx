@@ -21,7 +21,7 @@ function sixxesHeader(props: {
 			<div>
 				<img src={logoDice6} className="logo-dice6" />
 				<span className="gray-box">
-					<span className="white-circle"></span>
+					<span className="white-circle" />
 				</span>
 			</div>
 		</>
