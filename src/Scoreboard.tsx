@@ -1,6 +1,8 @@
 import { LegacyRef, useEffect, useState } from "react";
 import "./Scoreboard.scss";
 
+import TransitionsPopper from "./Popover";
+
 function Scoreboard(props: {
 	diceCurrentValueArray: number[];
 	turnCount: number;
@@ -348,6 +350,11 @@ function Scoreboard(props: {
 					<thead>
 						<tr className={onesLocked ? "locked-row" : ""}>
 							<th onClick={handleReveal}>
+								{/* <TransitionsPopper
+									category="Ones"
+									message="Sum of only Ones"
+								></TransitionsPopper> */}
+
 								<span className={reveal ? "reveal-fade-in" : "reveal-fade-out"}>
 									{reveal ? "Sum of only Ones" : ""}
 								</span>
@@ -357,6 +364,7 @@ function Scoreboard(props: {
 									{!reveal ? "Ones" : ""}
 								</span>
 							</th>
+
 							<td
 								onClick={
 									onesLocked
