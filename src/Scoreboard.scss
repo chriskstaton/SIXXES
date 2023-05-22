@@ -40,6 +40,8 @@ $scoreboard-border-color: rgb(200, 200, 200);
 		}
 
 		td {
+			z-index: 50;
+			position: relative;
 			text-align: center;
 			width: 100px;
 			font-family: "Roboto Mono", monospace;

@@ -887,7 +887,7 @@ function Scoreboard(props: {
 											: "reveal-fade-out-hint"
 									}
 								>
-									Sum all dice if [ four ] are identical
+									Sum all dice if four match
 								</span>
 							</th>
 							<td
@@ -933,7 +933,7 @@ function Scoreboard(props: {
 											: "reveal-fade-out-hint"
 									}
 								>
-									Sum all dice if [ five ] are identical
+									Sum all dice if five match
 								</span>
 							</th>
 							<td
