@@ -653,7 +653,7 @@ function Scoreboard(props: {
 											: "reveal-fade-out-extras-hint"
 									}
 								>
-									if UpperSum {"≥"}
+									if UpperSum {"≥"} {bonusMin}
 								</span>
 							</th>
 							<td
@@ -670,15 +670,6 @@ function Scoreboard(props: {
 									}
 								>
 									{upperSum}
-								</span>
-								<span
-									className={
-										revealExtras
-											? "reveal-fade-in-points"
-											: "reveal-fade-out-points"
-									}
-								>
-									{bonusMin}
 								</span>
 							</td>
 						</tr>
@@ -703,7 +694,7 @@ function Scoreboard(props: {
 											: "reveal-fade-out-extras-hint"
 									}
 								>
-									then Bonus =
+									then Bonus = {bonusVal}
 								</span>
 							</th>
 							<td
@@ -720,15 +711,6 @@ function Scoreboard(props: {
 									}
 								>
 									{bonusScore}
-								</span>
-								<span
-									className={
-										revealExtras
-											? "reveal-fade-in-points"
-											: "reveal-fade-out-points"
-									}
-								>
-									{bonusVal}
 								</span>
 							</td>
 						</tr>
@@ -1014,7 +996,7 @@ function Scoreboard(props: {
 											: "reveal-fade-out-points"
 									}
 								>
-									45
+									<span className="points-mono">45</span>
 								</span>
 							</td>
 						</tr>
