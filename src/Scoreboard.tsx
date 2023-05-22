@@ -379,11 +379,7 @@ function Scoreboard(props: {
 									scoreboardRefEl={props.scoreboardRefEl}
 								></TransitionsPopper> */}
 								<span
-									className={
-										!revealOnes
-											? "reveal-fade-in-scores"
-											: "reveal-fade-out-scores"
-									}
+									className={!revealOnes ? "reveal-fade-in" : "reveal-fade-out"}
 								>
 									Ones
 								</span>
@@ -405,6 +401,7 @@ function Scoreboard(props: {
 													setRevealOnes(false);
 										  }
 								}
+								// TODO className="reveal-fade-out-border"
 							>
 								<span
 									className={
