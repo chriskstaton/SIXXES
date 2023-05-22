@@ -7,7 +7,7 @@
 	font-family: Netron;
 	margin: auto;
 	position: relative;
-	display: inline-flex;
+	display: inline-block;
 	padding: 3rem 1rem 0rem 1rem;
 	height: 75px;
 	max-width: 700px;
@@ -16,7 +16,7 @@
 	.header {
 		font-size: 66px;
 		transform: scale(1.25, 1);
-		max-width: 90vw;
+		max-width: 500px;
 		z-index: 20;
 		// margin-left: 20px;
 	}
@@ -34,7 +34,16 @@
 	left: -19px;
 	border-radius: 8px;
 	border: 4px white solid;
-	top: -51px;
+	top: -74px;
+}
+
+.header-icons {
+	display: "inline-flex";
+}
+
+.windows-pad {
+	padding-top: 10px;
+	display: "inline-flex";
 }
 
 .gray-box {
@@ -44,7 +53,7 @@
 	height: 10px;
 	width: 10px;
 	left: 26px;
-	top: -75px;
+	top: -99px;
 	z-index: 30;
 
 	.white-circle {

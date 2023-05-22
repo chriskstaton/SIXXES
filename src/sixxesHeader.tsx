@@ -1,6 +1,7 @@
 import { LegacyRef } from "react";
 import "./sixxesHeader.scss";
 import logoDice6 from "../src/images/logoDice6.svg";
+import * as rdd from "react-device-detect";
 
 function sixxesHeader(props: {
 	headerScrollElement: LegacyRef<HTMLDivElement> | undefined;
@@ -17,12 +18,14 @@ function sixxesHeader(props: {
 					SI<span className="x">X</span>XES
 					{/* <span className="lite">-lite</span> */}
 				</div>
-			</div>
-			<div>
-				<img src={logoDice6} className="logo-dice6" />
-				<span className="gray-box">
-					<span className="white-circle" />
-				</span>
+				<div
+					className={rdd.osName != "Windows" ? "header-icons" : "windows-pad"}
+				>
+					<img src={logoDice6} className="logo-dice6" />
+					<span className="gray-box">
+						<span className="white-circle" />
+					</span>
+				</div>
 			</div>
 		</>
 	);
