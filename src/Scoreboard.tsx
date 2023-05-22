@@ -1,8 +1,6 @@
 import { LegacyRef, useEffect, useState } from "react";
 import "./Scoreboard.scss";
 
-import TransitionsPopper from "./Popover";
-
 function Scoreboard(props: {
 	diceCurrentValueArray: number[];
 	turnCount: number;
@@ -381,7 +379,11 @@ function Scoreboard(props: {
 									scoreboardRefEl={props.scoreboardRefEl}
 								></TransitionsPopper> */}
 								<span
-									className={!revealOnes ? "reveal-fade-in" : "reveal-fade-out"}
+									className={
+										!revealOnes
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
+									}
 								>
 									Ones
 								</span>
@@ -405,7 +407,11 @@ function Scoreboard(props: {
 								}
 							>
 								<span
-									className={!revealOnes ? "reveal-fade-in" : "reveal-fade-out"}
+									className={
+										!revealOnes
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
+									}
 								>
 									{onesLocked ? onesScore : sumOnes}
 								</span>
@@ -442,7 +448,11 @@ function Scoreboard(props: {
 								}
 							>
 								<span
-									className={!revealTwos ? "reveal-fade-in" : "reveal-fade-out"}
+									className={
+										!revealTwos
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
+									}
 								>
 									{twosLocked ? twosScore : sumTwos}
 								</span>
@@ -484,7 +494,9 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
-										!revealThrees ? "reveal-fade-in" : "reveal-fade-out"
+										!revealThrees
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{threesLocked ? threesScore : sumThrees}
@@ -525,7 +537,9 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
-										!revealFours ? "reveal-fade-in" : "reveal-fade-out"
+										!revealFours
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{foursLocked ? foursScore : sumFours}
@@ -566,7 +580,9 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
-										!revealFives ? "reveal-fade-in" : "reveal-fade-out"
+										!revealFives
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{fivesLocked ? fivesScore : sumFives}
@@ -607,7 +623,9 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
-										!revealSixes ? "reveal-fade-in" : "reveal-fade-out"
+										!revealSixes
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{sixesLocked ? sixesScore : sumSixes}
@@ -631,11 +649,11 @@ function Scoreboard(props: {
 								<span
 									className={
 										revealExtras
-											? "reveal-fade-in-hint"
-											: "reveal-fade-out-hint"
+											? "reveal-fade-in-extras-hint"
+											: "reveal-fade-out-extras-hint"
 									}
 								>
-									if UpperSum {"≥"} {bonusMin}
+									if UpperSum {"≥"}
 								</span>
 							</th>
 							<td
@@ -646,7 +664,9 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
-										!revealExtras ? "reveal-fade-in" : "reveal-fade-out"
+										!revealExtras
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{upperSum}
@@ -658,7 +678,7 @@ function Scoreboard(props: {
 											: "reveal-fade-out-points"
 									}
 								>
-									{bonusMin} pts
+									{bonusMin}
 								</span>
 							</td>
 						</tr>
@@ -679,8 +699,8 @@ function Scoreboard(props: {
 								<span
 									className={
 										revealExtras
-											? "reveal-fade-in-extras"
-											: "reveal-fade-out-extras"
+											? "reveal-fade-in-extras-hint"
+											: "reveal-fade-out-extras-hint"
 									}
 								>
 									then Bonus =
@@ -694,21 +714,21 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
+										!revealExtras
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
+									}
+								>
+									{bonusScore}
+								</span>
+								<span
+									className={
 										revealExtras
 											? "reveal-fade-in-points"
 											: "reveal-fade-out-points"
 									}
 								>
-									{bonusVal} pts
-								</span>
-								<span
-									className={
-										!revealExtras
-											? "reveal-fade-in-points"
-											: "reveal-fade-out-points"
-									}
-								>
-									{bonusScore}
+									{bonusVal}
 								</span>
 							</td>
 						</tr>
@@ -748,7 +768,9 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
-										!revealChoice ? "reveal-fade-in" : "reveal-fade-out"
+										!revealChoice
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{choiceLock ? choiceScore : sumChoice}
@@ -789,7 +811,9 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
-										!revealSplit ? "reveal-fade-in" : "reveal-fade-out"
+										!revealSplit
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{splitLock ? splitScore : sumSplit}
@@ -832,7 +856,9 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
-										!revealThreePair ? "reveal-fade-in" : "reveal-fade-out"
+										!revealThreePair
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{threePairLock ? threePairScore : sumThreePair}
@@ -875,7 +901,9 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
-										!revealFourKind ? "reveal-fade-in" : "reveal-fade-out"
+										!revealFourKind
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{fourKindLock ? fourKindScore : sumFourKind}
@@ -889,7 +917,6 @@ function Scoreboard(props: {
 										setTimeout(() => setRevealFiveKind(false), delay_reveal);
 								}}
 							>
-								{" "}
 								<span
 									className={
 										!revealFiveKind ? "reveal-fade-in" : "reveal-fade-out"
@@ -919,7 +946,9 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
-										!revealFiveKind ? "reveal-fade-in" : "reveal-fade-out"
+										!revealFiveKind
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{fiveKindLock ? fiveKindScore : sumFiveKind}
@@ -965,7 +994,9 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
-										!revealSmallStraight ? "reveal-fade-in" : "reveal-fade-out"
+										!revealSmallStraight
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{smallStraightLock ? smallStraightScore : sumSmallStraight}
@@ -977,7 +1008,7 @@ function Scoreboard(props: {
 											: "reveal-fade-out-points"
 									}
 								>
-									45pts
+									45
 								</span>
 							</td>
 						</tr>
@@ -991,7 +1022,6 @@ function Scoreboard(props: {
 										);
 								}}
 							>
-								{" "}
 								<span
 									className={
 										!revealLargeStraight ? "reveal-fade-in" : "reveal-fade-out"
@@ -1021,19 +1051,21 @@ function Scoreboard(props: {
 							>
 								<span
 									className={
+										!revealLargeStraight
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
+									}
+								>
+									{largeStraightLock ? largeStraightScore : sumLargeStraight}
+								</span>
+								<span
+									className={
 										revealLargeStraight
 											? "reveal-fade-in-points"
 											: "reveal-fade-out-points"
 									}
 								>
-									60pts
-								</span>
-								<span
-									className={
-										!revealLargeStraight ? "reveal-fade-in" : "reveal-fade-out"
-									}
-								>
-									{largeStraightLock ? largeStraightScore : sumLargeStraight}
+									60
 								</span>
 							</td>
 						</tr>
@@ -1070,16 +1102,22 @@ function Scoreboard(props: {
 								}
 							>
 								<span
-									className={revealYacht ? "reveal-fade-in" : "reveal-fade-out"}
-								>
-									100pts
-								</span>
-								<span
 									className={
-										!revealYacht ? "reveal-fade-in" : "reveal-fade-out"
+										!revealYacht
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{yachtLock ? yachtScore : sumYacht}
+									<span
+										className={
+											revealYacht
+												? "reveal-fade-in-points"
+												: "reveal-fade-out-points"
+										}
+									>
+										100
+									</span>
 								</span>
 							</td>
 						</tr>
@@ -1100,7 +1138,9 @@ function Scoreboard(props: {
 								</span>
 								<span
 									className={
-										revealExtras ? "reveal-fade-in" : "reveal-fade-out"
+										revealExtras
+											? "reveal-fade-in-extras-hint"
+											: "reveal-fade-out-extras-hint"
 									}
 								>
 									Turns remaining
@@ -1109,14 +1149,18 @@ function Scoreboard(props: {
 							<td>
 								<span
 									className={
-										!revealExtras ? "reveal-fade-in" : "reveal-fade-out"
+										!revealExtras
+											? "reveal-fade-in-scores"
+											: "reveal-fade-out-scores"
 									}
 								>
 									{totalSum}
 								</span>
 								<span
 									className={
-										revealExtras ? "reveal-fade-in" : "reveal-fade-out"
+										revealExtras
+											? "reveal-fade-in-points"
+											: "reveal-fade-out-points"
 									}
 								>
 									{props.totalTurns - props.turnCount}

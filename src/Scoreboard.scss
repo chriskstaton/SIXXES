@@ -6,6 +6,7 @@ $scoreboard-border-color: rgb(200, 200, 200);
 	white-space: nowrap;
 
 	.scoreboard {
+		font-weight: 100;
 		margin-top: 25px;
 		margin-bottom: 25px;
 		display: inline-grid;
@@ -20,7 +21,6 @@ $scoreboard-border-color: rgb(200, 200, 200);
 		table {
 			text-align: center;
 			border-collapse: collapse;
-			height: 70vh;
 		}
 
 		tr {
@@ -34,11 +34,12 @@ $scoreboard-border-color: rgb(200, 200, 200);
 		th {
 			text-align: left;
 			padding-left: 15px;
-			width: 400px;
+			// width: 400px;
 			// transition: cub;
 		}
 
 		td {
+			padding-right: 15px;
 			text-align: center;
 			width: 100px;
 			font-family: "Roboto Mono", monospace;
@@ -53,76 +54,74 @@ $scoreboard-border-color: rgb(200, 200, 200);
 			height: 40px;
 			cursor: default;
 
-			th {
-				text-align: center;
-				padding-left: 0px;
-			}
+			// th {
+			// 	text-align: center;
+			// 	padding-left: 0px;
+			// }
 		}
 
 		.upper-sum {
-			background-color: white;
-			color: rgb(175, 175, 175);
-			//height: 40px;
+			background-color: rgb(150, 150, 150);
 			border-color: $scoreboard-border-color;
 			cursor: default;
 
 			th {
-				padding-left: 0px;
-				text-align: center;
+				//padding-right: 15px;
+				//text-align: center;
 			}
 		}
 
 		.bonus-false {
-			background-color: white;
-			color: rgb(175, 175, 175);
-			//height: 40px;
+			background-color: rgb(150, 150, 150);
 			border-color: $scoreboard-border-color;
 			cursor: default;
 
 			th {
-				// padding-left: 0px;
-				text-align: center;
+				//padding-left: 15px;
+				//text-align: center;
 			}
 		}
 
 		.bonus-true {
-			background-color: white;
+			background-color: rgb(150, 150, 150);
 			color: #e1a6ff;
-			//height: 40px;
 			border-color: $scoreboard-border-color;
 			cursor: default;
 
 			th {
 				// padding-left: 0px;
-				text-align: center;
+				//text-align: center;
 			}
 		}
 
 		.total-score {
-			color: #e1a6ff;
-			height: 60px;
+			color: white;
+			height: 75px;
 			border: none;
-			background-color: white;
+			background-color: #e1a6ff;
 			font-size: x-large;
 			cursor: pointer;
 
 			th {
 				padding-left: 15px;
-				text-align: center;
+				// text-align: center;
 			}
 
 			td {
 				text-align: center;
+				border-left: 0;
 			}
 
 			span {
-				text-align: center;
+				// text-align: center;
 			}
 		}
 
 		.locked-row {
-			color: #e1a6ff;
-			background-color: white;
+			// color: #e1a6ff;
+			background-color: rgb(200, 200, 200);
+			font-weight: bolder;
+			color: white;
 			border-color: $scoreboard-border-color;
 			cursor: default;
 		}
@@ -136,6 +135,21 @@ $scoreboard-border-color: rgb(200, 200, 200);
 	transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
+.reveal-fade-in-scores {
+	display: inline-flex;
+	// width: 75px;
+	opacity: 1;
+	transition: opacity 1s 1s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.reveal-fade-out-scores {
+	display: inline-flex;
+	// width: 75px;
+
+	opacity: 0;
+	transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
 .reveal-fade-in {
 	display: inline-flex;
 	width: 0px;
@@ -145,12 +159,28 @@ $scoreboard-border-color: rgb(200, 200, 200);
 
 .reveal-fade-out-extras {
 	display: inline-flex;
+	// width: 200px;
 	opacity: 0;
 	transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
 }
 
 .reveal-fade-in-extras {
 	display: inline-flex;
+	// width: 200px;
+	opacity: 1;
+	transition: opacity 1s 1s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.reveal-fade-out-extras-hint {
+	display: inline-flex;
+	width: 0px;
+	opacity: 0;
+	transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
+}
+
+.reveal-fade-in-extras-hint {
+	display: inline-flex;
+	width: 0px;
 	opacity: 1;
 	transition: opacity 1s 1s cubic-bezier(0.42, 0, 0.58, 1);
 }
@@ -181,7 +211,7 @@ $scoreboard-border-color: rgb(200, 200, 200);
 	position: relative;
 	width: 0px;
 	// text-align: center;
-	//left: -25px;
+	// left: -75px;
 	opacity: 0;
 	transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
 }
@@ -190,7 +220,7 @@ $scoreboard-border-color: rgb(200, 200, 200);
 	display: inline-flex;
 	position: relative;
 	// text-align: center;
-	//left: -25px;
+	// left: -75px;
 
 	width: 0px;
 	opacity: 1;
