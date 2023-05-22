@@ -124,11 +124,7 @@ $scoreboard-border-color: rgb(200, 200, 200);
 
 			td {
 				text-align: center;
-				border-left: 0;
-			}
-
-			span {
-				// text-align: center;
+				border-left: 3px;
 			}
 		}
 
@@ -139,6 +135,14 @@ $scoreboard-border-color: rgb(200, 200, 200);
 			color: white;
 			border-color: $scoreboard-border-color;
 			cursor: default;
+		}
+
+		.border-fade {
+			//border-left-color: rgb(175, 175, 175);
+			border-left-width: 0px;
+			padding-left: 3px;
+			// TODO animation: fade-out 3s cubic-bezier(0.42, 0, 0.58, 1);
+			//transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
 		}
 	}
 }
@@ -155,9 +159,9 @@ $scoreboard-border-color: rgb(200, 200, 200);
 	// width: 75px;
 	opacity: 1;
 	transition: opacity 1s 1s cubic-bezier(0.42, 0, 0.58, 1);
-	td {
-		border-left: 0px solid rgb(200, 200, 200) !important;
-	}
+	// td {
+	// 	border-left: 0px solid rgb(200, 200, 200) !important;
+	// }
 }
 
 .reveal-fade-out-scores {
@@ -167,9 +171,9 @@ $scoreboard-border-color: rgb(200, 200, 200);
 	opacity: 0;
 	transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
 
-	td {
-		border-left: 0px solid rgb(200, 200, 200) !important;
-	}
+	// td {
+	// 	border-left: 0px solid rgb(200, 200, 200) !important;
+	// }
 }
 
 .reveal-fade-in {

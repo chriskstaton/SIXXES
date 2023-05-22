@@ -373,11 +373,6 @@ function Scoreboard(props: {
 										setTimeout(() => setRevealOnes(false), delay_reveal);
 								}}
 							>
-								{/* <TransitionsPopper
-									category="Ones"
-									message="Sum of only Ones"
-									scoreboardRefEl={props.scoreboardRefEl}
-								></TransitionsPopper> */}
 								<span
 									className={!revealOnes ? "reveal-fade-in" : "reveal-fade-out"}
 								>
@@ -401,6 +396,7 @@ function Scoreboard(props: {
 													setRevealOnes(false);
 										  }
 								}
+								className={revealOnes ? "border-fade" : ""}
 								// TODO className="reveal-fade-out-border"
 							>
 								<span
@@ -443,6 +439,7 @@ function Scoreboard(props: {
 													setRevealTwos(false);
 										  }
 								}
+								className={revealTwos ? "border-fade" : ""}
 							>
 								<span
 									className={
@@ -488,6 +485,7 @@ function Scoreboard(props: {
 													setRevealThrees(false);
 										  }
 								}
+								className={revealThrees ? "border-fade" : ""}
 							>
 								<span
 									className={
@@ -531,6 +529,7 @@ function Scoreboard(props: {
 													setRevealFours(false);
 										  }
 								}
+								className={revealFours ? "border-fade" : ""}
 							>
 								<span
 									className={
@@ -574,6 +573,7 @@ function Scoreboard(props: {
 													setRevealFives(false);
 										  }
 								}
+								className={revealFives ? "border-fade" : ""}
 							>
 								<span
 									className={
@@ -617,6 +617,7 @@ function Scoreboard(props: {
 													setRevealSixes(false);
 										  }
 								}
+								className={revealSixes ? "border-fade" : ""}
 							>
 								<span
 									className={
@@ -762,6 +763,7 @@ function Scoreboard(props: {
 													setRevealChoice(false);
 										  }
 								}
+								className={revealChoice ? "border-fade" : ""}
 							>
 								<span
 									className={
@@ -805,6 +807,7 @@ function Scoreboard(props: {
 													setRevealSplit(false);
 										  }
 								}
+								className={revealSplit ? "border-fade" : ""}
 							>
 								<span
 									className={
@@ -850,6 +853,7 @@ function Scoreboard(props: {
 													setRevealThreePair(false);
 										  }
 								}
+								className={revealThreePair ? "border-fade" : ""}
 							>
 								<span
 									className={
@@ -895,6 +899,7 @@ function Scoreboard(props: {
 													setRevealFourKind(false);
 										  }
 								}
+								className={revealFourKind ? "border-fade" : ""}
 							>
 								<span
 									className={
@@ -940,6 +945,7 @@ function Scoreboard(props: {
 													setRevealFiveKind(false);
 										  }
 								}
+								className={revealFiveKind ? "border-fade" : ""}
 							>
 								<span
 									className={
@@ -988,6 +994,7 @@ function Scoreboard(props: {
 													setRevealSmallStraight(false);
 										  }
 								}
+								className={revealSmallStraight ? "border-fade" : ""}
 							>
 								<span
 									className={
@@ -1045,6 +1052,7 @@ function Scoreboard(props: {
 													setRevealLargeStraight(false);
 										  }
 								}
+								className={revealLargeStraight ? "border-fade" : ""}
 							>
 								<span
 									className={
@@ -1097,6 +1105,7 @@ function Scoreboard(props: {
 													setRevealYacht(false);
 										  }
 								}
+								className={revealYacht ? "border-fade" : ""}
 							>
 								<span
 									className={
