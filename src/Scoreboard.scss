@@ -67,11 +67,6 @@ $scoreboard-border-color: rgb(200, 200, 200);
 			border-color: $scoreboard-border-color;
 			cursor: default;
 
-			th {
-				//padding-right: 15px;
-				//text-align: center;
-			}
-
 			td {
 				border-left-width: 0px;
 				padding-left: 3px;
@@ -82,11 +77,6 @@ $scoreboard-border-color: rgb(200, 200, 200);
 			background-color: rgb(150, 150, 150);
 			border-color: $scoreboard-border-color;
 			cursor: default;
-
-			th {
-				//padding-left: 15px;
-				//text-align: center;
-			}
 
 			td {
 				border-left-width: 0px;
@@ -100,11 +90,6 @@ $scoreboard-border-color: rgb(200, 200, 200);
 			border-color: $scoreboard-border-color;
 			cursor: default;
 
-			th {
-				// padding-left: 0px;
-				//text-align: center;
-			}
-
 			td {
 				border-left-width: 0px;
 				padding-left: 3px;
@@ -116,7 +101,7 @@ $scoreboard-border-color: rgb(200, 200, 200);
 			height: 75px;
 			border: none;
 			background-color: #e1a6ff;
-			font-size: x-large;
+			font-size: xx-large;
 			cursor: pointer;
 
 			th {
@@ -126,7 +111,13 @@ $scoreboard-border-color: rgb(200, 200, 200);
 
 			td {
 				text-align: center;
-				border-left: 3px;
+				border-left-width: 0px;
+				padding-left: 3px;
+				// text-align: center;
+				// span {
+				// 	position: relative;
+				// 	left: -2px;
+				// }
 			}
 		}
 
@@ -239,7 +230,7 @@ $scoreboard-border-color: rgb(200, 200, 200);
 	position: relative;
 	width: 0px;
 	// text-align: center;
-	left: -22px;
+	left: -20px;
 	opacity: 0;
 	transition: opacity 1s cubic-bezier(0.42, 0, 0.58, 1);
 }
@@ -248,7 +239,7 @@ $scoreboard-border-color: rgb(200, 200, 200);
 	display: inline-flex;
 	position: relative;
 	// text-align: center;
-	left: -22px;
+	left: -20px;
 
 	width: 0px;
 	opacity: 1;

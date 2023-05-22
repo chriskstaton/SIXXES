@@ -356,9 +356,11 @@ function Scoreboard(props: {
 
 	var [reveal, setReveal] = useState(false);
 
-	function handleReveal() {
-		setReveal(!reveal);
-		//setTimeout(() => setReveal(false), 5000);
+	function handleFinalScore() {
+		if (props.turnCount < props.totalTurns) {
+			setRevealExtras(true);
+			setTimeout(() => setRevealExtras(false), delay_reveal);
+		} else return;
 	}
 
 	return (
@@ -1127,20 +1129,16 @@ function Scoreboard(props: {
 								</span>
 							</td>
 						</tr>
-						<tr
-							className="total-score"
-							onClick={() => {
-								setRevealExtras(true),
-									setTimeout(() => setRevealExtras(false), delay_reveal);
-							}}
-						>
+						<tr className="total-score" onClick={handleFinalScore}>
 							<th>
 								<span
 									className={
 										!revealExtras ? "reveal-fade-in" : "reveal-fade-out"
 									}
 								>
-									Total Score
+									{props.turnCount == props.totalTurns
+										? "Final Score"
+										: "Total Score"}
 								</span>
 								<span
 									className={
@@ -1149,7 +1147,7 @@ function Scoreboard(props: {
 											: "reveal-fade-out-extras-hint"
 									}
 								>
-									Turns remaining
+									{props.totalTurns - props.turnCount} turns remaining
 								</span>
 							</th>
 							<td>
@@ -1161,15 +1159,6 @@ function Scoreboard(props: {
 									}
 								>
 									{totalSum}
-								</span>
-								<span
-									className={
-										revealExtras
-											? "reveal-fade-in-points"
-											: "reveal-fade-out-points"
-									}
-								>
-									{props.totalTurns - props.turnCount}
 								</span>
 							</td>
 						</tr>
