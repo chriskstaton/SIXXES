@@ -2,6 +2,7 @@ import { useRef } from "react";
 
 import DiceRoller from "./DiceRoller";
 import SixxesHeader from "./sixxesHeader";
+import Instructions from "./Instructions";
 import "./App.scss";
 import { github, abbreviatedSha, authorDate, commitMessage } from "~build/info";
 import time from "~build/time";
@@ -10,6 +11,7 @@ function App() {
 	const headerScrollElement = useRef(null);
 	const diceScrollElement = useRef(null);
 	const scoreboardScrollElement = useRef(null);
+	const instructionsScrollElement = useRef(null);
 
 	var localeOptions: object = {
 		year: "numeric",
@@ -33,12 +35,19 @@ function App() {
 
 	return (
 		<div className="App">
-			<SixxesHeader headerScrollElement={headerScrollElement} setScrollPosition={setScrollPosition}/>
+			<SixxesHeader
+				headerScrollElement={headerScrollElement}
+				setScrollPosition={setScrollPosition}
+			/>
 			<DiceRoller
 				setScrollPosition={setScrollPosition}
 				diceScrollElement={diceScrollElement}
 				headerScrollElement={headerScrollElement}
 				scoreboardScrollElement={scoreboardScrollElement}
+			/>
+			<Instructions
+				setScrollPosition={setScrollPosition}
+				headerScrollElement={headerScrollElement}
 			/>
 			<div
 				className="github-container"
