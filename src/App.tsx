@@ -1,8 +1,10 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import DiceRoller from "./DiceRoller";
 import SixxesHeader from "./sixxesHeader";
 import Instructions from "./Instructions";
+import useLocalStorage from "./useLocalStorage";
+
 import "./App.scss";
 import { github, abbreviatedSha, authorDate, commitMessage } from "~build/info";
 import time from "~build/time";
@@ -12,6 +14,19 @@ function App() {
 	const diceScrollElement = useRef(null);
 	const scoreboardScrollElement = useRef(null);
 	const instructionsScrollElement = useRef(null);
+
+	const [hasVisited, setHasVisited] = useLocalStorage("hasVisited", "true");
+
+	useEffect(() => {
+		if (localStorage.getItem("hasVisited")) {
+			console.log("returning");
+		} else {
+			console.log("setting local storage");
+			localStorage.setItem("hasVisited", "true");
+		}
+	}, []);
+
+	//const [theme, setTheme] = useLocalStorage("theme", "dark");
 
 	var localeOptions: object = {
 		year: "numeric",
@@ -33,6 +48,8 @@ function App() {
 		window.open(url, "_blank", "noreferrer");
 	};
 
+	//setTimeout(() => setHasVisited("returningUser"), 5000);
+
 	return (
 		<div className="App">
 			<SixxesHeader
@@ -48,6 +65,7 @@ function App() {
 			<Instructions
 				setScrollPosition={setScrollPosition}
 				headerScrollElement={headerScrollElement}
+				hasVisited={hasVisited}
 			/>
 			<div
 				className="github-container"

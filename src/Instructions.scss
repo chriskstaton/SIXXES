@@ -1,8 +1,9 @@
 .instructions {
 	font-family: "Roboto", sans-serif;
+	font-size: x-large;
 	text-align: left;
 	position: absolute;
-	//top: 150px;
+	top: 25vh;
 	display: flex;
 	cursor: pointer;
 	//z-index: 50;
@@ -11,13 +12,12 @@
 	border-color: #e1a6ff;
 	border-radius: 20px;
 	margin: auto;
-	margin-top: calc(100vh * 0.05) !important;
-	height: fit-content;
-	max-width: 750px;
-	width: 80vw;
+	height: 300px;
+	width: 300px;
+	overflow-y: auto;
+	//width: 80vw;
 	border-width: 8px;
 	animation: fade-in 1s;
-	//pointer-events: none;
 }
 
 .help-button {
