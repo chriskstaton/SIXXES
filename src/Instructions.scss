@@ -7,6 +7,7 @@
 	cursor: pointer;
 	//z-index: 50;
 	background: white;
+	color: black;
 	border-color: #e1a6ff;
 	border-radius: 20px;
 	margin: auto;
@@ -24,6 +25,7 @@
 	display: inline-flex;
 	margin: auto;
 	cursor: pointer;
+	color: black;
 	background: white;
 	border-color: #e1a6ff;
 	border-width: 8px;
@@ -47,7 +49,7 @@ button:focus-visible {
 	left: 0px;
 	z-index: 1000;
 	background: rgba(0, 0, 0, 0.1);
-	backdrop-filter: blur(8px);
+	backdrop-filter: blur(2px);
 	animation: fade-in 1s;
 }
 
