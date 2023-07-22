@@ -1,25 +1,19 @@
-import { LegacyRef, useState } from "react";
+import { LegacyRef, useEffect, useState } from "react";
 import "./Instructions.scss";
-import { setTime } from "~build/time";
 
 function Instructions(props: {
 	setScrollPosition: Function;
 	headerScrollElement: LegacyRef<HTMLDivElement> | undefined;
 	hasVisited: React.ComponentState;
 }) {
-	// props: {
-	// headerScrollElement: LegacyRef<HTMLDivElement> | undefined;
-	// setScrollPosition: Function;}
-
 	const [openInstructions, setOpenInstructions] = useState(false);
 	const [fadeInstructions, setFadeInstructions] = useState(false);
 
-	const value = localStorage.getItem("hasVisited");
-	console.log(value);
-
-	if (value === "no") {
-		setOpenInstructions(true);
-	}
+	useEffect(() => {
+		if (localStorage.getItem("hasVisited") != "true") {
+			setOpenInstructions(true);
+		}
+	}, []);
 
 	function handleClick() {
 		setOpenInstructions(true);
@@ -40,10 +34,22 @@ function Instructions(props: {
 			{openInstructions && (
 				<div className={fadeInstructions ? "fade-out" : ""}>
 					<div className="blur" onClick={handleClose}>
-						<dialog className="instructions">
-							Welcome to SIXXES!
-							<br />
-							<br />
+						<dialog
+							className={
+								window.innerWidth < 800
+									? "instructions-mobile"
+									: "instructions-desktop"
+							}
+						>
+							{localStorage.getItem("hasVisited") != "true"
+								? "Welcome to SIXXES! "
+								: ""}
+							{localStorage.getItem("hasVisited") != "true" ? (
+								<>
+									<br />
+									<br />
+								</>
+							) : undefined}
 							Collect dice to fit various patterns for points. Each category can
 							only be chosen once, so chose wisely! If you are unfamiliar with
 							the categories by name, you can reveal each category's pattern by
