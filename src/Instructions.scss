@@ -1,0 +1,88 @@
+.instructions-desktop {
+	font-family: "Roboto", sans-serif;
+	font-size: x-large;
+	text-align: left;
+	position: absolute;
+	top: 14vh;
+	display: flex;
+	cursor: pointer;
+	background: white;
+	color: black;
+	border-color: #e1a6ff;
+	border-radius: 20px;
+	margin: auto;
+	height: 600px;
+	width: 600px;
+	overflow-y: auto;
+	border-width: 12px;
+	animation: fade-in 1s;
+}
+
+.instructions-mobile {
+	font-family: "Roboto", sans-serif;
+	font-size: x-large;
+	text-align: left;
+	position: absolute;
+	top: 25vh;
+	display: flex;
+	cursor: pointer;
+	background: white;
+	color: black;
+	border-color: #e1a6ff;
+	border-radius: 20px;
+	margin: auto;
+	height: 300px;
+	width: 300px;
+	overflow-y: auto;
+	border-width: 12px;
+	animation: fade-in 1s;
+	padding-top: 10px;
+}
+
+::-webkit-scrollbar {
+	width: 20px;
+	height: 20px;
+	margin-top: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+	border: 4px solid rgba(0, 0, 0, 0);
+	background-clip: padding-box;
+	border-radius: 15px;
+	background-color: #aaaaaa;
+}
+
+.help-button {
+	position: relative;
+	display: inline-flex;
+	margin: auto;
+	cursor: pointer;
+	color: black;
+	background: white;
+	border-color: #e1a6ff;
+	border-width: 8px;
+	border-radius: 20px;
+	margin-top: 50px !important;
+}
+
+button:focus,
+button:focus-visible {
+	outline: 0px auto -webkit-focus-ring-color !important;
+}
+
+.blur {
+	position: fixed;
+	height: 100vh;
+	width: 100vw;
+	top: 0px;
+	left: 0px;
+	z-index: 1000;
+	background: rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(2px);
+	animation: fade-in 1s;
+}
+
+.fade-out {
+	opacity: 0;
+	transition: opacity 2s cubic-bezier(0.42, 0, 0.58, 1);
+}

@@ -16,7 +16,6 @@ function sixxesHeader(props: {
 			>
 				<div className="header">
 					SI<span className="x">X</span>XES
-					{/* <span className="lite">-lite</span> */}
 				</div>
 				<div
 					className={rdd.osName != "Windows" ? "header-icons" : "windows-pad"}
