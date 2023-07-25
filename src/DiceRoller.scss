@@ -3,7 +3,8 @@ $dice-max: 166px;
 $roll-btn-dimensions: 120px;
 
 .dice-container {
-	margin-top: -25px;
+	margin-top: -25px !important;
+	margin: auto;
 	padding-bottom: 10px;
 	max-width: 700px;
 	animation: fade-in 2s;
