@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 512px; width: 512px;"><g class="" transform="translate(0,0)" style=""><g><path d="M74.5 36C53.237 36 36 53.237 36 74.5L36 437.5C36 458.763 53.237 476 74.5 476L437.5 476C458.763 476 476 458.763 476 437.5L476 74.5C476 53.237 458.763 36 437.5 36L74.5 36Z" class="" fill="#ffffff" fill-opacity="1"></path><path d="M256 206C294.49 206 318.546 247.667 299.301 281C290.37 296.47 273.863 306 256 306C217.51 306 193.454 264.333 212.699 231C221.63 215.53 238.137 206 256 206Z" class="selected" fill="#ffffff" fill-opacity="1"></path></g></g></svg>
+<svg width="500" height="500" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <circle id='LeftTop' r="50" fill="black" cx="100" cy="100" fill-opacity="0"/>
+    <circle id='LeftCenter' r="50" fill="black" cx="100" cy="250" fill-opacity="0"/>
+    <circle id='LeftBottom' r="50" fill="black" cx="100" cy="400" fill-opacity="0"/>
+
+    <circle id='CenterTop' r="50" fill="black" cx="250" cy="100" fill-opacity="0"/>
+    <circle id='CenterCenter' r="50" fill="black" cx="250" cy="250" fill-opacity="0"/>
+    <circle id='CenterBottom' r="50" fill="black" cx="250" cy="400" fill-opacity="0"/>
+
+    <circle id='RightTop' r="50" fill="black" cx="400" cy="100" fill-opacity="0"/>
+    <circle id='RightCenter' r="50" fill="black" cx="400" cy="250" fill-opacity="0"/>
+    <circle id='RightBottom' r="50" fill="black" cx="400" cy="400" fill-opacity="0"/>
+</svg>
