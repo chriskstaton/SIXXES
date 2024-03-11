@@ -1,5 +1,8 @@
 $dice-dimensions: 40vw;
 $dice-max: 150px;
+$dice-margin: 10px;
+$dice-padding: 10px;
+$dice-dimensions: 40vw;
 $roll-btn-dimensions: 120px;
 
 .dice-container {
@@ -18,7 +21,8 @@ $roll-btn-dimensions: 120px;
 	background-color: white;
 	display: inline-block;
 	vertical-align: middle;
-	margin: 10px;
+	margin: $dice-margin;
+	padding: $dice-padding;
 	border-radius: 20px;
 	cursor: pointer;
 }
@@ -31,7 +35,8 @@ $roll-btn-dimensions: 120px;
 	background-color: white;
 	display: inline-block;
 	vertical-align: middle;
-	margin: 10px;
+	margin: $dice-margin;
+	padding: $dice-padding;
 	border-radius: 20px;
 	animation: shimmy 1.5s, fade 3s cubic-bezier(0.42, 0, 0.58, 1);
 }
@@ -45,7 +50,8 @@ $roll-btn-dimensions: 120px;
 	/* dark #8500CC */
 	display: inline-block;
 	vertical-align: middle;
-	margin: 10px;
+	margin: $dice-margin;
+	padding: $dice-padding;
 	border-radius: 20px;
 }
 
@@ -57,7 +63,8 @@ $roll-btn-dimensions: 120px;
 	background-color: white;
 	display: inline-block;
 	vertical-align: middle;
-	margin: 10px;
+	margin: $dice-margin;
+	padding: $dice-padding;
 	border-radius: 20px;
 	animation: fade 3s cubic-bezier(0.42, 0, 0.58, 1);
 }
