@@ -1,1 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="height: 512px; width: 512px;"><g class="" transform="translate(0,0)" style=""><g><path d="M74.5 36C53.237 36 36 53.237 36 74.5L36 437.5C36 458.763 53.237 476 74.5 476L437.5 476C458.763 476 476 458.763 476 437.5L476 74.5C476 53.237 458.763 36 437.5 36L74.5 36Z" class="" fill="#ffffff" fill-opacity="0"></path><path d="M123.47 72.03C150.497 72.825 171.995 94.961 172 122C172 160.49 130.333 184.546 97 165.301C81.53 156.37 72 139.863 72 122C72.005 93.813 95.295 71.201 123.47 72.03Z" class="" fill="#ffffff" fill-opacity="1"></path><path d="M391.47 72.03C418.497 72.825 439.995 94.961 440 122C440 160.49 398.333 184.546 365 165.301C349.53 156.37 340 139.863 340 122C340.005 93.813 363.295 71.201 391.47 72.03Z" class="" fill="#ffffff" fill-opacity="1"></path><path d="M122 206C160.49 206 184.546 247.667 165.301 281C156.37 296.47 139.863 306 122 306C83.51 306 59.454 264.333 78.699 231C87.63 215.53 104.137 206 122 206Z" class="" fill="#ffffff" fill-opacity="1"></path><path d="M390 206C428.49 206 452.546 247.667 433.301 281C424.37 296.47 407.863 306 390 306C351.51 306 327.454 264.333 346.699 231C355.63 215.53 372.137 206 390 206Z" class="" fill="#ffffff" fill-opacity="1"></path><path d="M123.47 340.03C150.497 340.825 171.995 362.961 172 390C172 428.49 130.333 452.546 97 433.301C81.53 424.37 72 407.863 72 390C72.005 361.813 95.295 339.201 123.47 340.03Z" class="" fill="#ffffff" fill-opacity="1"></path><path d="M391.47 340.03C418.497 340.825 439.995 362.961 440 390C440 428.49 398.333 452.546 365 433.301C349.53 424.37 340 407.863 340 390C340.005 361.813 363.295 339.201 391.47 340.03Z" class="selected" fill="#ffffff" fill-opacity="1"></path></g></g></svg>
+<svg width="500" height="500" version="1.1" xmlns="http://www.w3.org/2000/svg">
+    <circle id='LeftTop' r="50" fill="white" cx="100" cy="100" fill-opacity="1"/>
+    <circle id='LeftCenter' r="50" fill="white" cx="100" cy="250" fill-opacity="1"/>
+    <circle id='LeftBottom' r="50" fill="white" cx="100" cy="400" fill-opacity="1"/>
+
+    <circle id='CenterTop' r="50" fill="white" cx="250" cy="100" fill-opacity="0"/>
+    <circle id='CenterCenter' r="50" fill="white" cx="250" cy="250" fill-opacity="0"/>
+    <circle id='CenterBottom' r="50" fill="white" cx="250" cy="400" fill-opacity="0"/>
+
+    <circle id='RightTop' r="50" fill="white" cx="400" cy="100" fill-opacity="1"/>
+    <circle id='RightCenter' r="50" fill="white" cx="400" cy="250" fill-opacity="1"/>
+    <circle id='RightBottom' r="50" fill="white" cx="400" cy="400" fill-opacity="1"/>
+</svg>
